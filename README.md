@@ -16,6 +16,6 @@
   <li> Redes Sociais </li>
 </ul>
 
-## Membros da equipe SoLaMente ;)
+## Membros da Equipe 😜SoLaMente:
     - Micherlane Rodrigues.
 
