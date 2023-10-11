@@ -9,6 +9,10 @@
 <p> Pode ser acessado em <a href="https://trello.com/b/rkPrMDuG/projeto-integrador-ii" target="_blank">Quadro de Gestão do Projeto</a></p>
 </p>
 
+### Diagrama de navegação, rabisco frame e product backlog
+
+<a href="https://github.com/micherlane/ProjetoIntegradorII/blob/main/Docs/inception/segunda_parte_inception-Product-Backlog-Diagrama-RabiscoFrame.pdf">Documentação</a>
+
 ### Arquitetura e Modelagem dos dados
 
 <a href="https://www.figma.com/file/uKWrhAhGuGznTY4UJZpeP9/Arquitetura-GetDog?type=design&node-id=0%3A1&mode=design&t=M4VXqLByX4rgHOo1-1">Arquitetura e Modelagem dos dados</a>
