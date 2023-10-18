@@ -11,7 +11,7 @@
 
 ## III - Diagrama de navegação, rabisco frame e product backlog
 
-<a href="https://github.com/micherlane/ProjetoIntegradorII/blob/main/Docs/inception/segunda_parte_inception-Product-Backlog-Diagrama-RabiscoFrame.pdf">Documentação</a>
+<a href="https://github.com/micherlane/ProjetoIntegradorII/blob/main/Docs/inception/segunda_parte_inception-Product-Backlog-Diagrama-RabiscoFrame.pdf">Documentação - Rabiscoframe, diagrama navegação e flat product backlog</a>
 
 ### Product Backlog Atualizado
 O product backlog foi atualizado conforme as solicitações exigidas. A nova versão pode ser encontrada no link: 
