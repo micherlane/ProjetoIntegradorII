@@ -13,7 +13,7 @@
 
 <a href="https://github.com/micherlane/ProjetoIntegradorII/blob/main/Docs/inception/segunda_parte_inception-Product-Backlog-Diagrama-RabiscoFrame.pdf">Documentação</a>
 
-<h2>Product Backlog Atualizado</h2>
+### Product Backlog Atualizado
 O product backlog foi atualizado conforme as solicitações exigidas. A nova versão pode ser encontrada no link: 
 <a href="https://docs.google.com/spreadsheets/d/1Lb3qeIP9Ei8cD2R3oSgoBHwJq7RFeiFdN45EbiZdz-o/edit?usp=share_link">Product Backlog Atualizado</a>
 
