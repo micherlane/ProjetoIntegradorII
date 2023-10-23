@@ -9,3 +9,147 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id       String   @id @default(uuid())
+  name     String
+  email    String
+  password String
+  address  String
+  typeUser TypeUser
+
+  gender         String?
+  biography      String?
+  profilePicture String? @map("profile_picture")
+  coverPhoto     String? @map("cover_photo")
+
+  created_at DateTime? @default(now()) @map("created_at")
+  updated_at DateTime? @default(now()) @map("updated_at")
+
+  followers           Follower[]
+  posts               Post[]
+  comments            Comment[]
+  conversations       Conversation[]
+  dogWalkReservations DogWalkReservation[]
+
+  @@map("users")
+}
+
+model Follower {
+  id                 String    @id @default(uuid())
+  name               String
+  followingStartDate DateTime? @default(now()) @map("following_start_date")
+  profileId          String?
+
+  createdAt DateTime? @default(now()) @map("created_at")
+  updatedAt DateTime? @default(now()) @map("updated_at")
+
+  users User[]
+
+  @@map("followers")
+}
+
+model Post {
+  id            String     @id @default(uuid())
+  title         String
+  legend        String
+  disponibility DateTime[]
+  address       String
+  likes         Int?       @default(0)
+  unlikes       Int?       @default(0)
+
+  createdAt DateTime? @default(now()) @map("created_at")
+  updatedAt DateTime? @default(now()) @map("updated_at")
+
+  photos              Photo[]
+  comments            Comment[]
+  dogWalkReservations DogWalkReservation[]
+
+  author   User   @relation(fields: [authorId], references: [id])
+  authorId String
+
+  @@map("posts")
+}
+
+model Photo {
+  id        String @id @default(uuid())
+  pathPhoto String @map("path_photo")
+
+  post   Post   @relation(fields: [postId], references: [id])
+  postId String
+
+  createdAt DateTime? @default(now()) @map("created_at")
+  updatedAt DateTime? @default(now()) @map("updated_at")
+
+  @@map("photos")
+}
+
+model Comment {
+  id      String @id @default(uuid())
+  text    String
+  likes   Int?   @default(0)
+  unlikes Int?   @default(0)
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+
+  post   Post   @relation(fields: [postId], references: [id])
+  postId String
+
+  createdAt DateTime? @default(now()) @map("created_at")
+  updatedAt DateTime? @default(now()) @map("updated_at")
+
+  @@map("comments")
+}
+
+model Message {
+  id   String @id @default(uuid())
+  text String
+
+  conversation   Conversation @relation(fields: [conversationId], references: [id])
+  conversationId String
+
+  createdAt DateTime? @default(now()) @map("created_at")
+  updatedAt DateTime? @default(now()) @map("updated_at")
+
+  @@map("messages")
+}
+
+model Conversation {
+  id       String    @id @default(uuid())
+  messages Message[]
+  users    User[]
+
+  createdAt DateTime? @default(now()) @map("created_at")
+  updatedAt DateTime? @default(now()) @map("updated_at")
+
+  @@map("conversations")
+}
+
+model DogWalkReservation {
+  id                       String                   @id @default(uuid())
+  appointment              DateTime
+  statusDogWalkReservation StatusDogWalkReservation @default(AWAITING_CONFIRMATION)
+  address                  String
+
+  post   Post   @relation(fields: [postId], references: [id])
+  postId String
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+
+  createdAt DateTime? @default(now()) @map("created_at")
+  updatedAt DateTime? @default(now()) @map("updated_at")
+}
+
+enum StatusDogWalkReservation {
+  AWAITING_CONFIRMATION
+  DECLINED
+  ACCEPTED
+  CANCELED
+}
+
+enum TypeUser {
+  DOG_WALK
+  DOG_OWNER
+}
