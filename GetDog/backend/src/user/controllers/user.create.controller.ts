@@ -12,6 +12,14 @@ export class UserCreateController {
 
     @Post("users")
     async create(@Res() res, @Body() userCreateDto: UserCreateDto){
-        return res.status(HttpStatus.OK).json({});
+
+        if(!userCreateDto.name || !userCreateDto.email || !userCreateDto.password || !userCreateDto.address) {
+           return res.status(HttpStatus.BAD_REQUEST).json({
+                "erro": "Preencha todas as informações."
+           });
+        }
+        
+        const user = await this.userCreateService.execute(userCreateDto);
+        return res.status(HttpStatus.CREATED).json(user);  
     }
 }
