@@ -1,4 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
+import { TypeUser } from "@prisma/client";
 
 export class UserCreateDto {
     @ApiProperty()
@@ -12,4 +13,7 @@ export class UserCreateDto {
 
     @ApiProperty()
     address: string;
+
+    @ApiProperty()
+    typeUser: TypeUser
 }
