@@ -12,7 +12,7 @@ async function bootstrap() {
   });
 
   const swaggerDocument =  SwaggerModule.createDocument(app, swaggerConfig);
-  SwaggerModule.setup('api', app, swaggerDocument);
+  SwaggerModule.setup('', app, swaggerDocument);
 
   app.enableVersioning({
     type: VersioningType.URI,

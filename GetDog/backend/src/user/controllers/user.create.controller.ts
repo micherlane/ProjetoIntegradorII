@@ -2,9 +2,11 @@ import { Body, Controller, HttpStatus, Injectable, Post, Res } from "@nestjs/com
 import { UserCreateService } from "../services/user.create.service";
 import { UserCreateDto } from "../dto/user.create.dto";
 import { UserAlreadyExistsError } from "../err/user.alreadyExists.error";
+import { ApiTags } from "@nestjs/swagger";
 
+@ApiTags("Usuario")
 @Controller({
-    version: "1"
+    path: "v1"
 })
 
 @Injectable()
@@ -27,7 +29,7 @@ export class UserCreateController {
                 error: user.message
             });
         }
-        
+
         return res.status(HttpStatus.CREATED).json(user);  
     }
 }
