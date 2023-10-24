@@ -26,6 +26,12 @@ export class UserCreateRepository {
                     password: userCreateDto.password,
                     address: userCreateDto.address,
                     typeUser: userCreateDto.typeUser
+            },
+            select: {
+                id: true,
+                name: true,
+                address: true,
+                typeUser: true
             }
         })
         return user;
