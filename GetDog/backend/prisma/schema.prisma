@@ -18,21 +18,37 @@ model User {
   address  String
   typeUser TypeUser
 
-  gender         String?
-  biography      String?
-  profilePicture String? @map("profile_picture")
-  coverPhoto     String? @map("cover_photo")
-
   created_at DateTime? @default(now()) @map("created_at")
   updated_at DateTime? @default(now()) @map("updated_at")
 
-  followers           Follower[]
+  profile   Profile?
+  profileId String?  @map("profile_id")
+
   posts               Post[]
   comments            Comment[]
   conversations       Conversation[]
   dogWalkReservations DogWalkReservation[]
 
   @@map("users")
+}
+
+model Profile {
+  id String @id @default(uuid())
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String @unique
+
+  gender         String?
+  biography      String?
+  profilePicture String? @map("profile_picture")
+  coverPhoto     String? @map("cover_photo")
+
+  followers Follower[]
+
+  created_at DateTime? @default(now()) @map("created_at")
+  updated_at DateTime? @default(now()) @map("updated_at")
+
+  @@map("profiles")
 }
 
 model Follower {
@@ -44,7 +60,7 @@ model Follower {
   createdAt DateTime? @default(now()) @map("created_at")
   updatedAt DateTime? @default(now()) @map("updated_at")
 
-  users User[]
+  profiles Profile[]
 
   @@map("followers")
 }
