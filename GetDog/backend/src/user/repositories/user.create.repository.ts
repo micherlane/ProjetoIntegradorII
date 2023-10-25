@@ -1,31 +1,26 @@
 import prismaClient from "../../prisma";
 import { Injectable } from "@nestjs/common";
 import { UserCreateDto } from "../dto/user.create.dto";
-import { UserAlreadyExistsError } from "../err/user.alreadyExists.error";
-import { PasswordEncryption } from "src/providers/EncriptionPassword/password.encription.interface";
+import { User } from "@prisma/client";
 
 @Injectable()
 export class UserCreateRepository {
-    public async save(userCreateDto: UserCreateDto, passwordEncryption: PasswordEncryption){
-       
-
+    public async verifyUserAlreadyExists(email: string): Promise<User>{
         const userAlreadyExists = await prismaClient.user.findFirst({
             where: {
-                email: userCreateDto.email
+                email: email
             }
         });
+        return userAlreadyExists;
+    }
 
-        if (userAlreadyExists) {
-           return new UserAlreadyExistsError();
-        }
-
-        const passwordHash = await passwordEncryption.encryptPassword(userCreateDto.password);
+    public async save(userCreateDto: UserCreateDto){            
         
         const user = await prismaClient.user.create({
             data: {
                     name: userCreateDto.name,
                     email: userCreateDto.email,
-                    password: passwordHash,
+                    password: userCreateDto.password,
                     address: userCreateDto.address,
                     typeUser: userCreateDto.typeUser
             },
