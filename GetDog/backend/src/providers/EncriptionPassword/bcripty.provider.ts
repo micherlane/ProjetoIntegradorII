@@ -1,4 +1,4 @@
-import { hash } from "bcryptjs";
+import { hash, compare } from "bcryptjs";
 import { PasswordEncryption } from "./password.encription.interface";
 import { Injectable } from "@nestjs/common";
 
@@ -11,8 +11,8 @@ export class BCryptProvider implements PasswordEncryption {
         return passwordHash;
     }
     
-    async comparePassword(password: string): Promise<boolean> {
-        throw new Error("Method not implemented.");
+    async comparePassword(password: string, hash: string): Promise<boolean> {
+        return await compare(password, hash);
     }
 
 }
