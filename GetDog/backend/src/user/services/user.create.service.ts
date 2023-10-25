@@ -1,8 +1,8 @@
-import { Injectable } from "@nestjs/common";
+import { HttpStatus, Injectable } from "@nestjs/common";
 import { UserCreateRepository } from "../repositories/user.create.repository";
 import { UserCreateDto } from "../dto/user.create.dto";
-import { UserAlreadyExistsError } from "../err/user.alreadyExists.error";
 import { BCryptProvider } from "src/providers/EncriptionPassword/bcripty.provider";
+import { ExceptionError } from "src/middlewares/exceptions/exception.error";
 
 @Injectable()
 export class UserCreateService {
@@ -14,7 +14,7 @@ export class UserCreateService {
         const userAlreadyExists = await this.userCreateRepository.verifyUserAlreadyExists(userCreateDto.email);
 
         if (userAlreadyExists) {
-            return new UserAlreadyExistsError();
+            throw new ExceptionError('Usuário já cadastrado.', HttpStatus.UNPROCESSABLE_ENTITY);
         }
 
         const passwordHash = await this.bcryptProvider.encryptPassword(userCreateDto.password);
