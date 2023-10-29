@@ -1,6 +1,6 @@
 import { Controller, Get, HttpStatus, Injectable, Req, Res, UseGuards } from "@nestjs/common";
 import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
-import { UserGetProfileService } from "../services/user.profile.service";
+import { UserGetProfileService } from "../services/user.profile.get.service";
 import { AuthGuard } from "src/auth/auth.guard";
 
 @ApiTags("Usuario")

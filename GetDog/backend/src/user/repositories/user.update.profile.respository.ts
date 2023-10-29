@@ -6,7 +6,7 @@ import { ExceptionError } from "src/middlewares/exceptions/exception.error";
 @Injectable()
 export class UserUpdateProfileRepository {
 
-    public async saveProfile(userId: string, userUpdateProfileDto: UserUpdateProfileDto) {
+    public async saveProfile(userId: string, userUpdateProfileDto: UserUpdateProfileDto, profilePicture: string, coverPhoto: string) {
 
         try {
 
@@ -17,8 +17,8 @@ export class UserUpdateProfileRepository {
                 data: {
                     gender: userUpdateProfileDto.gender,
                     biography: userUpdateProfileDto.biography,
-                    profilePicture: userUpdateProfileDto.profilePicture,
-                    coverPhoto: userUpdateProfileDto.coverPhoto,
+                    profilePicture: profilePicture,
+                    coverPhoto: coverPhoto
                 }
             });
 
