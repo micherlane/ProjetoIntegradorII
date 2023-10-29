@@ -18,7 +18,7 @@ async function bootstrap() {
     type: VersioningType.URI,
   })
 
-  app.useStaticAssets(join(__dirname, '..', 'public'));
+  app.useStaticAssets(join(__dirname, '..', 'uploads'));
 
   await app.listen(3000);
 }
