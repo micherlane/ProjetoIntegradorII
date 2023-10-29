@@ -1,6 +1,5 @@
 import { CanActivate, ExecutionContext, HttpStatus, Injectable } from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
-import { Request } from "@nestjs/common";
 import { jwtConstants } from "./constants";
 import { ExceptionError } from "src/middlewares/exceptions/exception.error";
 
@@ -24,7 +23,7 @@ export class AuthGuard implements CanActivate {
                 }
             );
             request['user'] = payload;
-        } catch {
+        } catch (error){
             throw new ExceptionError("Acesso não autorizado.", HttpStatus.UNAUTHORIZED);
         }
 
@@ -32,7 +31,7 @@ export class AuthGuard implements CanActivate {
     }
 
     private extractTokenFromHeader(request: Request): string | undefined {
-        const [type, token] =request.headers['authorization'].split(' ') ?? [];;
+        const [token, type] = request.headers['authorization'].split(' ') ?? [];;
         return type === 'Bearer' ? token : undefined;
     }
 }
