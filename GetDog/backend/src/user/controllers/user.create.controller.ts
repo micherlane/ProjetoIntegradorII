@@ -2,7 +2,7 @@ import { Body, Controller, HttpStatus, Injectable, Post, Res } from "@nestjs/com
 import { UserCreateService } from "../services/user.create.service";
 import { UserCreateDto } from "../dto/user.create.dto";
 import { ApiTags } from "@nestjs/swagger";
-import { ExceptionError } from "src/middlewares/exceptions/exception.error";
+import { ExceptionError } from "../../middlewares/exceptions/exception.error";
 
 @ApiTags("Usuario")
 @Controller({

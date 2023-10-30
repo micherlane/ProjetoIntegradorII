@@ -1,11 +1,10 @@
 import prismaClient from "../../prisma";
 import { Injectable } from "@nestjs/common";
 import { UserCreateDto } from "../dto/user.create.dto";
-import { User } from "@prisma/client";
 
 @Injectable()
 export class UserCreateRepository {
-    public async verifyUserAlreadyExists(email: string): Promise<User>{
+    public async verifyUserAlreadyExists(email: string){
         const userAlreadyExists = await prismaClient.user.findFirst({
             where: {
                 email: email

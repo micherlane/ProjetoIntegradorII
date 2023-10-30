@@ -1,7 +1,7 @@
 import { CanActivate, ExecutionContext, HttpStatus, Injectable } from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
 import { jwtConstants } from "./constants";
-import { ExceptionError } from "src/middlewares/exceptions/exception.error";
+import { ExceptionError } from "../middlewares/exceptions/exception.error";
 
 @Injectable()
 export class AuthGuard implements CanActivate {

@@ -12,8 +12,8 @@ export class UserUpdateProfileService {
     constructor(private userUpdateProfileRepository: UserUpdateProfileRepository) { }
 
     public async execute(userId: string, userUpdateProfileDto: UserUpdateProfileDto, files: FileProps) {
-        const pictureProfile = files.pictureProfile[0].filename;
-        const coverPhoto = files.coverPhoto[0].filename;
+        const pictureProfile = files.pictureProfile![0].filename;
+        const coverPhoto = files.coverPhoto![0].filename;
 
         const profile = await this.userUpdateProfileRepository.saveProfile(userId, userUpdateProfileDto, pictureProfile, coverPhoto);
         return profile;

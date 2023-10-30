@@ -2,9 +2,9 @@ import { Body, Controller, HttpStatus, Injectable, Put, Req, Res, UploadedFiles,
 import { UserUpdateProfileService } from "../services/user.update.profile.service";
 import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
 import { UserUpdateProfileDto } from "../dto/user.update.profile.dto";
-import { AuthGuard } from "src/auth/auth.guard";
+import { AuthGuard } from "../../auth/auth.guard";
 import { FileFieldsInterceptor } from "@nestjs/platform-express";
-import { storage } from "config/multer/multer.config";
+import { storage } from "../../../config/multer/multer.config";
 
 @ApiTags("Usuario")
 @Controller({

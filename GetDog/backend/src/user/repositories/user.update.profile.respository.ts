@@ -1,7 +1,7 @@
 import { HttpStatus, Injectable } from "@nestjs/common";
-import prismaClient from "src/prisma";
+import prismaClient from "../../prisma";
 import { UserUpdateProfileDto } from "../dto/user.update.profile.dto";
-import { ExceptionError } from "src/middlewares/exceptions/exception.error";
+import { ExceptionError } from "../../middlewares/exceptions/exception.error";
 
 @Injectable()
 export class UserUpdateProfileRepository {

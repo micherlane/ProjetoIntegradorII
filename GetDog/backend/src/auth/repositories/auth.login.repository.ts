@@ -1,10 +1,9 @@
 import { Injectable } from "@nestjs/common";
-import { User } from "@prisma/client";
-import prismaClient from "src/prisma";
+import prismaClient from "../../prisma";
 
 @Injectable()
 export class AuthUserRepository {
-    public async verifyEmailAlready(email: string): Promise<User>{
+    public async verifyEmailAlready(email: string){
         const userAlreadyExists = await prismaClient.user.findFirst({
             where: {
                 email: email

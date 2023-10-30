@@ -1,9 +1,9 @@
 import { HttpStatus, Injectable } from '@nestjs/common';
 import { AuthUserRepository } from '../repositories/auth.login.repository';
 import { AuthDto } from '../dto/auth.login.dto';
-import { BCryptProvider } from 'src/providers/EncriptionPassword/bcripty.provider';
+import { BCryptProvider } from '../../providers/EncriptionPassword/bcripty.provider';
 import { JwtService } from '@nestjs/jwt';
-import { ExceptionError } from 'src/middlewares/exceptions/exception.error';
+import { ExceptionError } from '../../middlewares/exceptions/exception.error';
 
 @Injectable()
 export class AuthUserService {
