@@ -36,6 +36,7 @@ export class UserCreateRepository {
             select: {
                 id: true,
                 name: true,
+                email: true,
                 address: true,
                 typeUser: true
             }
