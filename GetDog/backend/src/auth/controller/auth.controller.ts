@@ -2,7 +2,7 @@ import { Body, Controller, HttpStatus, Post, Res } from '@nestjs/common';
 import { AuthUserService } from '../service/auth.service';
 import { AuthDto } from '../dto/auth.login.dto';
 import { ApiTags } from '@nestjs/swagger';
-import { ExceptionError } from 'src/middlewares/exceptions/exception.error';
+import { ExceptionError } from '../../middlewares/exceptions/exception.error';
 
 @ApiTags("Usuario")
 @Controller({

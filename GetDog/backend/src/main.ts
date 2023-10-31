@@ -7,6 +7,8 @@ import { SwaggerModule } from '@nestjs/swagger';
 import { swaggerConfig } from 'config/swagger/swaggerConfig';
 
 async function bootstrap() {
+  const PORT = 3000;
+
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
     cors: true
   });
@@ -20,6 +22,6 @@ async function bootstrap() {
 
   app.useStaticAssets(join(__dirname, '..', 'uploads'));
 
-  await app.listen(3000);
+  await app.listen(PORT);
 }
 bootstrap();
