@@ -26,8 +26,8 @@ O product backlog foi atualizado conforme as solicitações exigidas. A nova ver
 <a href="https://www.figma.com/file/yhW2JWWLh02InPx1ZhHazM/Telas-GetDog?type=design&node-id=54495%3A24451&mode=design&t=SX8FMULDYMMNE7tG-1">Telas Principais</a>
 
 ## VI - Sprint I
-<a href="https://docs.google.com/document/d/12j7-YUBid4eYFpVN7bJ0UwKGLjJaJP-PuF6665n0IvQ/edit?usp=sharing">Feedback PO</a>
-<a href="https://docs.google.com/spreadsheets/d/1eQpCcR5gSKa5EmwOvgIhiCRhyOE37NpPi4KbTNeGJbc/edit?usp=sharing">Relatório de bugs</a>
+<p><a href="https://docs.google.com/document/d/12j7-YUBid4eYFpVN7bJ0UwKGLjJaJP-PuF6665n0IvQ/edit?usp=sharing">Feedback PO</a></p>
+<p><a href="https://docs.google.com/spreadsheets/d/1eQpCcR5gSKa5EmwOvgIhiCRhyOE37NpPi4KbTNeGJbc/edit?usp=sharing">Relatório de bugs</a></p>
 
 ## VII - Área que se aplica:
 
