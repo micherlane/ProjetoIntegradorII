@@ -3,7 +3,7 @@ import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
 import { AppModule } from '../src/app.module';
 
-describe('AppController (e2e)', ()=>{
+describe('Verifica se o usuário consegue criar um usuário sem passar as informações', ()=>{
     let app: INestApplication;
 
     beforeAll(async () => {
@@ -30,4 +30,5 @@ describe('AppController (e2e)', ()=>{
             })
             .expect(400)           
     });
+
 })
