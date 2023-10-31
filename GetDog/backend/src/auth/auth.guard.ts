@@ -31,6 +31,9 @@ export class AuthGuard implements CanActivate {
     }
 
     private extractTokenFromHeader(request: Request): string | undefined {
+        if(!request.headers['authorization']){
+            throw new ExceptionError("Acesso não autorizado.", HttpStatus.UNAUTHORIZED)
+        }
         const [type, token] = request.headers['authorization'].split(' ') ?? [];;
         return type === 'Bearer' ? token : undefined;
     }

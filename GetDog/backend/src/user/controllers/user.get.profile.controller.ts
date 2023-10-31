@@ -1,4 +1,4 @@
-import { Controller, Get, HttpStatus, Injectable, Req, Res, UseGuards } from "@nestjs/common";
+import { Controller, Get, HttpStatus, Injectable, Param, Req, Res, UseGuards } from "@nestjs/common";
 import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
 import { UserGetProfileService } from "../services/user.profile.get.service";
 import { AuthGuard } from "../../auth/auth.guard";
@@ -14,10 +14,9 @@ export class UserGetProfileController {
 
     @ApiBearerAuth()
     @UseGuards(AuthGuard)
-    @Get("users/profile")
+    @Get("users/profile/:userId")
 
-    async getProfile(@Res() res, @Req() req){
-        const userId = req['user'].sub;
+    async getProfile(@Res() res, @Param("userId") userId: string){
 
         const profile = await this.userGetProfileService.execute(userId);
 
