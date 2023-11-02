@@ -7,9 +7,10 @@ import { AuthModule } from './auth/auth.module';
 import { FileUploadModule } from './fileUpload/file.upload.module';
 import { APP_FILTER } from '@nestjs/core';
 import { ErroHttpFilter } from './middlewares/exceptions/exceptions';
+import { PostModule } from './post/post.module';
 
 @Module({
-  imports: [UserModule, AuthModule, BCriptyProviderModule, FileUploadModule,
+  imports: [UserModule, AuthModule, BCriptyProviderModule, FileUploadModule, PostModule,
   ],
   controllers: [AppController],
   providers: [AppService, {
