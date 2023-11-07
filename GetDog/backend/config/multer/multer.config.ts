@@ -1,7 +1,10 @@
 import { diskStorage } from "multer";
+import { join } from "path";
 
+const path = join(__dirname, '..','..','..', 'uploads')
+console.log(path)
 export const storage = diskStorage({
-    destination: "./uploads",
+    destination: path,
     filename: (req, file, callback) => {
       callback(null, generateFilename(file));
     }

@@ -8,9 +8,20 @@ import { FileUploadModule } from './fileUpload/file.upload.module';
 import { APP_FILTER } from '@nestjs/core';
 import { ErroHttpFilter } from './middlewares/exceptions/exceptions';
 import { PostModule } from './post/post.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
+
+const pathStatics = join(__dirname, '..','..', 'uploads');
 
 @Module({
   imports: [UserModule, AuthModule, BCriptyProviderModule, FileUploadModule, PostModule,
+    ServeStaticModule.forRoot({
+      rootPath: pathStatics,
+      serveRoot: "/images",
+      serveStaticOptions: {
+        index: false
+      }
+    })
   ],
   controllers: [AppController],
   providers: [AppService, {
