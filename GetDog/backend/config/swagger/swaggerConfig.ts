@@ -6,5 +6,6 @@ export const swaggerConfig = new DocumentBuilder()
             .setVersion('1.0')
             .addTag('Usuario')
             .addTag('Postagem')
+            .addTag('Reserva')
             .addBearerAuth()
             .build();
