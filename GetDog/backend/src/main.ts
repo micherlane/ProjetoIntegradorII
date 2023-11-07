@@ -20,7 +20,7 @@ async function bootstrap() {
     type: VersioningType.URI,
   })
 
-  app.useStaticAssets(join(__dirname, '..', 'uploads'));
+  app.useStaticAssets(join(__dirname, '..','..', 'uploads'));
 
   await app.listen(PORT);
 }
