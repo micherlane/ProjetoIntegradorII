@@ -1,5 +1,5 @@
 import { Controller, Get, Injectable, Req, Res, UseGuards } from "@nestjs/common";
-import { ReservationExternalGetAllService } from "../services/reservation.external.get.all.provider";
+import { ReservationExternalGetAllService } from "../services/reservation.external.get.all.service";
 import { AuthGuard } from "src/auth/auth.guard";
 import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
 

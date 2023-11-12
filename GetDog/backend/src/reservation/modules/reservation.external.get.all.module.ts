@@ -1,6 +1,6 @@
 import { Module } from "@nestjs/common";
 import { ReservationExternalGetAllController } from "../controllers/reservation.external.get.all.controller";
-import { ReservationExternalGetAllService } from "../services/reservation.external.get.all.provider";
+import { ReservationExternalGetAllService } from "../services/reservation.external.get.all.service";
 import { ExternalReservationGetAllRepository } from "../repositories/reservation.external.get.all.repository";
 
 @Module({
