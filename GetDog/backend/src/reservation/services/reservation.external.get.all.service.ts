@@ -5,7 +5,7 @@ import { ExternalReservationGetAllRepository } from "../repositories/reservation
 export class ReservationExternalGetAllService {
     constructor(private reservationExternalGetAllRepository: ExternalReservationGetAllRepository){}
 
-    public async execute(userId: string){
-        return await this.reservationExternalGetAllRepository.getAllExternalReservations(userId);
+    public async execute(userId: string, perPage: number, offset: number){
+        return await this.reservationExternalGetAllRepository.getAllExternalReservations(userId, perPage, offset);
     }
 }

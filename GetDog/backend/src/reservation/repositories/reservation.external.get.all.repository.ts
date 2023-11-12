@@ -7,7 +7,7 @@ import { reservationGetAllDto } from "../dto/reservation.get.all.dto";
 export class ExternalReservationGetAllRepository{
     private logger = new Logger();
     
-    public async getAllExternalReservations(userId: string){
+    public async getAllExternalReservations(userId: string, perPage: number, offset: number){
         try {
             const externalReservations = await prismaClient.dogWalkReservation.findMany({
                 where: {
@@ -17,7 +17,9 @@ export class ExternalReservationGetAllRepository{
                 },
                 select: {
                     ...reservationGetAllDto
-                }
+                },
+                take: perPage,
+                skip: offset
             });
             return externalReservations;
         } catch (error){
