@@ -16,7 +16,7 @@ export class PostGetAllController {
     @UseGuards(AuthGuard)
     @Get("posts")
     
-    async getAllPosts(@Res() res, @Query("page") page: string, @Query("perPage") perPage: string, @Query("offset") offset: string){
+    async getAllPosts(@Res() res, @Query("page") page: string, @Query("perPage") perPage: string){
         const pageNumber = parseInt(page) || 1;
         const perPageNumber = parseInt(perPage) || 10;
         const offsetNumber = (pageNumber - 1) * perPageNumber;
