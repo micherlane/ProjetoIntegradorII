@@ -7,7 +7,7 @@ import { reservationGetAllDto } from "../dto/reservation.get.all.dto";
 @Injectable()
 export class ReservationPersonalGetAllRepository {
     private logger = new Logger();
-    public async getAllReservationPersonal(userId: string){
+    public async getAllReservationPersonal(userId: string, perPage: number, offset: number){
         try{
             const reservationsPersonal = await prismaClient.dogWalkReservation.findMany({
                 where: {
@@ -15,7 +15,9 @@ export class ReservationPersonalGetAllRepository {
                 },
                 select: {
                    ...reservationGetAllDto
-                }
+                },
+                take: perPage,
+                skip: offset
             });
 
             return reservationsPersonal;
