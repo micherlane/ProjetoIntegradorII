@@ -12,10 +12,7 @@ export class ReservationCreateRepository {
         try{
             const reservation = await prismaClient.dogWalkReservation.create({
                 data: {
-                    appointment: reservationCreateDto.appointment,
-                    address: reservationCreateDto.address,
-                    postId: reservationCreateDto.postId,
-                    userId: reservationCreateDto.userId
+                    ...reservationCreateDto
                 }
             });
 
