@@ -1,6 +1,7 @@
 import { HttpStatus, Injectable, Logger } from "@nestjs/common";
 import { ExceptionError } from "src/middlewares/exceptions/exception.error";
 import prismaClient from "../../prisma";
+import { reservationGetAllDto } from "../dto/reservation.get.all.dto";
 
 @Injectable()
 export class ExternalReservationGetAllRepository{
@@ -13,6 +14,9 @@ export class ExternalReservationGetAllRepository{
                     post: {
                         authorId: userId
                     }
+                },
+                select: {
+                    ...reservationGetAllDto
                 }
             });
             return externalReservations;
