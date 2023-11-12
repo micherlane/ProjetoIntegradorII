@@ -1,0 +1,24 @@
+import { HttpStatus, Injectable, Logger } from "@nestjs/common";
+import { ExceptionError } from "src/middlewares/exceptions/exception.error";
+import prismaClient from "../../prisma";
+
+@Injectable()
+export class ExternalReservationGetAllRepository{
+    private logger = new Logger();
+    
+    public async getAllExternalReservations(userId: string){
+        try {
+            const externalReservations = await prismaClient.dogWalkReservation.findMany({
+                where: {
+                    post: {
+                        authorId: userId
+                    }
+                }
+            });
+            return externalReservations;
+        } catch (error){
+            this.logger.error(`Erro ao buscar todas as reservas do usuário: ${error.message}`);
+            throw new ExceptionError("Erro interno do servidor", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+}
