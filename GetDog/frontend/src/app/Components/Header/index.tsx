@@ -1,3 +1,4 @@
+import { ImageUser } from '../ImageUser';
 import styles from './styles.module.css';
 import { FiLogOut } from 'react-icons/fi';
 
@@ -14,9 +15,7 @@ export function Header(){
 
                     <div className={styles.headerUser}>
 
-                        <div className={styles.headerUserImage}>
-                            <img src='http://localhost:3001/images/1699906205195.ai_image_history_62844.png'/>
-                        </div>
+                        <ImageUser urlImage="http://localhost:3001/images/1699906205195.ai_image_history_62844.png"/>
 
                         <div className={styles.headerUserName}>
                             <p>Nome do Usuário</p>

@@ -1,0 +1,13 @@
+.userImageContainer {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    border: 5px solid #b9b9b9;
+}
+
+.userImageContainer img {
+    width: 100%; 
+    height: 100%;
+    border-radius: 50%;
+}
