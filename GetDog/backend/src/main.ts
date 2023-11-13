@@ -7,7 +7,7 @@ import { SwaggerModule } from '@nestjs/swagger';
 import { swaggerConfig } from 'config/swagger/swaggerConfig';
 
 async function bootstrap() {
-  const PORT = 3000;
+  const PORT = 3001;
 
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
     cors: true
