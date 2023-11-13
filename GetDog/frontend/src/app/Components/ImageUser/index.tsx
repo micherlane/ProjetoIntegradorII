@@ -2,12 +2,13 @@ import styles from './styles.module.css';
 
 interface ImageUserProps {
     urlImage: string;
+    size: number;
 }
 
-export function ImageUser({ urlImage } : ImageUserProps){
+export function ImageUser({ urlImage, size } : ImageUserProps){
     return (
-        <div className={styles.userImageContainer}>
-            <img src={urlImage}/>
+        <div className={styles.userImageContainer} style={{ width: `${size}px`, height: `${size}px` }}>
+            <img src={urlImage} />
         </div>
     )
 
