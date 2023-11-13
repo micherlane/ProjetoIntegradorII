@@ -15,7 +15,7 @@ export function Header(){
 
                     <div className={styles.headerUser}>
 
-                        <ImageUser urlImage="http://localhost:3001/images/1699906205195.ai_image_history_62844.png"/>
+                        <ImageUser urlImage="http://localhost:3001/images/1699906205195.ai_image_history_62844.png" size={60}/>
 
                         <div className={styles.headerUserName}>
                             <p>Nome do Usuário</p>
