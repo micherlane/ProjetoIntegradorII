@@ -1,5 +1,11 @@
+import { Header } from "../Components/Header";
+import { PostAdd } from "./components/PostAdd";
+
 export default function HomePage(){
     return (
-        <h1>Bem-vindo a HomePage</h1>
+        <>
+        <Header/>
+        <PostAdd/>
+        </>
     );
 }
