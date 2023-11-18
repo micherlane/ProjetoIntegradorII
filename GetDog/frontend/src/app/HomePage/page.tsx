@@ -1,22 +1,17 @@
-import { Metadata } from "next";
+"use client";
+
 import { Header } from "../Components/Header";
 import { PostAdd } from "./components/PostAdd";
-import { PostItem } from "./components/PostItem";
+import { PostList } from "./components/PostList";
 
-export const metadata: Metadata = {
-    title: 'Home',
-}
 
-  
 export default function HomePage(){
+
     return (
         <>
         <Header/>
         <PostAdd/>
-        <PostItem/>
-        <PostItem/>
-        <PostItem/>
-        <PostItem/>
+        <PostList/>
         </>
     );
 }

@@ -5,8 +5,14 @@ import styles from "./styles.module.css";
 import { toast } from "react-toastify";
 
 import { FaLongArrowAltUp, FaLongArrowAltDown } from 'react-icons/fa';
+import { PostModel } from "@/app/models/postModel";
+import { formatDate, formatDateToLongString, formatTime } from "@/app/utils/dataUtils";
 
-export function PostItem() {
+interface PostItemProps {
+    post: PostModel
+}
+
+export function PostItem({ post }: PostItemProps) {
     const handleAddComment = () => {
         toast.success("Você clicou em adicionar comentário!");
     }
@@ -23,50 +29,52 @@ export function PostItem() {
                     <p>Nome do Usuário</p>
                 </div>
                 <div>
-                    15 de novembro de 2023
+                    {formatDateToLongString(new Date(post.createdAt))}
                 </div>
             </div>
             <div className={styles.postItemTitle}>
-                <h2>Título</h2>
+                <h2>{post.title}</h2>
             </div>
             <div className={styles.postItemLegend}>
-                <p>
-                    Curabitur venenatis commodo semper. Vestibulum porta justo nec diam laoreet,
-                    porttitor mollis leo gravida. Donec eu turpis sollicitudin, efficitur sapien in,
-                    blandit ex. Curabitur accumsan tincidunt neque vel congue. Integer tincidunt erat magna,
-                    sit amet tempor velit scelerisque nec. Sed sollicitudin gravida imperdiet. Pellentesque habitant morbi
-                    tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque ultrices congue vehicula.
-                    Sed efficitur vel ligula ornare interdum. Maecenas suscipit pellentesque sem, elementum rutrum metus malesuada
-                    sit amet. Integer sed rhoncus erat. Sed efficitur, nisl quis iaculis varius, nisl justo efficitur magna,
-                    et vehicula elit velit a neque. Pellentesque ultricies maximus urna, id consequat dolor mollis in. Nulla at
-                    justo a velit interdum luctus in eget purus. Mauris interdum, odio sed mollis ultricies, neque odio venenatis
-                    massa, quis molestie tortor justo id elit. Maecenas vehicula enim id tellus imperdiet, vel gravida arcu sagittis.
-                </p>
+                <p>{post.legend}</p>
             </div>
-            
+
             <h3>Disponibilidade</h3>
 
-            <div className={styles.postItemDisponibility}>
-                <div className={styles.postItemDisponibilityContent}>2023-03-12</div> 
-                <div className={styles.postItemDisponibilityContent}>15:00</div> 
+            <div className={styles.disponibilityStyle}>
+                {
+                    post.disponiblity.map((disponibility: Date, index: number) => {
+                        return (
+                            <div className={styles.postItemDisponibility} key={index}>
+                                <div className={styles.postItemDisponibilityContent}>{formatDate(disponibility)}</div>
+                                <div className={styles.postItemDisponibilityContent}>{formatTime(disponibility)}</div>
+                            </div>
+                        );
+                    })
+                }
             </div>
 
-            <div className={styles.postItemImage}>
-                <img src="http://localhost:3001/images/cachorro.jpeg" />
-            </div>
 
             <div className={styles.postItemImage}>
-                <img src="http://localhost:3001/images/cachorro2.jpeg" />
+                {
+                    post.photos.map((photo: string, index: number) => {
+                        const urlImage = `http://localhost:3001/images/${photo}`;
+
+                        return (
+                            <img src={urlImage} key={index} />
+                        )
+                    })
+                }
             </div>
 
             <div className={styles.postItemReaction}>
                 <div className={styles.postItemReactionNumber}>
-                    <FaLongArrowAltUp color="#008000"/>
-                    <p>10</p>
+                    <FaLongArrowAltUp color="#008000" />
+                    <p>{post.likes}</p>
                 </div>
                 <div className={styles.postItemReactionNumber}>
-                    <FaLongArrowAltDown color="#ff0000"/>
-                    <p>10</p>
+                    <FaLongArrowAltDown color="#ff0000" />
+                    <p>{post.unlikes}</p>
                 </div>
                 <div className={styles.postItemComment} onClick={handleAddComment}>
                     <p>
