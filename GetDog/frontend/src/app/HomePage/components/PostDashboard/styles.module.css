@@ -1,0 +1,18 @@
+.postDashboardStyle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+@media (min-width: 720px) {
+    .postDashboardChildrensStyle {
+        width: 70%;
+    }
+}
+
+@media(min-width: 900px) {
+    .postDashboardChildrensStyle {
+        width: 50%;
+    }
+}
