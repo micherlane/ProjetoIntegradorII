@@ -11,6 +11,10 @@ export function PostItem() {
         toast.success("Você clicou em adicionar comentário!");
     }
 
+    const handleDoReservation = () => {
+        toast.success("Você cliclou em reservar postagem!");
+    }
+
     return (
         <div className={styles.postItemContainer}>
             <div className={styles.postItemHeader}>
@@ -71,7 +75,7 @@ export function PostItem() {
                 </div>
             </div>
             <div className={styles.postItemReservation}>
-                <button>
+                <button onClick={handleDoReservation}>
                     Reservar
                 </button>
             </div>
