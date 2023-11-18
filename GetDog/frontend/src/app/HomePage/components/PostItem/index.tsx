@@ -39,6 +39,14 @@ export function PostItem() {
                     massa, quis molestie tortor justo id elit. Maecenas vehicula enim id tellus imperdiet, vel gravida arcu sagittis.
                 </p>
             </div>
+            
+            <h3>Disponibilidade</h3>
+
+            <div className={styles.postItemAppointment}>
+                <div className={styles.postItemAppointmentContent}>2023-03-12</div> 
+                <div className={styles.postItemAppointmentContent}>15:00</div> 
+            </div>
+
             <div className={styles.postItemImage}>
                 <img src="http://localhost:3001/images/cachorro.jpeg" />
             </div>
@@ -49,11 +57,11 @@ export function PostItem() {
 
             <div className={styles.postItemReaction}>
                 <div className={styles.postItemReactionNumber}>
-                    <FaLongArrowAltUp />
+                    <FaLongArrowAltUp color="#008000"/>
                     <p>10</p>
                 </div>
                 <div className={styles.postItemReactionNumber}>
-                    <FaLongArrowAltDown />
+                    <FaLongArrowAltDown color="#ff0000"/>
                     <p>10</p>
                 </div>
                 <div className={styles.postItemComment} onClick={handleAddComment}>
@@ -61,6 +69,11 @@ export function PostItem() {
                         Escrever comentário...
                     </p>
                 </div>
+            </div>
+            <div className={styles.postItemReservation}>
+                <button>
+                    Reservar
+                </button>
             </div>
         </div>
     )

@@ -41,6 +41,21 @@
     margin-bottom: 0.5rem;
 }
 
+.postItemAppointment {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+}
+
+.postItemAppointment .postItemAppointmentContent {
+    background-color: rgb(233, 160, 26);
+    font-weight: bold;
+    color: white;
+    border-radius: 0.5rem;
+    padding: 0.3rem;
+    margin: 0.1rem;
+}
+
 .postItemImage {
     margin-top: 0.2rem;
     width: 100%;
@@ -56,15 +71,20 @@
 
 .postItemReaction {
     margin-top: 1rem;
-    padding-top: 0.5rem;
+    padding: 0.5rem 0 0.5rem 0;
     border-top: 1px solid rgb(194, 194, 194);
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 .postItemReactionNumber {
     display: flex;
     align-items: center;
+}
+
+.postItemReactionNumber p {
+    font-weight: bold;
 }
 .postItemComment {
     display: flex;
@@ -73,5 +93,26 @@
     padding: 0.5rem;
     border-radius: 1rem;
     width: 80%;
-    background-color: rgb(228, 228, 228);
+    background-color: rgb(255, 226, 172);
+}
+
+.postItemReservation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.postItemReservation button {
+    background-color: rgb(233, 160, 26);
+    border-radius: 0.3rem;
+    border: none;
+    width: 100%;
+    height: 40px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.postItemReservation button:hover {
+    background-color: rgb(189, 130, 21);
 }
