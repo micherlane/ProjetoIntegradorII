@@ -46,9 +46,9 @@ export function PostItem() {
             
             <h3>Disponibilidade</h3>
 
-            <div className={styles.postItemAppointment}>
-                <div className={styles.postItemAppointmentContent}>2023-03-12</div> 
-                <div className={styles.postItemAppointmentContent}>15:00</div> 
+            <div className={styles.postItemDisponibility}>
+                <div className={styles.postItemDisponibilityContent}>2023-03-12</div> 
+                <div className={styles.postItemDisponibilityContent}>15:00</div> 
             </div>
 
             <div className={styles.postItemImage}>
