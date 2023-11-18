@@ -1,7 +1,7 @@
 .userImageContainer {
     border-radius: 50%;
     overflow: hidden;
-    border: 5px solid #b9b9b9;
+    border: 5px solid rgb(192, 132, 20);;
 }
 
 .userImageContainer img {
