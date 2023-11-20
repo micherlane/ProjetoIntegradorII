@@ -15,7 +15,7 @@
     padding: 0 2rem;
 }
 
-.headerLogo p {
+.headerLogo a {
     font-size: 30px;
     font-weight: bold;
 }

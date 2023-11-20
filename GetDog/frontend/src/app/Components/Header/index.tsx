@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { ImageUser } from '../ImageUser';
 import styles from './styles.module.css';
 import { FiLogOut } from 'react-icons/fi';
@@ -8,7 +9,7 @@ export function Header(){
             <div className={styles.headerContent}>
 
                 <div className={styles.headerLogo}>
-                    <p>GetDog</p>
+                    <Link href="/HomePage">GetDog</Link>
                 </div>
 
                 <div className={styles.headerUserInfo}>
