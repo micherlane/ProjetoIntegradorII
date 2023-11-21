@@ -18,6 +18,7 @@
 .headerLogo a {
     font-size: 30px;
     font-weight: bold;
+    margin-left: 2.3rem;
 }
 
 .headerUserInfo {

@@ -37,7 +37,7 @@
 @media screen and (max-width: 768px) {
     .reservationNavStyle {
         position: fixed;
-        top: 0;
+        top: 5rem;
         left: -100%; 
         height: 100%;
         width: 70%;
@@ -48,8 +48,11 @@
 
     .toggleButton {
         display: block;
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        z-index: 9999; 
         margin-top: 0.3rem;
-        background-color: rgb(233, 160, 26);
         border: none;
         color: white;
         padding: 0.5rem;
