@@ -6,7 +6,7 @@ import styles from './styles.module.css';
 export function ReservationList() {
     const reservationList: string[] = ["dsfs", "hshkf", "shkfjs", "shkfds"];
     return (
-        <div className={styles.reservationList}>
+        <div className={styles.reservationListStyle}>
             {
                 reservationList.map((reservation, index) => {
                     return (
