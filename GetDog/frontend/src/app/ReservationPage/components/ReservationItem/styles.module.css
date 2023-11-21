@@ -1,0 +1,53 @@
+.reservationItemContainer {
+    box-shadow: 0 0 12px rgba(128, 128, 128, 0.5);
+    border-radius: 0.5rem;
+
+    padding: 1rem;
+    margin: 0.3rem;
+}
+
+.reservationItemUser {
+    display: flex;
+    align-items: center;
+}
+
+.reservationItemUser p {
+    margin-left: 0.5rem;
+    font-weight: bold;
+}
+
+.reservationItemDetails {
+    margin-top: 0.8rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.titleStyle {
+    font-weight: bold;
+}
+
+.reservationItemActions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: end;
+}
+
+.reservationItemActions button {
+    font-family: 'Kodchasan';
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+
+}
+
+.buttonAcceptionStyle {
+    background-color: green;
+    color: white;
+}
+
+.buttonRejectStyle {
+    background-color: red;
+    color: white;
+    margin-left: 0.3rem;
+}
