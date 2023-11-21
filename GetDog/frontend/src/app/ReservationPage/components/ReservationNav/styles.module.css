@@ -65,3 +65,24 @@
         left: 0; 
     }
 }
+@media screen and (min-width: 901px) {
+    .reservationNavContainer {
+        background-color: rgb(233, 160, 26);
+        height: calc(100vh - 5rem);      
+    }
+
+    .reservationNavStyle {
+        display: flex;
+        flex-direction: column; 
+        height: auto; 
+        width: auto; 
+        background-color: transparent;
+        position: static;
+    }
+
+    .toggleButton {
+        display: none; 
+    }
+
+   
+}

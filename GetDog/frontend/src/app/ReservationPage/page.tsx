@@ -1,15 +1,13 @@
 "use client";
 
 import { Header } from "../Components/Header";
-import { ReservationList } from "./components/ReservationList";
-import { ReservationNav } from "./components/ReservationNav";
+import { ReservationDashboard } from "./components/ReservationDashboad";
 
 export default function ReservationPage(){
     return(
         <>
             <Header/>
-            <ReservationNav/>
-            <ReservationList/>
+            <ReservationDashboard/>
         </>
     );
 }
