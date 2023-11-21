@@ -1,0 +1,64 @@
+.reservationNavContainer {
+    margin-top: 0; 
+}
+.reservationNavStyle {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 5rem);
+    width: 20%;
+    background-color: rgb(233, 160, 26);
+}
+
+.reservationNavStyle a {
+    display: block;
+    width: 100%;
+    text-decoration: none; 
+    color: white;
+    background-color: rgb(185, 125, 14);
+    font-weight: bold;
+    padding: 1rem;
+    margin-bottom: 0.3rem; 
+    transition: background-color 0.3s ease; 
+}
+
+.reservationNavStyle a:hover {
+    background-color: rgb(150, 100, 10); 
+}
+
+.reservationNavStyle a:active {
+    background-color: rgb(100, 70, 5);
+}
+
+.toggleButton {
+    display: none; 
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .reservationNavStyle {
+        position: fixed;
+        top: 0;
+        left: -100%; 
+        height: 100%;
+        width: 70%;
+        z-index: 999;
+        overflow-y: auto; 
+        transition: left 0.3s ease;
+    }
+
+    .toggleButton {
+        display: block;
+        margin-top: 0.3rem;
+        background-color: rgb(233, 160, 26);
+        border: none;
+        color: white;
+        padding: 0.5rem;
+        cursor: pointer;
+        margin: 0;
+        visibility: visible;
+    }
+
+    .showMenu {
+        left: 0; 
+    }
+}

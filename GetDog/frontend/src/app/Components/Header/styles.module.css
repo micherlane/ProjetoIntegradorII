@@ -1,6 +1,6 @@
 .headerContainer {
     font-family: 'Kodchasan', sans-serif;
-    box-shadow: 0 0 3px #10381d; 
+    box-shadow: 0 0 3px #838383; 
     align-items: center;
     justify-content: center;
     background-color: rgb(233, 160, 26);
@@ -33,4 +33,16 @@
 .headerUserName {
     font-weight: bold;
     margin: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .headerUserName {
+        display: none;
+    }   
+    
+    .headerUser img {
+        display: none;
+    }
+
+   
 }

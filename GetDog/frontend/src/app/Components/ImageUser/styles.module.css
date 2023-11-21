@@ -1,11 +1,11 @@
 .userImageContainer {
     border-radius: 50%;
     overflow: hidden;
-    border: 5px solid rgb(192, 132, 20);;
 }
 
 .userImageContainer img {
     width: 100%; 
     height: 100%;
     border-radius: 50%;
+    border: 5px solid rgb(192, 132, 20);
 }
