@@ -15,7 +15,7 @@ interface ModalPostProps {
 }
 export function ModalPost({isOpen, onRequestClose, handleAddPost}: ModalPostProps){
     const [availabilities, setAvailabilities] = useState<string[]>([]);
-    const [photos, setPhotos] = useState<File[]>([]);
+    const [photos, setPhotos] = useState<any[]>([]);
 
     const addAvailability = () => {
         setAvailabilities([...availabilities, '']);

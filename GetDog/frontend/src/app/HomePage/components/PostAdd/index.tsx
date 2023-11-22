@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import { PostModel } from '@/app/models/postModel';
 import Modal from 'react-modal';
 import { useState } from 'react';
-import { ModalPost } from '@/app/components/ModalPost';
+import { ModalPost } from '@/app/Components/ModalPost';
 
 interface PostAddProps{
     handleAddPost: (post: PostModel) => void;

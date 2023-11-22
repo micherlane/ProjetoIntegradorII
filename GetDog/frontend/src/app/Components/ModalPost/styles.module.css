@@ -29,6 +29,10 @@
     border: 1px solid #969696;
 }
 
+.addPostFormContainer form input:focus, 
+.addPostFormContainer form textarea:focus {
+    border: 2px solid #e9a01a;
+}
 .addPostFormContainer form textarea {
     height: 150px; 
     resize: none;
