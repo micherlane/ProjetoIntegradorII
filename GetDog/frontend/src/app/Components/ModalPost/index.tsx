@@ -3,6 +3,7 @@ import styles from './styles.module.css';
 
 import { FiX } from 'react-icons/fi';
 import { PostModel } from '@/app/models/postModel';
+import { useState } from 'react';
 
 interface ModalPostProps {
     isOpen: boolean;
@@ -10,6 +11,17 @@ interface ModalPostProps {
     handleAddPost: (post: PostModel) => void;
 }
 export function ModalPost({isOpen, onRequestClose, handleAddPost}: ModalPostProps){
+    const [availabilities, setAvailabilities] = useState<string[]>([]);
+    const [photos, setPhotos] = useState<string[]>([]);
+
+    const addAvailability = () => {
+        setAvailabilities([...availabilities, '']);
+    };
+
+    const addPhotos = () => {
+        setPhotos([...photos, '']);
+    }
+
     const customStyle = {
         content: {
             top: '50%',
@@ -49,9 +61,32 @@ export function ModalPost({isOpen, onRequestClose, handleAddPost}: ModalPostProp
 
                 <input type='text' placeholder='Digite o endereço...' name='address'/>
 
-                <input type='datetime-local' name='disponibility' className={styles.disponibilityStyle}/>
+                <div className={styles.addItemStyle}>
+                    {availabilities.map((availability, index) => (
+                        <input
+                            key={index}
+                            type='datetime-local'
+                            name='disponibility'
+                            className={styles.disponibilityStyle}
+                        />
+                    ))}
+                </div>
+                <button type='button' onClick={addAvailability}>
+                    Adicionar Disponibilidade
+                </button>
 
-                <input type='file' name='photos'/>
+                <div className={styles.addItemStyle}>
+                     {
+                        photos.map((photo, index) => {
+                            return ( <input type='file' name='photos' key={index}/>)
+                        })
+                     }
+                </div>
+
+                <button type='button' onClick={addPhotos}>
+                    Adicionar imagem
+                </button>
+               
 
                 <button type='submit'>Publicar</button>
                 
