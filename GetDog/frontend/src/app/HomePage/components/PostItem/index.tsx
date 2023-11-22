@@ -7,9 +7,10 @@ import { toast } from "react-toastify";
 import { FaLongArrowAltUp, FaLongArrowAltDown } from 'react-icons/fa';
 import { PostModel } from "@/app/models/postModel";
 import { formatDate, formatDateToLongString, formatTime } from "@/app/utils/dataUtils";
+import { useState } from "react";
 
 interface PostItemProps {
-    post: PostModel
+    post: PostModel;
 }
 
 export function PostItem({ post }: PostItemProps) {

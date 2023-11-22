@@ -1,8 +1,14 @@
+import { useState } from "react";
 import { posts } from "../../dadosPost/postsDados";
 import { PostItem } from "../PostItem";
 import styles  from './styles.module.css';
+import { PostModel } from "@/app/models/postModel";
 
-export function PostList(){
+interface PostListProps {
+    posts: PostModel[]
+}
+export function PostList({posts}: PostListProps){
+
     return (
         <div className={styles.postListStyle}>
         {
