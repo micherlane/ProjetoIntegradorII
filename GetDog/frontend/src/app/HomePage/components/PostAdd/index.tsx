@@ -37,7 +37,7 @@ export function PostAdd({handleAddPost}: PostAddProps){
             </div>
             {
                 modalVisible && (
-                    <ModalPost/>
+                    <ModalPost isOpen={modalVisible} handleAddPost={handleAddPost} onRequestClose={handleCloseModalView}/>
                 )
             }
         </div>
