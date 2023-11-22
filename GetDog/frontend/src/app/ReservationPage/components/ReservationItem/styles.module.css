@@ -19,8 +19,16 @@
 .reservationItemDetails {
     margin-top: 0.8rem;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+
+.statusStyle {
+    align-self: flex-end;
+    color: rgb(233, 160, 26);
+    font-weight: bold;
+    font-size: 1rem;
 }
 
 .titleStyle {
@@ -50,4 +58,10 @@
     background-color: red;
     color: white;
     margin-left: 0.3rem;
+}
+
+@media(min-width: 900px) {
+    .reservationItemContainer {
+        width: 70%;
+    }
 }

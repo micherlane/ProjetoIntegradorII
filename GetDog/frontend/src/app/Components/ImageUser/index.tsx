@@ -6,7 +6,6 @@ interface ImageUserProps {
 }
 
 export function ImageUser({ urlImage, size } : ImageUserProps){
-
     return (
         <div className={styles.userImageContainer} style={{ width: `${size}px`, height: `${size}px` }}>
             <img src={urlImage} />
