@@ -49,7 +49,7 @@ export function ModalPost({isOpen, onRequestClose, handleAddPost}: ModalPostProp
 
                 <input type='text' placeholder='Digite o endereço...' name='address'/>
 
-                <input type='date' name='disponibility'/>
+                <input type='datetime-local' name='disponibility' className={styles.disponibilityStyle}/>
 
                 <input type='file' name='photos'/>
 

@@ -1,5 +1,6 @@
 .addPostFormContainer {
     padding: 1rem; 
+    width: 600px;
 }
 
 .titleForm {
@@ -42,11 +43,4 @@
     align-self: flex-end;
     background-color:  #e9a01a;
     color: #3e2723;
-}
-
-@media screen and (max-width: 768px) {
-    .addPostFormContainer {
-        margin: 1rem;
-        width: 80%;
-    }
 }
