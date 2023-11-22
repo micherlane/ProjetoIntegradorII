@@ -14,11 +14,12 @@ export function ModalPost({isOpen, onRequestClose, handleAddPost}: ModalPostProp
         content: {
             top: '50%',
             bottom: 'auto',
+            margin: '1rem',
             left: '50%',
             right: 'auto',
-            padding: '30px',
+            padding: '10px',
             transform: 'translate(-50%, -50%)',
-            backgroundColor: '#1d1d2e'
+            backgroundColor: '#ffffff'
         }
     }
     return (
@@ -33,8 +34,29 @@ export function ModalPost({isOpen, onRequestClose, handleAddPost}: ModalPostProp
             className='react-modal-close'
             style={{ background: 'transparent', border: 0}}
         >
-            <FiX size={45} color="#f34748"/>
+            <FiX size={30} color="#ff0000"/>
         </button>
+
+        <div className={styles.addPostFormContainer}>
+            <form>
+                <div className={styles.titleForm}>
+                    <h2>Criar Publicação</h2>
+                </div>
+
+                <input type='text' placeholder='Adicione um título' name='title'/>
+
+                <textarea placeholder='Escreva aqui...' name='legend'/>
+
+                <input type='text' placeholder='Digite o endereço...' name='address'/>
+
+                <input type='date' name='disponibility'/>
+
+                <input type='file' name='photos'/>
+
+                <button type='submit'>Publicar</button>
+                
+            </form>
+        </div>
        </Modal>
     )
 }
