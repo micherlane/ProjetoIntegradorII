@@ -36,9 +36,24 @@
 
 .addItemStyle {
     display: flex;
+    padding-bottom: 0.3rem;
 }
 
-.addPostFormContainer form button {
+.addItemButtonStyle{
+    width: 20%;
+    height: 100%;
+    padding: 0.3rem;
+    margin-right: 0.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 0.5rem;
+    border: 0;
+    background-color:  #e9a01a;
+    color: #3e2723;
+}
+
+.addPostFormContainer form .publish{
     font-family: 'Kodchasan';
     border: 0;
     border-radius: 1rem;

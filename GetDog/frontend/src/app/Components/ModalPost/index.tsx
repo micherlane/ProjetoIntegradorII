@@ -3,7 +3,10 @@ import styles from './styles.module.css';
 
 import { FiX } from 'react-icons/fi';
 import { PostModel } from '@/app/models/postModel';
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
+import { LuImagePlus } from "react-icons/lu";
+import { BsCalendarDate } from "react-icons/bs";
+
 
 interface ModalPostProps {
     isOpen: boolean;
@@ -12,15 +15,22 @@ interface ModalPostProps {
 }
 export function ModalPost({isOpen, onRequestClose, handleAddPost}: ModalPostProps){
     const [availabilities, setAvailabilities] = useState<string[]>([]);
-    const [photos, setPhotos] = useState<string[]>([]);
+    const [photos, setPhotos] = useState<File[]>([]);
 
     const addAvailability = () => {
         setAvailabilities([...availabilities, '']);
     };
 
     const addPhotos = () => {
-        setPhotos([...photos, '']);
+        setPhotos([...photos, null]);
     }
+
+    const handleFileChange = (event: any, index: number) => {
+        const file = event.target.files[0];
+        const newPhotos = [...photos];
+        newPhotos[index] = file;
+        setPhotos(newPhotos);
+    };
 
     const customStyle = {
         content: {
@@ -62,6 +72,10 @@ export function ModalPost({isOpen, onRequestClose, handleAddPost}: ModalPostProp
                 <input type='text' placeholder='Digite o endereço...' name='address'/>
 
                 <div className={styles.addItemStyle}>
+                    <button type='button' onClick={addAvailability} className={styles.addItemButtonStyle}>
+                        <BsCalendarDate size={30}/>
+                        Adicionar
+                    </button>
                     {availabilities.map((availability, index) => (
                         <input
                             key={index}
@@ -71,24 +85,24 @@ export function ModalPost({isOpen, onRequestClose, handleAddPost}: ModalPostProp
                         />
                     ))}
                 </div>
-                <button type='button' onClick={addAvailability}>
-                    Adicionar Disponibilidade
-                </button>
 
                 <div className={styles.addItemStyle}>
-                     {
-                        photos.map((photo, index) => {
-                            return ( <input type='file' name='photos' key={index}/>)
-                        })
-                     }
+                    <button type='button' onClick={addPhotos} className={styles.addItemButtonStyle}>
+                        <LuImagePlus size={30}/> Adicionar
+                    </button>
+                    {photos.map((photo, index) => (
+                            <input
+                                key={index}
+                                type='file'
+                                name={`photo_${index}`}
+                                onChange={(e) => handleFileChange(e, index)}
+                            />
+                        ))}
                 </div>
 
-                <button type='button' onClick={addPhotos}>
-                    Adicionar imagem
-                </button>
                
 
-                <button type='submit'>Publicar</button>
+                <button type='submit' className={styles.publish}>Publicar</button>
                 
             </form>
         </div>
