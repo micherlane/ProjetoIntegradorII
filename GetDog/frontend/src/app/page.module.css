@@ -1,4 +1,102 @@
 .main {
   background-color: #F2F3F5;
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.descriptionSession {
+  width: 40%;
+}
+
+.titleGetDog {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #e9a01a;
+}
+
+.description {
+  margin-top: 1rem;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 0.5rem;
+  width: 400px;
+  padding: 2rem;
+  margin-left: 2rem;
+  box-shadow: 0 0 12px rgba(128, 128, 128, 0.5);
+}
+
+.login form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login form input {
+  margin-bottom: 1rem;
+  height: 40px;
+  border: 0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #868686;
+}
+
+.login form input:focus {
+  border: 2px solid #e9a01a; 
+}
+
+.login form .buttonEnter,.login .buttonNewAccount {
+  height: 40px;
+  border-radius: 0.3rem;
+  border:0;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.login form .buttonEnter {
+  background-color: #e9a01a;
+}
+
+.login form .buttonEnter:hover {
+  background-color: #b17910;
+}
+
+.login .buttonNewAccount {
+  background-color: #12ad39;
+}
+
+.login .buttonNewAccount:hover {
+  background-color: #00a02b;
+}
+
+@media (max-width: 900px) {
+  .main {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .descriptionSession {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 1rem;
+  }
+
+  .description {
+    visibility: hidden;
+    display: none;
+  }
+
+  .login {
+    width: 100%;
+    margin: 0;
+  }
 }
