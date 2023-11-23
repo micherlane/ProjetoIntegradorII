@@ -40,7 +40,7 @@ export function PostItem({ post }: PostItemProps) {
                 <p>{post.legend}</p>
             </div>
 
-            <h3 className={styles.disponibilityTitle}>Disponibilidade</h3>
+            <h3 className={styles.disponibilityTitle}>Horários Disponíveis</h3>
 
             <div className={styles.disponibilityStyle}>
             {
