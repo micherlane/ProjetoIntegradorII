@@ -40,19 +40,20 @@ export function PostItem({ post }: PostItemProps) {
                 <p>{post.legend}</p>
             </div>
 
-            <h3>Disponibilidade</h3>
+            <h3 className={styles.disponibilityTitle}>Disponibilidade</h3>
 
             <div className={styles.disponibilityStyle}>
-                {
-                    post.disponiblity.map((disponibility: Date, index: number) => {
-                        return (
-                            <div className={styles.postItemDisponibility} key={index}>
-                                <div className={styles.postItemDisponibilityContent}>{formatDate(disponibility)}</div>
-                                <div className={styles.postItemDisponibilityContent}>{formatTime(disponibility)}</div>
-                            </div>
-                        );
-                    })
-                }
+            {
+                post.disponiblity.map((disponibility: Date, index: number) => {
+                    return (
+                    <div className={styles.postItemDisponibility} key={index}>
+                        <div className={styles.postItemDisponibilityContent}>
+                        {`${formatDate(disponibility)} - ${formatTime(disponibility)}`}
+                        </div>
+                    </div>
+                    );
+                })
+            }
             </div>
 
 

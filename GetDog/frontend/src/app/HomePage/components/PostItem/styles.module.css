@@ -41,29 +41,25 @@
     margin-bottom: 2rem;
 }
 
-.disponibilityStyle {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 1rem;
-    margin-bottom: 0.3rem;
-}
-
-.postItemDisponibility {
-    display: flex;
-    justify-content: space-around;
-    width: 30%;
-    margin-right: 1rem;
-}
-
-.postItemDisponibility .postItemDisponibilityContent {
+.disponibilityTitle {
+    margin-bottom: 1rem;
+  }
+  
+  .postItemDisponibility {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    display: inline-block; /* Altera para exibir os blocos lado a lado */
+  }
+  
+  .postItemDisponibility .postItemDisponibilityContent {
     background-color: #12ad39;
     font-weight: bold;
     color: white;
     border-radius: 0.5rem;
-    padding: 0.3rem;
-    margin: 0.1rem;
-}
-
+    padding: 0.3rem 0.6rem; /* Ajusta o padding horizontal */
+    margin: 0.2rem;
+    display: inline-block; /* Ajusta a exibição para ficar lado a lado */
+  }
 .postItemImage {
     margin-top: 2rem;
     width: 100%;
@@ -100,7 +96,7 @@
     padding: 0.5rem;
     border-radius: 1rem;
     width: 80%;
-    background-color: rgb(255, 226, 172);
+    background-color: #d8d8d8;
 }
 
 .postItemReservation {

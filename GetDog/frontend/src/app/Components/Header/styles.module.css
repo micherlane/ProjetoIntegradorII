@@ -1,9 +1,8 @@
 .headerContainer {
     font-family: 'Kodchasan', sans-serif;
-    box-shadow: 0 0 3px #838383; 
+    box-shadow: 0 0 12px #838383; 
     align-items: center;
     justify-content: center;
-    background-color: #e9a01a;
 }
 
 .headerContent {
