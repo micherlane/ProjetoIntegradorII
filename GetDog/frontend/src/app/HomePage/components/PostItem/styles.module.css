@@ -48,17 +48,17 @@
   .postItemDisponibility {
     margin-right: 0.5rem;
     margin-bottom: 0.5rem;
-    display: inline-block; /* Altera para exibir os blocos lado a lado */
+    display: inline-block; 
   }
   
   .postItemDisponibility .postItemDisponibilityContent {
-    background-color: #12ad39;
+    background-color: #464646;
     font-weight: bold;
     color: white;
     border-radius: 0.5rem;
-    padding: 0.3rem 0.6rem; /* Ajusta o padding horizontal */
+    padding: 0.3rem 0.6rem;
     margin: 0.2rem;
-    display: inline-block; /* Ajusta a exibição para ficar lado a lado */
+    display: inline-block;
   }
 .postItemImage {
     margin-top: 2rem;
@@ -106,7 +106,7 @@
 }
 
 .postItemReservation button {
-    background-color: rgb(233, 160, 26);
+    background-color:#464646;
     border-radius: 0.3rem;
     border: none;
     width: 100%;
@@ -117,5 +117,5 @@
 }
 
 .postItemReservation button:hover {
-    background-color: rgb(189, 130, 21);
+    background-color: #252525;
 }
