@@ -2,31 +2,32 @@
     margin-top: 0; 
 }
 .reservationNavStyle {
+    box-shadow: -4px 0 6px -2px rgba(128, 128, 128, 0.5);
     display: flex;
     flex-direction: column;
     height: calc(100vh - 5rem);
     width: 20%;
-    background-color: rgb(233, 160, 26);
+    background-color: white;
 }
 
 .reservationNavStyle a {
     display: block;
     width: 100%;
     text-decoration: none; 
-    color: white;
-    background-color: rgb(185, 125, 14);
+    color: #464646;
+    border-bottom: 1px solid #464646;
     font-weight: bold;
     padding: 1rem;
-    margin-bottom: 0.3rem; 
     transition: background-color 0.3s ease; 
 }
 
 .reservationNavStyle a:hover {
-    background-color: rgb(150, 100, 10); 
+    background-color: #464646; 
+    color: white;
 }
 
 .reservationNavStyle a:active {
-    background-color: rgb(100, 70, 5);
+    background-color: #1f1f1f;
 }
 
 .toggleButton {
@@ -67,7 +68,8 @@
 }
 @media screen and (min-width: 800px) {
     .reservationNavContainer {
-        background-color: rgb(233, 160, 26);
+        color: #464646;
+        border-bottom: 1px solid #464646;
         box-shadow: 0 3px 3px 0 rgba(128, 128, 128, 0.5);
         width: 25%;
     }

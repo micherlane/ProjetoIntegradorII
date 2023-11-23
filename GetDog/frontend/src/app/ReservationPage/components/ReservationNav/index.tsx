@@ -16,7 +16,7 @@ export function ReservationNav(){
 
     return (
         <div className={styles.reservationNavContainer}>
-            <IoMenu className={styles.toggleButton} onClick={toggleMenu} color="#ffffff" size={70}/>
+            <IoMenu className={styles.toggleButton} onClick={toggleMenu} color="#464646" size={70}/>
             <div className={`${styles.reservationNavStyle} ${showMenu ? styles.showMenu : ''}`}>
                 <Link href="#" onClick={hideMenu}>
                     MINHAS RESERVAS
