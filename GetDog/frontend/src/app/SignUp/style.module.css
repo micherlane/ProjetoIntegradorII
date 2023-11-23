@@ -10,7 +10,7 @@
 .titleGetDog {
     font-size: 4rem;
     font-weight: bold;
-    color: #e9a01a;
+    color: #464646;
 }
 
 .signUp {
@@ -20,7 +20,7 @@
 
 .signUp h2 {
     margin-bottom: 2rem;
-    color: #e9a01a;
+    color: #464646;
     align-self: center;
 }
 .signUp {
@@ -46,19 +46,19 @@
     border: 0;
     padding: 1rem;
     border-radius: 0.5rem;
-    border: 1px solid #e9a01a;;
+    border: 1px solid #464646;
   }
 
   .signUp select {
     font-family: 'Kodchasan', sans-serif;
     border: 0;
     padding:  0.5rem 0;
-    border: 1px solid #e9a01a;;
+    border: 1px solid #464646;
     border-radius: 0.5rem;
   }
   
   .signUp form input:focus {
-    border: 2px solid #e9a01a; 
+    border: 3px solid #2e2e2e; 
   }
   
   .signUp form .register {
