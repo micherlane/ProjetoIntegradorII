@@ -51,7 +51,7 @@
   border: 3px solid #2e2e2e; 
 }
 
-.login form .buttonEnter,.login .buttonNewAccount {
+.login form .buttonEnter,.login .newAccountContainer {
   font-family: 'Kodchasan', sans-serif;
   height: 40px;
   border-radius: 0.3rem;
@@ -69,12 +69,15 @@
   background-color: #202020;
 }
 
-.login .buttonNewAccount {
+.login .newAccountContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #12ad39;
 }
 
-.login .buttonNewAccount:hover {
-  background-color: #00a02b;
+.login .newAccountContainer:hover {
+  background-color: #003d10;
 }
 
 @media (max-width: 900px) {

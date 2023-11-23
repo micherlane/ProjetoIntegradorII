@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './style.module.css';
 
 export default function SignUp(){
@@ -18,6 +19,7 @@ export default function SignUp(){
                         </select>
                         <button type='submit' className={styles.register}>Registrar</button>
                     </form>
+                    <Link href="/" className={styles.navigationLoginStyle}>Já tem cadastro? <span>Entre aqui!</span></Link>
                 </div>
             </main>
         </>

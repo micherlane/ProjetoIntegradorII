@@ -76,3 +76,11 @@
   .signUp form .register:hover {
     background-color: #00a02b;
   }
+
+  .navigationLoginStyle {
+    align-self: center;
+  }
+
+  .navigationLoginStyle span {
+    color: blue;
+  }
