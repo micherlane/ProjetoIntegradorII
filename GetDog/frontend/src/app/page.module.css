@@ -14,7 +14,7 @@
 .titleGetDog {
   font-size: 4rem;
   font-weight: bold;
-  color: #e9a01a;
+  color: #464646;
 }
 
 .description {
@@ -44,11 +44,11 @@
   border: 0;
   padding: 1rem;
   border-radius: 0.5rem;
-  border: 1px solid #e9a01a;;
+  border: 1px solid #464646;
 }
 
 .login form input:focus {
-  border: 2px solid #e9a01a; 
+  border: 3px solid #2e2e2e; 
 }
 
 .login form .buttonEnter,.login .buttonNewAccount {
@@ -62,11 +62,11 @@
 }
 
 .login form .buttonEnter {
-  background-color: #e9a01a;
+  background-color: #464646;
 }
 
 .login form .buttonEnter:hover {
-  background-color: #b17910;
+  background-color: #202020;
 }
 
 .login .buttonNewAccount {
