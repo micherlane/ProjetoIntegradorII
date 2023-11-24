@@ -16,7 +16,8 @@
     width: 100%;
     text-decoration: none; 
     color: #464646;
-    border-bottom: 1px solid #464646;
+    box-shadow: 0 0 2px #505050; 
+
     font-weight: bold;
     padding: 1rem;
     transition: background-color 0.3s ease; 
