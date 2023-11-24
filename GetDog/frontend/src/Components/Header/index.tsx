@@ -3,11 +3,20 @@ import { ImageUser } from '../ImageUser';
 import styles from './styles.module.css';
 import { FiLogOut } from 'react-icons/fi';
 import { signOut } from '@/Providers/AuthProvider';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '@/contexts/AuthContext';
 
-export function Header(){
+export function Header() {
     const { user } = useContext(AuthContext);
+    const [name, setName] = useState('');
+
+    useEffect(() => {
+        if (user) {
+            setName(user.name);
+        }
+    }, [user]);
+
+
     return (
         <header className={styles.headerContainer}>
             <div className={styles.headerContent}>
@@ -20,10 +29,10 @@ export function Header(){
 
                     <div className={styles.headerUser}>
 
-                        <ImageUser urlImage="http://localhost:3001/images/1699906205195.ai_image_history_62844.png" size={60}/>
+                        <ImageUser urlImage="http://localhost:3001/images/1699906205195.ai_image_history_62844.png" size={60} />
 
                         <div className={styles.headerUserName}>
-                            <p>{user.name}</p>
+                            <p>{name}</p>
                         </div>
 
                         <div className={styles.headerButtonLogOut}>
@@ -31,7 +40,7 @@ export function Header(){
                             <button onClick={() => signOut()}>
                                 <FiLogOut color='#000' size={24}></FiLogOut>
                             </button>
-                            
+
                         </div>
                     </div>
                 </div>
