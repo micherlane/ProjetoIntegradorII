@@ -4,7 +4,6 @@ import { toast } from 'react-toastify';
 import { FormEvent, useContext, useState } from 'react';
 import styles from '@/styles/Home.module.css'
 
-console.log(styles)
 
 export default function Home() {
   const {signIn} = useContext(AuthContext);
