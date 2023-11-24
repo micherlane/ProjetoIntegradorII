@@ -3,8 +3,21 @@
 import { ReactNode, useState } from "react";
 import { AuthContext, SignInProps, UserProps } from "../contexts/AuthContext";
 
+import { destroyCookie } from 'nookies';
+
+import Router from 'next/router';
+
 type AuthProviderProps = {
     children: ReactNode;
+}
+
+export function signOut() {
+    try {
+        destroyCookie(undefined, '@getdog.token');
+        Router.push('/');
+    } catch {
+        console.log('Erro ao deslogar');
+    }
 }
 
 export function AuthProvider ({ children} : AuthProviderProps) {
@@ -17,7 +30,7 @@ export function AuthProvider ({ children} : AuthProviderProps) {
 
     return (
         <AuthContext.Provider value={{
-            user, isAuthenticated, signIn
+            user, isAuthenticated, signIn, signOut
         }}>
             { children }
         </AuthContext.Provider>

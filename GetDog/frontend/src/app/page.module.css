@@ -80,6 +80,11 @@
   background-color: #003d10;
 }
 
+.login .newAccountContainer a {
+  width: 100%;
+  text-align: center;
+}
+
 @media (max-width: 900px) {
   .main {
     flex-direction: column;
