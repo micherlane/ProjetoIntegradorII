@@ -49,7 +49,7 @@ export function AuthProvider ({ children} : AuthProviderProps) {
 
             api.defaults.headers['Authorization'] = `Bearer ${token}`;
 
-            Router.push('/HomePage')
+            Router.push('/home')
 
         } catch (err){
             console.log('Erro ao acessar', err);
