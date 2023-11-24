@@ -1,4 +1,4 @@
-import { ReservationModel } from "@/app/models/reservationModel"
+import { ReservationModel } from "@/models/reservationModel";
 
 const reservationJSON = [		{
     "id": "a0befc46-5fd3-4ca5-b727-11fad1ad47f8",

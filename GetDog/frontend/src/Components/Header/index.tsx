@@ -2,8 +2,10 @@ import Link from 'next/link';
 import { ImageUser } from '../ImageUser';
 import styles from './styles.module.css';
 import { FiLogOut } from 'react-icons/fi';
+import { signOut } from '@/Providers/AuthProvider';
 
 export function Header(){
+    
     return (
         <header className={styles.headerContainer}>
             <div className={styles.headerContent}>
@@ -24,7 +26,7 @@ export function Header(){
 
                         <div className={styles.headerButtonLogOut}>
 
-                            <button>
+                            <button onClick={() => signOut()}>
                                 <FiLogOut color='#000' size={24}></FiLogOut>
                             </button>
                             

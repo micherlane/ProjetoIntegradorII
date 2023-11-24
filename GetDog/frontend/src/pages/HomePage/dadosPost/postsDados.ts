@@ -1,4 +1,4 @@
-import { PostModel } from "@/app/models/postModel";
+import { PostModel } from "@/models/postModel";
 
 const postsJSON = 	[{
     "id": "3a4eccb2-f54a-42b7-a7f4-3c18c88f13e34",

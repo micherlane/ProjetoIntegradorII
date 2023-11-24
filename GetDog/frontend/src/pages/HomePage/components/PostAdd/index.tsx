@@ -1,12 +1,12 @@
 'use client';
 
-import { ImageUser } from '@/app/Components/ImageUser';
 import styles from './styles.module.css';
 import { toast } from 'react-toastify';
-import { PostModel } from '@/app/models/postModel';
 import Modal from 'react-modal';
 import { useState } from 'react';
-import { ModalPost } from '@/app/Components/ModalPost';
+import { PostModel } from '@/models/postModel';
+import { ImageUser } from '@/Components/ImageUser';
+import { ModalPost } from '@/Components/ModalPost';
 
 interface PostAddProps{
     handleAddPost: (post: PostModel) => void;
@@ -25,7 +25,7 @@ export function PostAdd({handleAddPost}: PostAddProps){
     const handleCloseModalView = () => {
         setModalVisible(false);
     }
-    Modal.setAppElement(".__className_e66fe9");
+    Modal.setAppElement("#__next");
 
     return (
         <div>

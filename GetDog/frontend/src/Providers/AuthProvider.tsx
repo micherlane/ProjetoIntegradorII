@@ -17,6 +17,7 @@ type AuthProviderProps = {
 export function signOut() {
     try {
         destroyCookie(undefined, '@getdog.token');
+        Router.push('/')
     } catch (err){
         console.log('Erro ao deslogar', err);
     }
@@ -48,6 +49,7 @@ export function AuthProvider ({ children} : AuthProviderProps) {
 
             api.defaults.headers['Authorization'] = `Bearer ${token}`;
 
+            Router.push('/HomePage')
 
         } catch (err){
             console.log('Erro ao acessar', err);

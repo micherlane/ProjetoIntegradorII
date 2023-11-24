@@ -1,8 +1,8 @@
 "use client";
 
-import { ImageUser } from "@/app/Components/ImageUser";
+import { ReservationModel } from "@/models/reservationModel";
 import styles from "./styles.module.css";
-import { ReservationModel } from "@/app/models/reservationModel";
+import { ImageUser } from "@/Components/ImageUser";
 
 interface ReservationItemProps {
     reservation: ReservationModel

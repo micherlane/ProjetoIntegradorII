@@ -1,10 +1,10 @@
-"use client";
-
-import styles from './page.module.css'
-import { useContext, FormEvent, useState} from 'react';
-import { AuthContext } from './contexts/AuthContext';
+import { AuthContext } from '../contexts/AuthContext';
 import Link from 'next/link';
 import { toast } from 'react-toastify';
+import { FormEvent, useContext, useState } from 'react';
+import styles from '@/styles/Home.module.css'
+
+console.log(styles)
 
 export default function Home() {
   const {signIn} = useContext(AuthContext);
