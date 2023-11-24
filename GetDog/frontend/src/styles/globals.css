@@ -7,7 +7,7 @@
 
 @font-face {
   font-family: 'Kodchasan';
-  src: url('/public/fonts/Kodchasan/Kodchasan-Regular.ttf') format('truetype');
+  src: url('/fonts/Kodchasan/Kodchasan-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

@@ -3,9 +3,11 @@ import { ImageUser } from '../ImageUser';
 import styles from './styles.module.css';
 import { FiLogOut } from 'react-icons/fi';
 import { signOut } from '@/Providers/AuthProvider';
+import { useContext } from 'react';
+import { AuthContext } from '@/contexts/AuthContext';
 
 export function Header(){
-    
+    const { user } = useContext(AuthContext);
     return (
         <header className={styles.headerContainer}>
             <div className={styles.headerContent}>
@@ -21,7 +23,7 @@ export function Header(){
                         <ImageUser urlImage="http://localhost:3001/images/1699906205195.ai_image_history_62844.png" size={60}/>
 
                         <div className={styles.headerUserName}>
-                            <p>Nome do Usuário</p>
+                            <p>{user.name}</p>
                         </div>
 
                         <div className={styles.headerButtonLogOut}>
