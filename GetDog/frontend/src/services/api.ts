@@ -2,6 +2,7 @@ import axios, { AxiosError} from "axios";
 import { parseCookies } from 'nookies';
 import { AuthTokenError } from "./errors/AuthTokenError";
 import { signOut } from "../Providers/AuthProvider";
+import { toast } from "react-toastify";
 
 export function setupAPIClient(ctx = undefined) {
     let cookies = parseCookies(ctx);
@@ -17,6 +18,8 @@ export function setupAPIClient(ctx = undefined) {
         return response;
     }, (error: AxiosError) => {
         if(error.response.status === 401){
+            toast.error(error.response.data['error']);
+            
             if(typeof window !== undefined){
                 signOut();
             } else {
