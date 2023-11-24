@@ -1,20 +1,30 @@
 "use client";
 
 import styles from './page.module.css'
-import { useContext, FormEvent} from 'react';
+import { useContext, FormEvent, useState} from 'react';
 import { AuthContext } from './contexts/AuthContext';
 import Link from 'next/link';
-import SignUp from './SignUp/page';
+import { toast } from 'react-toastify';
 
 export default function Home() {
   const {signIn} = useContext(AuthContext);
 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('')
+
+  
+
   const handleLogin = async (event: FormEvent) => {
       event.preventDefault();
 
+      if(email === '' || password === ''){
+        toast.error('Preencha todos os campos!');
+        return ;
+      }
+
       let data = {
-        email: "teste@teste.com",
-        password: "123123",
+        email,
+        password,
       }; 
       await signIn(data);
   }
@@ -28,8 +38,8 @@ export default function Home() {
           </div>
           <div className={styles.login}>
               <form>
-                <input type='text' placeholder='Email'/>
-                <input type='password' placeholder='Senha'/>
+                <input type='text' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)}/>
+                <input type='password' placeholder='Senha' value={password} onChange={(e) => setPassword(e.target.value)}/>
                 <button type='submit' className={styles.buttonEnter} onClick={handleLogin}>Entrar</button>
               </form>
 
