@@ -43,7 +43,7 @@ export default function Home() {
               </form>
 
               <div className={styles.newAccountContainer}>
-                <Link href="/SignUp" className={styles.buttonNewAccount}>Criar nova conta</Link>
+                <Link href="/signup" className={styles.buttonNewAccount}>Criar nova conta</Link>
               </div>
           </div>
       </main>
