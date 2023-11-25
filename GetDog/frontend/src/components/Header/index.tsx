@@ -44,10 +44,13 @@ export function Header() {
                             <p>{name}</p>
                         </div>
 
-                        <div className={styles.headerButtonLogOut}>
+                        <div className={styles.headerButtonLogOut} onClick={() => signOut()}>
 
-                            <button onClick={() => signOut()}>
-                                <FiLogOut color='#000' size={24}></FiLogOut>
+                            <button >
+                                <div className={styles.iconLogOut}>
+                                    <FiLogOut color='white' size={25}/>
+                                </div>
+                                <span>Sair</span>
                             </button>
 
                         </div>
