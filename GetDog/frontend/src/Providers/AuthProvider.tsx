@@ -1,13 +1,14 @@
 "use client";
 
 import { ReactNode, useContext, useEffect, useState } from "react";
-import { AuthContext, SignInProps, UserProps } from "../contexts/AuthContext";
+import { AuthContext, SignInProps, SignUpProps, UserProps } from "../contexts/AuthContext";
 
 import { destroyCookie, setCookie, parseCookies } from 'nookies';
 
 import Router from 'next/router';
 
 import { api } from "../services/apiClient";
+import { toast } from "react-toastify";
 
 type AuthProviderProps = {
     children: ReactNode;
@@ -82,6 +83,28 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     }, []);
 
+    async function signUp({name, email, password, address, typeUser}: SignUpProps){
+        try {
+            const response = await api.post('/users',{
+                name,
+                email,
+                password,
+                address,
+                typeUser,
+            });
+
+            toast.success('Usuário cadastrado com sucesso!');
+
+            Router.push('/');
+        } catch (err) {
+            if (err.response && err.response.status === 422) {
+                toast.error('Este usuário já está cadastrado.');
+            } else {
+                toast.error('Ocorreu um erro ao cadastrar o usuário.');
+            }
+        }
+    }
+
     async function signIn({ email, password }: SignInProps) {
         try {
             const response = await api.post('/session', {
@@ -116,7 +139,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     return (
         <AuthContext.Provider value={{
-            user, isAuthenticated, signIn, signOut
+            user, isAuthenticated, signIn, signOut, signUp
         }}>
             {children}
         </AuthContext.Provider>
