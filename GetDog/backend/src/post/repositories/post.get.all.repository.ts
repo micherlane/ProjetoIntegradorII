@@ -1,6 +1,7 @@
 import prismaClient from "../../prisma";
 import { HttpStatus, Injectable, Logger } from "@nestjs/common";
 import { ExceptionError } from "../../middlewares/exceptions/exception.error";
+import { postGetAllDto } from "../dto/post.get.all.dto";
 
 @Injectable()
 
@@ -10,6 +11,9 @@ export class PostGetAllRepository {
     public async getAllPosts(perPage: number, offset: number){
         try {
             const posts = await prismaClient.post.findMany({
+                select: {
+                   ...postGetAllDto
+                },
                 take: perPage,
                 skip: offset
             });
