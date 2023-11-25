@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import { FaLongArrowAltUp, FaLongArrowAltDown } from 'react-icons/fa';
 import { useState } from "react";
 import { PostModel } from "@/models/postModel";
-import { ImageUser } from "@/Components/ImageUser";
+import { ImageUser } from "@/components/ImageUser";
 import { formatDate, formatDateToLongString, formatTime } from "@/utils/dataUtils";
 
 interface PostItemProps {

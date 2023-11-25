@@ -2,7 +2,7 @@
 
 import { ReservationModel } from "@/models/reservationModel";
 import styles from "./styles.module.css";
-import { ImageUser } from "@/Components/ImageUser";
+import { ImageUser } from "@/components/ImageUser";
 
 interface ReservationItemProps {
     reservation: ReservationModel

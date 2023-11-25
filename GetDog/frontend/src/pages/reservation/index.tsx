@@ -1,6 +1,6 @@
 "use client";
 
-import { Header } from "@/Components/Header";
+import { Header } from "@/components/Header";
 import { ReservationDashboard } from "./components/ReservationDashboad";
 
 export default function ReservationPage(){
