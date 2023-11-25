@@ -5,6 +5,9 @@ import { FiLogOut } from 'react-icons/fi';
 import { signOut } from '@/Providers/AuthProvider';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '@/contexts/AuthContext';
+import { IoChatbubblesSharp } from "react-icons/io5";
+import { BiSolidCalendarEdit } from "react-icons/bi";
+import { FaUserFriends } from "react-icons/fa";
 
 export function Header() {
     const { user } = useContext(AuthContext);
@@ -22,7 +25,13 @@ export function Header() {
             <div className={styles.headerContent}>
 
                 <div className={styles.headerLogo}>
-                    <Link href="/HomePage">GetDog</Link>
+                    <Link href="/home">GetDog</Link>
+                </div>
+
+                <div className={styles.navigationLinks}>
+                    <Link href="/reservation"> <BiSolidCalendarEdit size={25} color="#464646"/> <span>Reservas</span></Link>
+                    <Link href="#"> <IoChatbubblesSharp size={25} color="#464646"/> <span>Chat</span></Link>
+                    <Link href="#"><FaUserFriends size={25} color="#464646"/> <span>Amigos</span></Link>
                 </div>
 
                 <div className={styles.headerUserInfo}>

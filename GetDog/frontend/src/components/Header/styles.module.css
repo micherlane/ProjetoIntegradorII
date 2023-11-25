@@ -18,7 +18,36 @@
     font-size: 30px;
     font-weight: bold;
     color: #464646;
-    margin-left: 2.3rem;
+    
+}
+
+.navigationLinks {
+    display: flex;
+}
+.navigationLinks a {
+    display: flex;
+    height: 5rem;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.navigationLinks a {
+  
+    text-decoration: none; 
+    color: #464646;
+
+    font-weight: bold;
+    padding: 1rem;
+    transition: background-color 0.3s ease; 
+}
+
+.navigationLinks a:hover {
+    border-bottom: 3px solid #464646; 
+}
+
+.navigationLinks a:active {
+    border-bottom: 3px solid #1f1f1f;
 }
 
 .headerUserInfo {
@@ -40,8 +69,16 @@
     .headerUserName {
         display: none;
     }   
+
+    .headerLogo a {
+        margin-left: 2.3rem;
+    }
     
     .headerUser img {
+        display: none;
+    }
+
+    .navigationLinks span {
         display: none;
     }
 
