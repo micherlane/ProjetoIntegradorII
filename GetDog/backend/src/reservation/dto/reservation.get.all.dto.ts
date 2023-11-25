@@ -21,6 +21,12 @@ const profileUserInfo ={
     coverPhoto: true,
 }
 
+const postInfo = {
+    title: true,
+    legend: true,
+     
+}
+
 export const reservationGetAllDto = {
     ...reservationPersonalInfo,
     user: {
@@ -31,6 +37,11 @@ export const reservationGetAllDto = {
                 ...profileUserInfo
                }
             }
+        }
+    },
+    post: {
+        select: {
+            ...postInfo
         }
     }
 }
