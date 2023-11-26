@@ -1,7 +1,6 @@
 'use client';
 
 import styles from './styles.module.css';
-import { toast } from 'react-toastify';
 import Modal from 'react-modal';
 import { useContext, useEffect, useState } from 'react';
 import { PostModel } from '@/models/postModel';
@@ -27,7 +26,6 @@ export function PostAdd({handleAddPost}: PostAddProps){
 
     const handlePostClick = () => {
         handleOpenModalView()
-       toast.success("Você clicou em adicionar postagem") ;
     };
 
     const handleOpenModalView = () =>{

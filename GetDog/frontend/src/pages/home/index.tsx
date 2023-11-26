@@ -9,20 +9,16 @@ import { useEffect, useState } from "react";
 
 export default function HomePage({ posts }){
 
-    const [postsList, setPostList] = useState<PostModel[]>([]);
-    
-    useEffect(() => {
-    
-        const postsModels = posts.map(post => PostModel.fromJSON(post));
+    const [postsList, setPostList] = useState<PostModel[]>(posts.map(post => PostModel.fromJSON(post)));
 
-        setPostList(postsModels);
-        
-    }, []);
+    const handleAddPost = (post: PostModel) => {
+        setPostList(prevPosts => [ post, ...prevPosts,]);
+    };
 
     return (
         <>
         <Header/>
-        <PostDashboard posts={postsList}/>
+        <PostDashboard posts={postsList} handleAddPost={handleAddPost}/>
         </>
     );
 }

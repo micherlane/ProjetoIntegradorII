@@ -6,19 +6,17 @@ import { PostModel } from "@/models/postModel";
 
 interface PostDashboardProps {
     posts: PostModel[];
+    handleAddPost: (post: PostModel) => void;
 }
 
-export function PostDashboard({posts}: PostDashboardProps) {
+export function PostDashboard({posts, handleAddPost}: PostDashboardProps) {
     const [postList, setPostList] = useState([]);
 
     useEffect(() => {
         setPostList(posts)
     }, [posts])
 
-    const handleAddPost = (post: PostModel) => {
-        postList.push(post);
-        setPostList(postList);
-    }
+   
     return (
         <div className={styles.postDashboardStyle}>
             <div className={styles.postDashboardChildrensStyle}>
