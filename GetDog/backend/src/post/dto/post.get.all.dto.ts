@@ -15,6 +15,7 @@ const postInfo = {
     id: true,
     title: true,
     legend: true,
+    photos: true,   
     disponibility: true,
     likes: true,
     unlikes: true,

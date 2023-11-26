@@ -14,6 +14,7 @@ interface PostItemProps {
 }
 
 export function PostItem({ post }: PostItemProps) {
+    const urlImageAuthor = `http://localhost:3001/images/${post.author.profile.profilePicture}`
     const handleAddComment = () => {
         toast.success("Você clicou em adicionar comentário!");
     }
@@ -26,8 +27,8 @@ export function PostItem({ post }: PostItemProps) {
         <div className={styles.postItemContainer}>
             <div className={styles.postItemHeader}>
                 <div className={styles.postItemUser}>
-                    <ImageUser urlImage='http://localhost:3001/images/1699906205195.ai_image_history_62844.png' size={50} />
-                    <p>Nome do Usuário</p>
+                    <ImageUser urlImage={urlImageAuthor} size={50} />
+                    <p>{post.author.name}</p>
                 </div>
                 <div>
                     {formatDateToLongString(new Date(post.createdAt))}

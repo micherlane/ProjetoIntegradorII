@@ -1,3 +1,5 @@
+import { UserModel } from "./userModel";
+
 export class PostModel {
     id: string;
     title: string;
@@ -9,7 +11,7 @@ export class PostModel {
     createdAt: Date;
     updatedAt: Date;
     photos: string[];
-    authorId: string;
+    author: UserModel;
 
     constructor(
           id: string,
@@ -22,7 +24,7 @@ export class PostModel {
           createdAt: Date,
           updatedAt: Date,
           photos: string[],
-          authorId: string
+          author: UserModel
           ) {
         this.id = id;
         this.title = title;
@@ -34,7 +36,7 @@ export class PostModel {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.photos = photos;
-        this.authorId = authorId
+        this.author = author;
     }
 
     public static fromJSON(json: any): PostModel {
@@ -51,7 +53,7 @@ export class PostModel {
             json.createdAt,
             json.updatedAt,
             json.photos,
-            json.authorId,
+            UserModel.fromJSON(json.author),
 
         );
     }
