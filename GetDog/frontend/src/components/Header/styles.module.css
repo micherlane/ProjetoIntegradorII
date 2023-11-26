@@ -3,6 +3,7 @@
     box-shadow: 0 0 12px #505050; 
     align-items: center;
     justify-content: center;
+    background-color: white;
 }
 
 .headerContent {

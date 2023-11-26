@@ -15,7 +15,7 @@ const reservationJSON = [		{
         "profile": {
             "gender": "famale",
             "biography": "Médica Legista de Zustyken City com hobbie de passear com cachorros",
-            "profilePicture": "1700611243807.ai_image_history_62934(2).png",
+            "profilePicture": "1701019720226.kevin.png",
             "coverPhoto": "1700611243810.ai_image_history_62827.png"
         }
     }
@@ -35,8 +35,8 @@ const reservationJSON = [		{
         "profile": {
             "gender": "famale",
             "biography": "Médica Legista de Zustyken City com hobbie de passear com cachorros",
-            "profilePicture": "1700611243807.ai_image_history_62934(2).png",
-            "coverPhoto": "1700611243810.ai_image_history_62827.png"
+            "profilePicture": "1701019720226.kevin.png",
+            "coverPhoto": "1701019720226.kevin.png"
         }
     }
 }]

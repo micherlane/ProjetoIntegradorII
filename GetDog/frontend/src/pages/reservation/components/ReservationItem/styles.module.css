@@ -1,7 +1,7 @@
 .reservationItemContainer {
     box-shadow: 0 0 12px rgba(128, 128, 128, 0.5);
     border-radius: 0.5rem;
-
+    border: 1px solid #bdbdbd;
     padding: 1rem;
     margin: 0.3rem;
     background-color: white;
