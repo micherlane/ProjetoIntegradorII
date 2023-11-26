@@ -45,6 +45,9 @@ export function ModalPost({ isOpen, onRequestClose, handleAddPost }: ModalPostPr
     };
 
     const customStyle = {
+        overlay: {
+            backgroundColor: 'rgba(0, 0, 0, 0.5)'
+        },
         content: {
             top: '50%',
             bottom: 'auto',
@@ -126,7 +129,7 @@ export function ModalPost({ isOpen, onRequestClose, handleAddPost }: ModalPostPr
                         {availabilities.map((availability, index) => (
                             <input
                                 key={index}
-                                type='datetime-local'
+                                type='date'
                                 name='disponibility'
                                 value={availability}
                                 onChange={(e) => handleAvailabilityChange(index, e.target.value)}

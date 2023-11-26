@@ -41,7 +41,7 @@ export function PostItem({ post }: PostItemProps) {
                 <p>{post.legend}</p>
             </div>
 
-            <h3 className={styles.disponibilityTitle}>Horários Disponíveis</h3>
+            <h3 className={styles.disponibilityTitle}>Datas Disponíveis</h3>
 
             <div className={styles.disponibilityStyle}>
             {
@@ -49,7 +49,7 @@ export function PostItem({ post }: PostItemProps) {
                     return (
                     <div className={styles.postItemDisponibility} key={index}>
                         <div className={styles.postItemDisponibilityContent}>
-                        {`${formatDate(disponibility)} - ${formatTime(disponibility)}`}
+                        {`${formatDate(disponibility)}`}
                         </div>
                     </div>
                     );
