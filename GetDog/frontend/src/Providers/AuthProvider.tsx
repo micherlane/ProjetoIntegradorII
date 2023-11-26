@@ -9,6 +9,7 @@ import Router from 'next/router';
 
 import { api } from "../services/apiClient";
 import { toast } from "react-toastify";
+import { ProfileModel } from "@/models/profileModel";
 
 type AuthProviderProps = {
     children: ReactNode;
@@ -62,14 +63,16 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
 
                 api.get(`/users/profile/${sub}`).then(response => {
-                    const { id, name, email, address, typeUser } = response.data['user'];
+                    const { id, name, email, address, typeUser, profile } = response.data['user'];
                     setUser({
                         id,
                         name, 
                         email, 
                         address,
-                        typeUser
+                        typeUser,
+                        profile: ProfileModel.fromJSON(profile)
                     });
+
                 }).catch(() => {
                     signOut();
                 });
@@ -112,7 +115,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
                 password
             });
 
-            const { id, name, address, typeUser, token } = response.data;
+
+            const { id, name, address, typeUser, profile, token } = response.data;
             setCookie(undefined, '@getdog.token', token, {
                 maxAge: 60 * 60 * 24 * 30,
                 path: "/"
@@ -125,8 +129,10 @@ export function AuthProvider({ children }: AuthProviderProps) {
                 name,
                 email,
                 typeUser,
-                address
+                address,
+                profile: ProfileModel.fromJSON(profile)
             });
+
 
             api.defaults.headers['Authorization'] = `Bearer ${token}`;
 

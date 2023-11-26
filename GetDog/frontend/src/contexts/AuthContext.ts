@@ -1,3 +1,4 @@
+import { ProfileModel } from "@/models/profileModel";
 import { createContext } from "react";
 
 export type AuthContextData = {
@@ -14,6 +15,7 @@ export type UserProps = {
     email: string;
     address: string;
     typeUser: string;
+    profile: ProfileModel | null;
 }
 
 export type SignInProps = {

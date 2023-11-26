@@ -7,6 +7,15 @@ export class AuthUserRepository {
         const userAlreadyExists = await prismaClient.user.findFirst({
             where: {
                 email: email
+            },
+            select: {
+                id: true,
+                name: true,
+                email: true,
+                address: true,
+                password: true,
+                typeUser: true,
+                profile: true,
             }
         });
         return userAlreadyExists;

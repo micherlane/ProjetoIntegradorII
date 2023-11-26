@@ -12,10 +12,14 @@ import { FaUserFriends } from "react-icons/fa";
 export function Header() {
     const { user } = useContext(AuthContext);
     const [name, setName] = useState('');
+    const [urlUser, setUrlUser] = useState('');
 
     useEffect(() => {
         if (user) {
             setName(user.name);
+            const url = `http://localhost:3001/images/${user.profile.profilePicture}`;
+
+            setUrlUser(url);
         }
     }, [user]);
 
@@ -38,7 +42,7 @@ export function Header() {
 
                     <div className={styles.headerUser}>
 
-                        <ImageUser urlImage="http://localhost:3001/images/1699906205195.ai_image_history_62844.png" size={60} />
+                        <ImageUser urlImage={urlUser} size={60} />
 
                         <div className={styles.headerUserName}>
                             <p>{name}</p>
