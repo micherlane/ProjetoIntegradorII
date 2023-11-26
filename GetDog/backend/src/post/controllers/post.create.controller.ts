@@ -28,6 +28,11 @@ export class PostCreateController {
             throw new ExceptionError("Por favor, forneça todos os campos obrigatórios.", HttpStatus.UNPROCESSABLE_ENTITY);
 
         }
+
+        if(typeof postCreateDto.disponibility === 'string'){
+            postCreateDto.disponibility = [postCreateDto.disponibility];
+        }
+        
         const postImages = files['files'] as Express.Multer.File[];
 
         const post = await this.postCreateService.execute(postCreateDto, postImages);
