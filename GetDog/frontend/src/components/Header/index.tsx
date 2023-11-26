@@ -17,7 +17,7 @@ export function Header() {
     useEffect(() => {
         if (user) {
             setName(user.name);
-            const url = `http://localhost:3001/images/${user.profile.profilePicture}`;
+            const url = user.profile.profilePicture;
 
             setUrlUser(url);
         }

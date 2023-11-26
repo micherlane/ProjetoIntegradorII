@@ -18,7 +18,7 @@ export function PostAdd({handleAddPost}: PostAddProps){
 
     useEffect(() => {
         if (user) {
-            const url = `http://localhost:3001/images/${user.profile.profilePicture}`;
+            const url = user.profile.profilePicture;
             setUrlUser(url);
         }
     }, [user]);

@@ -14,7 +14,7 @@ interface PostItemProps {
 }
 
 export function PostItem({ post }: PostItemProps) {
-    const urlImageAuthor = `http://localhost:3001/images/${post.author.profile.profilePicture}`
+    const urlImageAuthor = post.author.profile.profilePicture;
     const handleAddComment = () => {
         toast.success("Você clicou em adicionar comentário!");
     }

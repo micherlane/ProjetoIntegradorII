@@ -9,7 +9,7 @@ interface ReservationItemProps {
 }
 
 export function ReservationItem({reservation}: ReservationItemProps){
-    const urlImage = `http://localhost:3001/images/${reservation.user.profile?.profilePicture}`
+    const urlImage = reservation.user.profile?.profilePicture;
     return (
         <div className={styles.reservationItemContainer}>
             <div className={styles.reservationItemUser}>
