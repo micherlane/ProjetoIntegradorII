@@ -15,7 +15,10 @@ export class PostGetAllRepository {
                     ...postGetAllDto,
                 },
                 take: perPage,
-                skip: offset
+                skip: offset,
+                orderBy: {
+                    createdAt: 'desc' 
+                }
             });
 
             return posts;

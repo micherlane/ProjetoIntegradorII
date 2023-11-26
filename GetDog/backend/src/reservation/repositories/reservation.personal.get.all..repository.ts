@@ -17,7 +17,10 @@ export class ReservationPersonalGetAllRepository {
                    ...reservationGetAllDto
                 },
                 take: perPage,
-                skip: offset
+                skip: offset,
+                orderBy: {
+                    createdAt: 'desc' 
+                }
             });
 
             return reservationsPersonal;

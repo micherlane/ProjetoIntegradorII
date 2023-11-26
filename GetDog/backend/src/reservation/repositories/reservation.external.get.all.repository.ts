@@ -19,7 +19,10 @@ export class ExternalReservationGetAllRepository{
                     ...reservationGetAllDto
                 },
                 take: perPage,
-                skip: offset
+                skip: offset,
+                orderBy: {
+                    createdAt: 'desc' 
+                }
             });
             return externalReservations;
         } catch (error){
