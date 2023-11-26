@@ -63,17 +63,20 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
 
                 api.get(`/users/profile/${sub}`).then(response => {
-                    const { id, name, email, address, typeUser, profile } = response.data['user'];
+                    const { id, name, email, address, typeUser} = response.data['user'];
+                    const {idProfile, gender, biography, coverPhoto, profilePicture} = response.data;
+
                     setUser({
                         id,
                         name, 
                         email, 
                         address,
                         typeUser,
-                        profile: ProfileModel.fromJSON(profile)
+                        profile: new ProfileModel(idProfile, gender, biography, coverPhoto, profilePicture)
                     });
 
-                }).catch(() => {
+                }).catch((err) => {
+                    console.log(err)
                     signOut();
                 });
 

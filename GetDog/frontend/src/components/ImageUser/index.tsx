@@ -6,8 +6,8 @@ interface ImageUserProps {
 }
 
 export function ImageUser({ urlImage, size } : ImageUserProps){
-
-    const urlPath = `http://localhost:3001/images/${urlImage !== null ? urlImage : 'user.png'}`;
+    const pathImage = urlImage !== null ? urlImage : 'user.png';
+    const urlPath = `http://localhost:3001/images/${pathImage}`;
     return (
         <div className={styles.userImageContainer} style={{ width: `${size}px`, height: `${size}px` }}>
             <img src={urlPath} />
