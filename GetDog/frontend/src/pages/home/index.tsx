@@ -2,6 +2,7 @@
 
 import { Header } from "@/components/Header";
 import { PostDashboard } from "./components/PostDashboard";
+import { canSSRAuth } from "@/utils/canSSRAuth";
 
 export default function HomePage(){
 
@@ -12,3 +13,11 @@ export default function HomePage(){
         </>
     );
 }
+
+export const getServerSideProps = canSSRAuth(async (ctx) => {
+    return {
+        props: {
+            
+        }
+    }
+});
