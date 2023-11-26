@@ -5,6 +5,7 @@ import { FormEvent, useContext, useState } from 'react';
 import { toast } from 'react-toastify';
 import Head from 'next/head';
 import { AuthContext } from '@/contexts/AuthContext';
+import { canSSRGuest } from '@/utils/canSSRGuest';
 
 export default function SignUp(){
     const [name, setName] = useState('');
@@ -53,3 +54,9 @@ export default function SignUp(){
         </>
     )
 }
+
+export const getServerSideProps = canSSRGuest(async (ctx) => {
+    return {
+      props: {}
+    }
+})  

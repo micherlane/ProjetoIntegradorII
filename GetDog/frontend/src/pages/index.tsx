@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { toast } from 'react-toastify';
 import { FormEvent, useContext, useState } from 'react';
 import styles from '@/styles/Home.module.css'
+import { canSSRGuest } from '@/utils/canSSRGuest';
 
 
 export default function Home() {
@@ -50,3 +51,9 @@ export default function Home() {
     </>
   )
 }
+
+export const getServerSideProps = canSSRGuest(async (ctx) => {
+  return {
+    props: {}
+  }
+})
