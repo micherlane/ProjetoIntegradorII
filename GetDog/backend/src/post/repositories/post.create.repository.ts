@@ -2,6 +2,7 @@ import prismaClient from "../../prisma";
 import { HttpStatus, Injectable, Logger } from "@nestjs/common";
 import { PostCreateDto } from "../dto/post.create.dto";
 import { ExceptionError } from "../../middlewares/exceptions/exception.error";
+import { postGetAllDto } from "../dto/post.get.all.dto";
 
 @Injectable()
 
@@ -14,6 +15,9 @@ export class PostCreateRepository {
                 data: {
                    ...postCreateDto,
                    photos: postImage
+                },
+                select: {
+                    ...postGetAllDto
                 }
             });
             
