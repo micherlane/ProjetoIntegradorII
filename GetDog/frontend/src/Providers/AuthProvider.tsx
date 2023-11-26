@@ -72,7 +72,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
                         email, 
                         address,
                         typeUser,
-                        profile: new ProfileModel(idProfile, gender, biography, coverPhoto, profilePicture)
+                        profile: new ProfileModel(idProfile, gender, biography, profilePicture, coverPhoto)
                     });
 
                 }).catch((err) => {
