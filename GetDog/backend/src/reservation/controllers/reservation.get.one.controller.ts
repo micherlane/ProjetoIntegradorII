@@ -3,7 +3,7 @@ import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
 import { ReservationGetOneService } from "../services/reservation.get.one.service";
 import { AuthGuard } from "src/auth/auth.guard";
 
-@ApiTags("Postagem")
+@ApiTags("Reserva")
 @Controller({
     path: "v1"
 })
