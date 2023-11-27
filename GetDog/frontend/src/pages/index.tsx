@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import { FormEvent, useContext, useState } from 'react';
 import styles from '@/styles/Home.module.css'
 import { canSSRGuest } from '@/utils/canSSRGuest';
+import Head from 'next/head';
 
 
 export default function Home() {
@@ -31,6 +32,9 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+          <title>GetDog</title>
+      </Head>
       <main className={styles.main}>
           <div className={styles.descriptionSession}>
             <p className={styles.titleGetDog}>GetDog</p>

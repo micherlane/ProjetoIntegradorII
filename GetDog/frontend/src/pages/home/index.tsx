@@ -6,6 +6,7 @@ import { canSSRAuth } from "@/utils/canSSRAuth";
 import { setupAPIClient } from "@/services/api";
 import { PostModel } from "@/models/postModel";
 import { useEffect, useState } from "react";
+import Head from "next/head";
 
 export default function HomePage({ posts }){
 
@@ -17,6 +18,9 @@ export default function HomePage({ posts }){
 
     return (
         <>
+            <Head>
+                <title>Home</title>
+            </Head>
         <Header/>
         <PostDashboard posts={postsList} handleAddPost={handleAddPost}/>
         </>
