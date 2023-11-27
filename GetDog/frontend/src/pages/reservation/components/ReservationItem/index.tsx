@@ -17,7 +17,7 @@ export function ReservationItem({reservation}: ReservationItemProps){
                 <p>{reservation.user.name}</p>
             </div>
             <div className={styles.reservationItemDetails}>
-                <p className={styles.titleStyle}>Divulgando meus serviços sobre os passeios com cachorros</p>
+                <p className={styles.titleStyle}>{reservation.post.title}</p>
                 <p className={styles.addressStyle}>{reservation.address}</p>
                 <p className={styles.statusStyle}>{reservation.statusDogWalkReservation}</p>
             </div>

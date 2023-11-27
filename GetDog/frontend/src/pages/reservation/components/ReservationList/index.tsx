@@ -18,7 +18,7 @@ export function ReservationList({reservations}: ReservationListProps) {
             </div>
             <div className={styles.reservationListStyle}>
                 {
-                reservations.length === 0? 
+                reservations.length !== 0? 
                     reservations.map((reservation, index) => {
                         return (
                             <ReservationItem reservation={reservation} key={index}/>

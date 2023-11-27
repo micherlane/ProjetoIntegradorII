@@ -1,5 +1,17 @@
 import { UserModel } from "./userModel";
 
+class PostReservation {
+    title: string;
+    legend: string;
+
+    constructor(title: string, legend: string){
+        this.title = title;
+        this.legend = legend;
+    }
+    public static fromJSON(json: any): PostReservation{
+        return new PostReservation(json.title, json.legend);
+    }
+}
 export class ReservationModel {
 
     id: string;
@@ -10,6 +22,7 @@ export class ReservationModel {
     createdAt: string;
     updatedAt: string;
     user: UserModel;
+    post: PostReservation;
 
     constructor(
         id: string, 
@@ -19,7 +32,7 @@ export class ReservationModel {
         postId: string,
         createdAt: string, 
         updatedAt: string,
-        user: UserModel){
+        user: UserModel, post: PostReservation){
             this.id = id;
             this.appointment = appointment;
             this.statusDogWalkReservation = statusDogWalkReservation;
@@ -28,6 +41,7 @@ export class ReservationModel {
             this.createdAt = createdAt;
             this.updatedAt = updatedAt;
             this.user = user;
+            this.post = post;
         }
     
     public static fromJSON(json: any): ReservationModel {
@@ -39,7 +53,8 @@ export class ReservationModel {
             json.postId,
             json.createdAt,
             json.updatedAt,
-            UserModel.fromJSON(json.user)
+            UserModel.fromJSON(json.user),
+            PostReservation.fromJSON(json.post)
         );
     }
 }
