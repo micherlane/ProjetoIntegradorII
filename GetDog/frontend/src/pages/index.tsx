@@ -5,6 +5,7 @@ import { FormEvent, useContext, useState } from 'react';
 import styles from '@/styles/Home.module.css'
 import { canSSRGuest } from '@/utils/canSSRGuest';
 import Head from 'next/head';
+import { FaSpinner } from 'react-icons/fa';
 
 
 export default function Home() {
@@ -13,7 +14,7 @@ export default function Home() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('')
 
-  
+  const [loading, setLoading] = useState(false);
 
   const handleLogin = async (event: FormEvent) => {
       event.preventDefault();
@@ -27,7 +28,12 @@ export default function Home() {
         email,
         password,
       }; 
+
+      setLoading(true);
+
       await signIn(data);
+
+      setLoading(false);
   }
 
   return (
@@ -44,7 +50,7 @@ export default function Home() {
               <form>
                 <input type='text' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)}/>
                 <input type='password' placeholder='Senha' value={password} onChange={(e) => setPassword(e.target.value)}/>
-                <button type='submit' className={styles.buttonEnter} onClick={handleLogin}>Entrar</button>
+                <button type='submit' className={styles.buttonEnter} onClick={handleLogin} disabled={loading}>{loading ? (<FaSpinner color="#FFF"  className={styles.spinner} size={16}/>): <p>Entrar</p>}</button>
               </form>
 
               <div className={styles.newAccountContainer}>

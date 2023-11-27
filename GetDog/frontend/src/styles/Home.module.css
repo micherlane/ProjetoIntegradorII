@@ -65,6 +65,24 @@
   background-color: #464646;
 }
 
+.login form .buttonEnter[disabled] {
+  cursor: not-allowed;
+}
+
+.login form .buttonEnter[disabled] .spinner {
+  animation: animate 2s infinite;
+}
+
+@keyframes animate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
 .login form .buttonEnter:hover {
   background-color: #202020;
 }
