@@ -1,3 +1,11 @@
+.modalStyle {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonContainer{
+    align-self: flex-end;
+}
 .addPostFormContainer {
     padding: 1rem; 
     width: 600px;

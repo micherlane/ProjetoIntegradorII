@@ -80,7 +80,7 @@ export function ModalPost({ isOpen, onRequestClose, handleAddPost }: ModalPostPr
         try {
             console.log(formData['disponibility'])
             const response = await api.post('/posts', formData);
-            
+
             const post = PostModel.fromJSON(response.data);
 
             handleAddPost(post);
@@ -100,65 +100,70 @@ export function ModalPost({ isOpen, onRequestClose, handleAddPost }: ModalPostPr
             onRequestClose={onRequestClose}
             style={customStyle}
         >
-            <button
-                type='button'
-                onClick={onRequestClose}
-                className='react-modal-close'
-                style={{ background: 'transparent', border: 0 }}
-            >
-                <FiX size={30} color="#ff0000" />
-            </button>
+            <div className={styles.modalStyle}>
+                <div className={styles.buttonContainer}>
+                    <button
+                        type='button'
+                        onClick={onRequestClose}
+                        className='react-modal-close'
+                        style={{ background: 'transparent', border: 0 }}
+                    >
+                        <FiX size={45} color="#ff0000" />
+                    </button>
+                </div>
 
-            <div className={styles.addPostFormContainer}>
-                <form onSubmit={handleSubmit}>
-                    <div className={styles.titleForm}>
-                        <h2>Criar Publicação</h2>
-                    </div>
+                <div className={styles.addPostFormContainer}>
+                    <form onSubmit={handleSubmit}>
+                        <div className={styles.titleForm}>
+                            <h2>Criar Publicação</h2>
+                        </div>
 
-                    <input type='text' placeholder='Adicione um título' name='title' value={title} onChange={(e) => setTitle(e.target.value)} />
+                        <input type='text' placeholder='Adicione um título' name='title' value={title} onChange={(e) => setTitle(e.target.value)} />
 
-                    <textarea placeholder='Escreva aqui...' name='legend' value={legend} onChange={(e) => setLegend(e.target.value)} />
+                        <textarea placeholder='Escreva aqui...' name='legend' value={legend} onChange={(e) => setLegend(e.target.value)} />
 
-                    <input type='text' placeholder='Digite o endereço...' name='address' value={address} onChange={(e) => setAddress(e.target.value)} />
+                        <input type='text' placeholder='Digite o endereço...' name='address' value={address} onChange={(e) => setAddress(e.target.value)} />
 
-                    <div className={styles.addItemStyle}>
-                        <button type='button' onClick={addAvailability} className={styles.addItemButtonStyle}>
-                            <BsCalendarDate size={30} />
-                            <span>Adicionar</span>
-                        </button>
-                        {availabilities.map((availability, index) => (
-                            <input
-                                key={index}
-                                type='date'
-                                name='disponibility'
-                                value={availability}
-                                onChange={(e) => handleAvailabilityChange(index, e.target.value)}
-                                className={styles.disponibilityStyle}
-                            />
-                        ))}
-                    </div>
+                        <div className={styles.addItemStyle}>
+                            <button type='button' onClick={addAvailability} className={styles.addItemButtonStyle}>
+                                <BsCalendarDate size={30} />
+                                <span>Adicionar</span>
+                            </button>
+                            {availabilities.map((availability, index) => (
+                                <input
+                                    key={index}
+                                    type='date'
+                                    name='disponibility'
+                                    value={availability}
+                                    onChange={(e) => handleAvailabilityChange(index, e.target.value)}
+                                    className={styles.disponibilityStyle}
+                                />
+                            ))}
+                        </div>
 
-                    <div className={styles.addItemStyle}>
-                        <button type='button' onClick={addPhotos} className={styles.addItemButtonStyle}>
-                            <LuImagePlus size={30} /> 
-                            <span>Adicionar</span>
-                        </button>
-                        {photos.map((photo, index) => (
-                            <input
-                                key={index}
-                                type='file'
-                                name={`photo_${index}`}
-                                onChange={(e) => handleFileChange(e, index)}
-                            />
-                        ))}
-                    </div>
+                        <div className={styles.addItemStyle}>
+                            <button type='button' onClick={addPhotos} className={styles.addItemButtonStyle}>
+                                <LuImagePlus size={30} />
+                                <span>Adicionar</span>
+                            </button>
+                            {photos.map((photo, index) => (
+                                <input
+                                    key={index}
+                                    type='file'
+                                    name={`photo_${index}`}
+                                    onChange={(e) => handleFileChange(e, index)}
+                                />
+                            ))}
+                        </div>
 
 
 
-                    <button type='submit' className={styles.publish}>Publicar</button>
+                        <button type='submit' className={styles.publish}>Publicar</button>
 
-                </form>
+                    </form>
+                </div>
             </div>
+
         </Modal>
     )
 }
