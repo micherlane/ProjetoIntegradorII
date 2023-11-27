@@ -2,6 +2,7 @@ import { HttpStatus, Injectable, Logger } from "@nestjs/common";
 import { ReservationCreateDto } from "../dto/create-reservation.dto";
 import { ExceptionError } from "../../middlewares/exceptions/exception.error";
 import prismaClient from "../../prisma";
+import { reservationGetAllDto } from "../dto/reservation.get.all.dto";
 
 @Injectable()
 
@@ -13,6 +14,9 @@ export class ReservationCreateRepository {
             const reservation = await prismaClient.dogWalkReservation.create({
                 data: {
                     ...reservationCreateDto
+                },
+                select: {
+                    ...reservationGetAllDto
                 }
             });
 
