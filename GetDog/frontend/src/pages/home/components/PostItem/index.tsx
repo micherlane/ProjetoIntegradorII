@@ -101,7 +101,7 @@ export function PostItem({ post }: PostItemProps) {
                 </div>
                 <div className={styles.postItemReservation}>
                     <button onClick={handleDoReservation}>
-                        Reservar
+                        Reservar Passeio
                     </button>
                 </div>
             </div>
