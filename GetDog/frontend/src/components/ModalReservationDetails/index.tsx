@@ -2,6 +2,8 @@ import { ReservationModel } from "@/models/reservationModel";
 import Modal from 'react-modal';
 import styles from './styles.module.css';
 import { FiX } from "react-icons/fi";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "@/contexts/AuthContext";
 
 interface ModalReservationDetails {
     isOpen: boolean;
@@ -10,6 +12,16 @@ interface ModalReservationDetails {
 }
 
 export function ModalReservationDetails({ isOpen, reservation, onRequestClose}: ModalReservationDetails){
+    const [isOwnReservation, setIsOwnResrvation] = useState<boolean>();
+
+    const {user} = useContext(AuthContext);
+
+    useEffect(() => {
+        if(user){
+            setIsOwnResrvation(user.id === reservation.user.id);
+        }
+    }, [user]);
+    
     const customStyle = {
         overlay: {
             backgroundColor: 'rgba(0, 0, 0, 0.5)'
@@ -49,7 +61,18 @@ export function ModalReservationDetails({ isOpen, reservation, onRequestClose}: 
                 <div>{reservation.post.legend}</div>
                 <div>{reservation.user.name}</div>
                 <div>{reservation.user.profile.profilePicture}</div>
-
+                
+                <div className={styles.reservationItemActions}>
+                    {
+                        isOwnReservation ? 
+                            <button className={styles.buttonRejectStyle}>Cancelar</button>
+                        : 
+                        <>
+                            <button className={styles.buttonAcceptionStyle}>Aceitar</button>
+                            <button className={styles.buttonRejectStyle}>Rejeitar</button>
+                        </>
+                    }
+                </div>
             </div>
         </Modal>
     );

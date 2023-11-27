@@ -40,31 +40,6 @@
     font-weight: bold;
 }
 
-.reservationItemActions {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: end;
-}
-
-.reservationItemActions button {
-    font-family: 'Kodchasan';
-    border: none;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-
-}
-
-.buttonAcceptionStyle {
-    background-color: green;
-    color: white;
-}
-
-.buttonRejectStyle {
-    background-color: red;
-    color: white;
-    margin-left: 0.3rem;
-}
-
 @media(min-width: 900px) {
     .reservationItemContainer {
         width: 100%;
