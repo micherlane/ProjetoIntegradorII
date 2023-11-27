@@ -72,6 +72,24 @@
     margin-bottom: 1rem;
     background-color: #12ad39;
   }
+
+  .login form .register[disabled] {
+    cursor: not-allowed;
+  }
+  
+  .login form .register[disabled] .spinner {
+    animation: animate 2s infinite;
+  }
+  
+  @keyframes animate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
   
   .signUp form .register:hover {
     background-color: #00a02b;

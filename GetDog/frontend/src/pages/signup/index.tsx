@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import Head from 'next/head';
 import { AuthContext } from '@/contexts/AuthContext';
 import { canSSRGuest } from '@/utils/canSSRGuest';
+import { FaSpinner } from 'react-icons/fa';
 
 export default function SignUp(){
     const [name, setName] = useState('');
@@ -13,6 +14,8 @@ export default function SignUp(){
     const [password, setPassword] = useState('');
     const [typeUser, setTypeUser] = useState('DOG_OWNER');
     const [address, setAddress] = useState('');
+
+    const [loading, setLoading] = useState(false);
 
     const { signUp } = useContext(AuthContext);
 
@@ -25,7 +28,11 @@ export default function SignUp(){
 
         let data = {name, email, password, typeUser, address};
 
+        setLoading(true);
+
         await signUp(data);
+
+        setLoading(false);
     }
 
     return (
@@ -46,7 +53,7 @@ export default function SignUp(){
                             <option value="DOG_OWNER">Tutor</option>
                             <option value="DOG_WALK">Passeador</option>
                         </select>
-                        <button type='submit' className={styles.register}>Registrar</button>
+                        <button type='submit' className={styles.register} disabled={loading}>{loading ? (<FaSpinner color="#FFF"  className={styles.spinner} size={16}/>): <p>Registrar</p>}</button>
                     </form>
                     <Link href="/" className={styles.navigationLoginStyle}>Já tem cadastro? <span>Entre aqui!</span></Link>
                 </div>
