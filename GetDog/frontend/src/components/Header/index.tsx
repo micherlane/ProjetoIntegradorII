@@ -33,7 +33,7 @@ export function Header() {
                 </div>
 
                 <div className={styles.navigationLinks}>
-                    <Link href="/reservation"> <BiSolidCalendarEdit size={25} color="#464646"/> <span>Reservas</span></Link>
+                    <Link href="/reservation/personal"> <BiSolidCalendarEdit size={25} color="#464646"/> <span>Reservas</span></Link>
                     <Link href="#"> <IoChatbubblesSharp size={25} color="#464646"/> <span>Chat</span></Link>
                     <Link href="#"><FaUserFriends size={25} color="#464646"/> <span>Amigos</span></Link>
                 </div>

@@ -1,31 +1,28 @@
-"use client";
-
 import { Header } from "@/components/Header";
-import { ReservationDashboard } from "./components/ReservationDashboad";
-import { canSSRAuth } from "@/utils/canSSRAuth";
-import { setupAPIClient } from "@/services/api";
-import { useState } from "react";
 import { ReservationModel } from "@/models/reservationModel";
+import { setupAPIClient } from "@/services/api";
+import { canSSRAuth } from "@/utils/canSSRAuth";
 import Head from "next/head";
+import { useState } from "react";
+import { ReservationDashboard } from "../components/ReservationDashboad";
 
-export default function ReservationPage({ reservations }){
+export default function ReservationExternalPage({reservations}){
     const [reservationsList, setReservationList] = useState<ReservationModel[]>(reservations.map(reservation => ReservationModel.fromJSON(reservation)));
-
-    return(
+    return (
         <>
             <Head>
-                <title>Minhas Reservas</title>
+                <title>Reservas Solicitadas</title>
             </Head>
             <Header/>
             <ReservationDashboard reservations={reservationsList}/>
         </>
-    );
+    )
 }
 
 export const getServerSideProps = canSSRAuth(async (ctx) => {
     const apiClient = setupAPIClient(ctx);
 
-    const response = await apiClient.get('reservations/personal');
+    const response = await apiClient.get('reservations/external');
 
     return {
         props: {
