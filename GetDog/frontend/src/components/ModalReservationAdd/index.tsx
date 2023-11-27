@@ -1,18 +1,16 @@
-import Modal from 'react-modal';
 import styles from './styles.module.css';
-import { ReservationModel } from '@/models/reservationModel';
-import { useContext } from 'react';
-import { AuthContext } from '@/contexts/AuthContext';
+import Modal from 'react-modal';
+
 import { FiX } from 'react-icons/fi';
+import { PostModel } from '@/models/postModel';
 
 interface ModalReservationAddProps {
     isOpen: boolean;
     onRequestClose: () => void;
-    postId: string;
+    post: PostModel;
 }
 
-export function ModalReservationAdd({isOpen, onRequestClose, postId}: ModalReservationAddProps){
-    const { user } = useContext(AuthContext);
+export function ModalReservationAdd({isOpen, onRequestClose, post}: ModalReservationAddProps){
 
     const customStyle = {
         overlay: {

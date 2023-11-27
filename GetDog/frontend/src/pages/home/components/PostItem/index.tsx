@@ -107,7 +107,7 @@ export function PostItem({ post }: PostItemProps) {
             </div>
             {
                 modalVisible && (
-                    <ModalReservationAdd isOpen={modalVisible} onRequestClose={handleCloseModalView} postId={post.id}/>
+                    <ModalReservationAdd isOpen={modalVisible} onRequestClose={handleCloseModalView} post={post}/>
                 )
             }
         </>
