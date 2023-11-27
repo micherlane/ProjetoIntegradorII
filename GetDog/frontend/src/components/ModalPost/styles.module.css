@@ -72,3 +72,14 @@
     font-weight: bold;
     box-shadow: 0 4px 6px #000000;
 }
+
+@media(max-width: 768px){
+    .addPostFormContainer {
+       width: 80vw;
+       margin: auto;
+    }
+
+    .addItemStyle span {
+        display: none;
+    }
+}

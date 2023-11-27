@@ -124,7 +124,7 @@ export function ModalPost({ isOpen, onRequestClose, handleAddPost }: ModalPostPr
                     <div className={styles.addItemStyle}>
                         <button type='button' onClick={addAvailability} className={styles.addItemButtonStyle}>
                             <BsCalendarDate size={30} />
-                            Adicionar
+                            <span>Adicionar</span>
                         </button>
                         {availabilities.map((availability, index) => (
                             <input
@@ -140,7 +140,8 @@ export function ModalPost({ isOpen, onRequestClose, handleAddPost }: ModalPostPr
 
                     <div className={styles.addItemStyle}>
                         <button type='button' onClick={addPhotos} className={styles.addItemButtonStyle}>
-                            <LuImagePlus size={30} /> Adicionar
+                            <LuImagePlus size={30} /> 
+                            <span>Adicionar</span>
                         </button>
                         {photos.map((photo, index) => (
                             <input
