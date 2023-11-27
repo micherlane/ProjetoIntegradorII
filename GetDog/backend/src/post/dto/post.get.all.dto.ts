@@ -21,6 +21,7 @@ const postInfo = {
     unlikes: true,
     createdAt: true,
     updatedAt: true,
+    address: true
 }
 
 export const postGetAllDto = {
