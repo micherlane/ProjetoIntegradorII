@@ -3,10 +3,11 @@ import { ReservationCreateController } from "../controllers/reservation.create.c
 import { ReservationCreateService } from "../services/reservation.create.service";
 import { ReservationCreateRepository } from "../repositories/reservation.create.repository";
 import { ReservationVerifyExistsRepository } from "../repositories/reservation.verify.exists.repository";
+import { ReservationAuthorPostRepository } from "../repositories/reservation.verify.author.post.respository";
 
 @Module({
     controllers: [ReservationCreateController],
-    providers: [ ReservationCreateService, ReservationCreateRepository, ReservationVerifyExistsRepository]
+    providers: [ ReservationCreateService, ReservationCreateRepository, ReservationVerifyExistsRepository, ReservationAuthorPostRepository]
 })
 
 export class ReservationCreateModule {}
