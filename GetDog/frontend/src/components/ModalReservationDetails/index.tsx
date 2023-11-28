@@ -5,6 +5,9 @@ import { FiX } from "react-icons/fi";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "@/contexts/AuthContext";
 import { STATUS_RESERVA } from "@/enums/status_reserva";
+import { STATUS_RESERVATION } from "@/enums/status_reservation";
+import { api } from "@/services/apiClient";
+import { toast } from "react-toastify";
 
 interface ModalReservationDetails {
     isOpen: boolean;
@@ -13,16 +16,27 @@ interface ModalReservationDetails {
 }
 
 export function ModalReservationDetails({ isOpen, reservation, onRequestClose}: ModalReservationDetails){
-    const [isOwnReservation, setIsOwnResrvation] = useState<boolean>();
-
     const {user} = useContext(AuthContext);
 
-    useEffect(() => {
-        if(user){
-            setIsOwnResrvation(user.id === reservation.user.id);
-        }
-    }, [user]);
+    const [isOwnReservation, ] = useState<boolean>(user.id === reservation.user.id);
+
     
+    const handleChangeStatusReservation = async (status: string) => {
+        try {
+
+            await api.post('/reservations/status', {
+                id: reservation.id,
+                status: status
+            });
+
+            toast.success('Status da reserva atualizado!');
+            onRequestClose();
+            
+        } catch (err){
+            toast.error('Erro ao fazer a mudança no status da reserva!');
+            onRequestClose();
+        }
+    }
     const customStyle = {
         overlay: {
             backgroundColor: 'rgba(0, 0, 0, 0.5)'
@@ -66,11 +80,18 @@ export function ModalReservationDetails({ isOpen, reservation, onRequestClose}: 
                 <div className={styles.reservationItemActions}>
                     {
                         isOwnReservation ? 
-                            <button className={styles.buttonRejectStyle}>Cancelar</button>
+                            <button className={styles.buttonRejectStyle} onClick={() => {
+                                handleChangeStatusReservation(STATUS_RESERVATION.CANCELED)
+                            }}>Cancelar</button>
                         : 
                         <>
-                            <button className={styles.buttonAcceptionStyle}>Aceitar</button>
-                            <button className={styles.buttonRejectStyle}>Rejeitar</button>
+                            <button className={styles.buttonAcceptionStyle} onClick={() => {
+                                handleChangeStatusReservation(STATUS_RESERVATION.ACCEPTED)
+                            }}>Aceitar</button>
+                        <button className={styles.buttonRejectStyle} onClick={() => {
+                            handleChangeStatusReservation(STATUS_RESERVATION.DECLINED)
+                        }}
+                            >Rejeitar</button>
                         </>
                     }
                 </div>
