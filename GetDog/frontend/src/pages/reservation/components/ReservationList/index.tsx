@@ -24,7 +24,7 @@ export function ReservationList({reservations}: ReservationListProps) {
                             <ReservationItem reservation={reservation} key={index}/>
                         );
                     }): 
-                <p>Não reservas solicitadas</p>
+                <p>Não há reservas cadastradas.</p>
                 }
                 
             </div>

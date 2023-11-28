@@ -10,11 +10,14 @@ export function PostList({posts}: PostListProps){
     return (
         <div className={styles.postListStyle}>
         {
-            posts.map((post) => {
-                return (
-                    <PostItem post={post} key={post.id}/>
-                );
-            })
+            posts.length !== 0 ? 
+
+                posts.map((post) => {
+                    return (
+                        <PostItem post={post} key={post.id}/>
+                    );
+                })
+            : <p>Não há publicações cadastradas.</p>
         }
          </div>
     )
