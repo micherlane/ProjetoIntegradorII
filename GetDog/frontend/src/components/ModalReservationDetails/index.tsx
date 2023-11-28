@@ -4,6 +4,7 @@ import styles from './styles.module.css';
 import { FiX } from "react-icons/fi";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "@/contexts/AuthContext";
+import { STATUS_RESERVA } from "@/enums/status_reserva";
 
 interface ModalReservationDetails {
     isOpen: boolean;
@@ -56,7 +57,7 @@ export function ModalReservationDetails({ isOpen, reservation, onRequestClose}: 
                 <div>Reserva</div>
                 <div>{reservation.appointment}</div>
                 <div>{reservation.address}</div>
-                <div>{reservation.statusDogWalkReservation}</div>
+                <div>{STATUS_RESERVA[reservation.statusDogWalkReservation]}</div>
                 <div>{reservation.post.title}</div>
                 <div>{reservation.post.legend}</div>
                 <div>{reservation.user.name}</div>

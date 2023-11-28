@@ -6,6 +6,7 @@ import Modal from 'react-modal';
 import { ImageUser } from "@/components/ImageUser";
 import { useState } from "react";
 import { ModalReservationDetails } from "@/components/ModalReservationDetails";
+import { STATUS_RESERVA } from "@/enums/status_reserva";
 
 interface ReservationItemProps {
     reservation: ReservationModel
@@ -38,7 +39,7 @@ export function ReservationItem({reservation}: ReservationItemProps){
                 <div className={styles.reservationItemDetails}>
                     <p className={styles.titleStyle}>{reservation.post.title}</p>
                     <p className={styles.addressStyle}>{reservation.address}</p>
-                    <p className={styles.statusStyle}>{reservation.statusDogWalkReservation}</p>
+                    <p className={styles.statusStyle}>{STATUS_RESERVA[reservation.statusDogWalkReservation]}</p>
                 </div>
                 
             </div>
