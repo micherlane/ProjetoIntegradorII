@@ -1,10 +1,13 @@
 import Modal from 'react-modal';
 import styles from './styles.module.css';
-import { useContext, useState } from 'react';
+import { FormEvent, useContext, useState } from 'react';
 import { AuthContext } from '@/contexts/AuthContext';
 import { FiX } from 'react-icons/fi';
 import { PostModel } from '@/models/postModel';
 import { DisponibilityComponent } from '../DisponibilityComponent';
+import { api } from '@/services/apiClient';
+import { toast } from 'react-toastify';
+import Router from 'next/router';
 
 interface ModalReservationAddProps {
     isOpen: boolean;
@@ -53,7 +56,41 @@ export function ModalReservationAdd({ isOpen, onRequestClose, post }: ModalReser
         }
     }
 
-    const handleAdd = () => { }
+    const handleAddReservation = async (event: FormEvent) => { 
+        event.preventDefault();  
+        
+        let index = 0;
+
+        disponibilityStatus.forEach((value, i) => {
+            if(value === true){
+                index = i;
+                return ;
+            }
+        });
+
+        const appointment = post.disponiblity[index].toString();
+
+        try {
+            await api.post('/reservations', {
+                userId: user.id,
+                postId: post.id,
+                appointment: appointment,
+                address: post.address
+            });
+
+            toast.success('Reserva concluída com sucesso!');
+            Router.push('reservation/personal')
+
+        } catch (err){
+            if(err.response && err.response.status === 400){
+                toast.error(err.response.data['error']);
+            } else {
+                toast.error('Ocorreu um erro ao fazer a reserva.');
+            }
+
+            onRequestClose();
+        }
+    }
 
     return (
         <Modal
@@ -73,7 +110,7 @@ export function ModalReservationAdd({ isOpen, onRequestClose, post }: ModalReser
                         </button>
                     </div>
                 <div className={styles.formStyleContainer}>
-                    <form>
+                    <form onSubmit={handleAddReservation}>
                         <div className={styles.titleReservationContainer}>
                             <h2 className={styles.titleReservation}>Reservar Passeio</h2>
                         </div>
