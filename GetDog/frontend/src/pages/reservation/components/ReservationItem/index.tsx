@@ -15,6 +15,11 @@ interface ReservationItemProps {
 export function ReservationItem({reservation}: ReservationItemProps){
     const [modalVisible, setModalVisible] = useState(false);
     const urlImage = reservation.user.profile?.profilePicture;
+    const [status, setStatus] = useState<string>(STATUS_RESERVA[reservation.statusDogWalkReservation]);
+
+    const handleStatus = (status: string) => {
+        setStatus(status);
+    }
 
     const handleReservationClick = () => {
         handleOpenModalView();
@@ -39,13 +44,13 @@ export function ReservationItem({reservation}: ReservationItemProps){
                 <div className={styles.reservationItemDetails}>
                     <p className={styles.titleStyle}>{reservation.post.title}</p>
                     <p className={styles.addressStyle}>{reservation.address}</p>
-                    <p className={styles.statusStyle}>{STATUS_RESERVA[reservation.statusDogWalkReservation]}</p>
+                    <p className={styles.statusStyle}>{status}</p>
                 </div>
                 
             </div>
             {
                 modalVisible && (
-                    <ModalReservationDetails isOpen={modalVisible} reservation={reservation} onRequestClose={handleCloseModalView}/>
+                    <ModalReservationDetails isOpen={modalVisible} reservation={reservation} onRequestClose={handleCloseModalView} handleStatus={handleStatus}/>
                 )
             }
         </div>

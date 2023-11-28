@@ -13,9 +13,10 @@ interface ModalReservationDetails {
     isOpen: boolean;
     reservation: ReservationModel
     onRequestClose: () => void;
+    handleStatus: (string) => void;
 }
 
-export function ModalReservationDetails({ isOpen, reservation, onRequestClose}: ModalReservationDetails){
+export function ModalReservationDetails({ isOpen, reservation, onRequestClose, handleStatus}: ModalReservationDetails){
     const {user} = useContext(AuthContext);
 
     const [isOwnReservation, ] = useState<boolean>(user.id === reservation.user.id);
@@ -24,18 +25,22 @@ export function ModalReservationDetails({ isOpen, reservation, onRequestClose}: 
     const handleChangeStatusReservation = async (status: string) => {
         try {
 
-            await api.post('/reservations/status', {
+            const response = await api.post('/reservations/status', {
                 id: reservation.id,
                 status: status
             });
 
+            const statusReservation = response.data['statusDogWalkReservation'];
+
+            handleStatus(STATUS_RESERVA[statusReservation]);
+
             toast.success('Status da reserva atualizado!');
-            onRequestClose();
             
         } catch (err){
             toast.error('Erro ao fazer a mudança no status da reserva!');
-            onRequestClose();
         }
+
+        onRequestClose();
     }
     const customStyle = {
         overlay: {
