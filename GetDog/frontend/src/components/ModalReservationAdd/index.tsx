@@ -61,48 +61,63 @@ export function ModalReservationAdd({ isOpen, onRequestClose, post }: ModalReser
             onRequestClose={onRequestClose}
             style={customStyle}
         >
-            <button
-                type='button'
-                onClick={onRequestClose}
-                className='react-modal-close'
-                style={{ background: 'transparent', border: 0 }}
-            >
-                <FiX size={30} color="#ff0000" />
-            </button>
-
-            <div className={styles.formStyle}>
-                <form>
-                    <div className={styles.titleReservationContainer}>
-                        <h2 className={styles.titleReservation}>Reservar Passeio</h2>
+            <div className={styles.modalStyle}>
+                <div className={styles.buttonContainer}>
+                        <button
+                            type='button'
+                            onClick={onRequestClose}
+                            className='react-modal-close'
+                            style={{ background: 'transparent', border: 0 }}
+                        >
+                            <FiX size={30} color="#ff0000" />
+                        </button>
                     </div>
-
-                    <div className={styles.postContainer}>
-                        <p className={styles.titlePost}>{post.title}</p>
-                        <p className={styles.authorPost}>{post.author.name}</p>
-                        <p className={styles.addressPost}>{post.address}</p>
-                    </div>
-                    <div className={styles.disponibilityContainer}>
-                        <p>Escolha uma data</p>
-                        <div className={styles.disponibility}>
-                            {
-                                post.disponiblity.map((disponibility, index) => (
-                                    <DisponibilityComponent
-                                        key={index}
-                                        value={disponibility}
-                                        isSelected={disponibilityStatus[index]}
-                                        onClicked={() => {
-                                            selectDisponibility(index)
-                                        }}
-                                    />
-                                ))
-                            }
+                <div className={styles.formStyleContainer}>
+                    <form>
+                        <div className={styles.titleReservationContainer}>
+                            <h2 className={styles.titleReservation}>Reservar Passeio</h2>
                         </div>
-                    </div>
 
-                </form>
+                        <div className={styles.postContainer}>
+                            <div className={styles.informationPost}>
+                                <h3>Publicação</h3>
+                                <p>{post.title}</p>
+                            </div>
 
+                            <div className={styles.informationPost}>
+                                <h3>Autor</h3>
+                                <p>{post.author.name}</p>
+                            </div>
+
+                            <div className={styles.informationPost}>
+                                <h3>Endereço</h3>
+                                <p>{post.address}</p>
+                            </div>
+                        </div>
+                        <div className={styles.disponibilityContainer}>
+                            <h3>Escolha uma data para o passeio:</h3>
+                            <div className={styles.disponibility}>
+                                {
+                                    post.disponiblity.map((disponibility, index) => (
+                                        <DisponibilityComponent
+                                            key={index}
+                                            value={disponibility}
+                                            isSelected={disponibilityStatus[index]}
+                                            onClicked={() => {
+                                                selectDisponibility(index)
+                                            }}
+                                        />
+                                    ))
+                                }
+                            </div>
+                        </div>
+
+                        <button>Reservar Passeio</button>
+
+                    </form>
+
+                </div>
             </div>
-
 
         </Modal>
     )

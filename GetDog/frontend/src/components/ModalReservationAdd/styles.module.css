@@ -1,0 +1,47 @@
+.modalStyle {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonContainer{
+    align-self: flex-end;
+}
+
+.formStyleContainer {
+    padding: 1rem; 
+    width: 600px;
+}
+
+.titleReservation {
+    text-align: center;
+}
+
+.postContainer{
+    margin-top: 2rem;
+}
+
+.informationPost {
+    display: flex;
+    width: 100%;
+    margin-bottom: 1.3rem;
+}
+
+.informationPost h3 {
+    width: 120px; 
+    margin-right: 1rem;
+    flex-shrink: 0; 
+}
+
+.disponibilityContainer {
+    margin-top: 1.3rem;
+}
+
+.disponibility {
+    margin-top: 1rem;
+}
+@media(max-width: 768px){
+    .formStyleContainer {
+       width: 80vw;
+       margin: auto;
+    }
+}
