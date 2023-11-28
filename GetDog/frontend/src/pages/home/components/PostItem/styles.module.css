@@ -74,6 +74,21 @@
     border-radius: 0.5rem;
 }
 
+.postItemImage button {
+    background-color: #464646;
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0.5rem 1rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.postItemImage button:hover {
+    background-color: #252525;
+}
+
 .postItemReaction {
     margin-top: 1rem;
     padding: 0.5rem 0 0.5rem 0;

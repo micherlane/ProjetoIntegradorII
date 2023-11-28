@@ -20,6 +20,20 @@ export function PostItem({ post }: PostItemProps) {
 
     const [modalVisible, setModalVisible] = useState(false);
 
+    const maxImagesToShow = 1; 
+    
+    const [showAllImages, setShowAllImages] = useState(false);
+
+    const imagesToRender = showAllImages ? post.photos : post.photos.slice(0, maxImagesToShow);
+
+    const handleShowAllImages = () => {
+        setShowAllImages(true);
+    };
+
+    const handleShowLessImages = () => {
+        setShowAllImages(false);
+    };
+
     const handleOpenModalView = () => {
         setModalVisible(true);
     }
@@ -73,18 +87,24 @@ export function PostItem({ post }: PostItemProps) {
 
 
                 <div className={styles.postItemImage}>
-                    {
-                        post.photos.map((photo: string, index: number) => {
-                            const urlImage = `http://localhost:3001/images/${photo}`;
+                    {imagesToRender.map((photo: string, index: number) => {
+                        const urlImage = `http://localhost:3001/images/${photo}`;
+                        return <img src={urlImage} key={index} />;
+                    })}
+                    {!showAllImages && post.photos.length > maxImagesToShow && (
+                        <button onClick={handleShowAllImages}>
+                            Ver mais imagens ({post.photos.length - maxImagesToShow})
+                        </button>
+                    )}
 
-                            return (
-                                <img src={urlImage} key={index} />
-                            )
-                        })
-                    }
-                </div>
+                    {showAllImages && (
+                        <button onClick={handleShowLessImages}>
+                            Mostrar menos
+                        </button>
+                    )}
+            </div>
 
-                <div className={styles.postItemReaction}>
+            <div className={styles.postItemReaction}>
                     <div className={styles.postItemReactionNumber}>
                         <FaLongArrowAltUp color="#008000" />
                         <p>{post.likes}</p>
