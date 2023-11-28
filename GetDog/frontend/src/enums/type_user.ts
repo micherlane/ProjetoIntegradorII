@@ -1,0 +1,5 @@
+export enum TYPE_USER {
+    DOG_WALK = "PASSEADOR DE CACHORRO",
+    DOG_OWNER = "TUTOR DE CACHORRO"
+  }
+  

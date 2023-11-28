@@ -37,8 +37,27 @@
 }
 
 .disponibility {
+    display: flex;
     margin-top: 1rem;
 }
+
+.doReservationButtonStyle {
+    background-color: #353535;
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+    padding:  1rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 2rem;
+    transition: background-color 0.3s ease;
+}
+
+.doReservationButtonStyle:hover {
+    background-color: #252525;
+}
+
 @media(max-width: 768px){
     .formStyleContainer {
        width: 80vw;

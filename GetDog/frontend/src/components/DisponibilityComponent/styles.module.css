@@ -1,10 +1,15 @@
 .disponibilityStyles {
     border-radius: 0.5rem;
-    box-shadow: 0 0 8px rgba(128, 128, 128, 0.5);
     margin-top: 0.3rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0.5rem;
+    font-weight: bold;
+    color: #434343;
+    border: 1px solid #bdbdbd;
+    margin-right: 1rem;
+    cursor: pointer;
 }
 
 .disponibilityStyles.selected {

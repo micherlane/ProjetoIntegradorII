@@ -112,7 +112,7 @@ export function ModalReservationAdd({ isOpen, onRequestClose, post }: ModalReser
                             </div>
                         </div>
 
-                        <button>Reservar Passeio</button>
+                        <button className={styles.doReservationButtonStyle}>Reservar Passeio</button>
 
                     </form>
 
