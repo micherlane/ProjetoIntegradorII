@@ -1,5 +1,6 @@
 .reservationContainer {
     width: 100%;
+    cursor: pointer;
 }
 
 .reservationItemContainer {
