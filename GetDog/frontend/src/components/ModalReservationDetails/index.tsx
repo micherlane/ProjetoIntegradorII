@@ -8,6 +8,8 @@ import { STATUS_RESERVA } from "@/enums/status_reserva";
 import { STATUS_RESERVATION } from "@/enums/status_reservation";
 import { api } from "@/services/apiClient";
 import { toast } from "react-toastify";
+import Link from "next/link";
+import { IoChatbubblesSharp } from "react-icons/io5";
 
 interface ModalReservationDetails {
     isOpen: boolean;
@@ -16,12 +18,12 @@ interface ModalReservationDetails {
     handleStatus: (string) => void;
 }
 
-export function ModalReservationDetails({ isOpen, reservation, onRequestClose, handleStatus}: ModalReservationDetails){
-    const {user} = useContext(AuthContext);
+export function ModalReservationDetails({ isOpen, reservation, onRequestClose, handleStatus }: ModalReservationDetails) {
+    const { user } = useContext(AuthContext);
 
-    const [isOwnReservation, ] = useState<boolean>(user.id === reservation.user.id);
+    const [isOwnReservation,] = useState<boolean>(user.id === reservation.user.id);
 
-    
+
     const handleChangeStatusReservation = async (status: string) => {
         try {
 
@@ -35,8 +37,8 @@ export function ModalReservationDetails({ isOpen, reservation, onRequestClose, h
             handleStatus(STATUS_RESERVA[statusReservation]);
 
             toast.success('Status da reserva atualizado!');
-            
-        } catch (err){
+
+        } catch (err) {
             toast.error('Erro ao fazer a mudança no status da reserva!');
         }
 
@@ -81,23 +83,27 @@ export function ModalReservationDetails({ isOpen, reservation, onRequestClose, h
                 <div>{reservation.post.legend}</div>
                 <div>{reservation.user.name}</div>
                 <div>{reservation.user.profile.profilePicture}</div>
-                
+
+                <div className={styles.chatStyle}>
+                    <Link href="#"> <IoChatbubblesSharp size={25} color="#464646" /> <span>Chat</span></Link>
+                </div>
+
                 <div className={styles.reservationItemActions}>
                     {
-                        isOwnReservation ? 
+                        isOwnReservation ?
                             <button className={styles.buttonRejectStyle} onClick={() => {
                                 handleChangeStatusReservation(STATUS_RESERVATION.CANCELED)
-                            }}>Cancelar</button>
-                        : 
-                        <>
-                            <button className={styles.buttonAcceptionStyle} onClick={() => {
-                                handleChangeStatusReservation(STATUS_RESERVATION.ACCEPTED)
-                            }}>Aceitar</button>
-                        <button className={styles.buttonRejectStyle} onClick={() => {
-                            handleChangeStatusReservation(STATUS_RESERVATION.DECLINED)
-                        }}
-                            >Rejeitar</button>
-                        </>
+                            }}>Cancelar Reserva</button>
+                            :
+                            <>
+                                <button className={styles.buttonAcceptionStyle} onClick={() => {
+                                    handleChangeStatusReservation(STATUS_RESERVATION.ACCEPTED)
+                                }}>Aceitar Reserva</button>
+                                <button className={styles.buttonRejectStyle} onClick={() => {
+                                    handleChangeStatusReservation(STATUS_RESERVATION.DECLINED)
+                                }}
+                                >Rejeitar Reserva</button>
+                            </>
                     }
                 </div>
             </div>

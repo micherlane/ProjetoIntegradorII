@@ -7,8 +7,6 @@ import { ImageUser } from "@/components/ImageUser";
 import { useState } from "react";
 import { ModalReservationDetails } from "@/components/ModalReservationDetails";
 import { STATUS_RESERVA } from "@/enums/status_reserva";
-import Link from "next/link";
-import { IoChatbubblesSharp } from "react-icons/io5";
 
 interface ReservationItemProps {
     reservation: ReservationModel
@@ -47,9 +45,6 @@ export function ReservationItem({reservation}: ReservationItemProps){
                     <p className={styles.titleStyle}>{reservation.post.title}</p>
                     <p className={styles.addressStyle}>{reservation.address}</p>
                     <p className={styles.statusStyle}>{status}</p>
-                    <div className={styles.chatStyle}>
-                        <Link href="#"> <IoChatbubblesSharp size={25} color="#464646"/> <span>Chat</span></Link>
-                    </div>
                 </div>
                 
             </div>
