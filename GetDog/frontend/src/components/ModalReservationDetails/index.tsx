@@ -10,6 +10,8 @@ import { api } from "@/services/apiClient";
 import { toast } from "react-toastify";
 import Link from "next/link";
 import { IoChatbubblesSharp } from "react-icons/io5";
+import { ImageUser } from "../ImageUser";
+import { formatDate } from "@/utils/dataUtils";
 
 interface ModalReservationDetails {
     isOpen: boolean;
@@ -66,46 +68,77 @@ export function ModalReservationDetails({ isOpen, reservation, onRequestClose, h
             onRequestClose={onRequestClose}
             style={customStyle}
         >
-            <button
-                type='button'
-                onClick={onRequestClose}
-                className='react-modal-close'
-                style={{ background: 'transparent', border: 0 }}>
-                <FiX size={30} color="#ff0000" />
-            </button>
-
-            <div className={styles.reservationDetailsContainer}>
-                <div>Reserva</div>
-                <div>{reservation.appointment}</div>
-                <div>{reservation.address}</div>
-                <div>{STATUS_RESERVA[reservation.statusDogWalkReservation]}</div>
-                <div>{reservation.post.title}</div>
-                <div>{reservation.post.legend}</div>
-                <div>{reservation.user.name}</div>
-                <div>{reservation.user.profile.profilePicture}</div>
-
-                <div className={styles.chatStyle}>
-                    <Link href="#"> <IoChatbubblesSharp size={25} color="#464646" /> <span>Chat</span></Link>
+            <div className={styles.modalStyle}>
+                <div className={styles.buttonContainer}>
+                    <button
+                        type='button'
+                        onClick={onRequestClose}
+                        className='react-modal-close'
+                        style={{ background: 'transparent', border: 0 }}>
+                        <FiX size={30} color="#ff0000" />
+                    </button>
                 </div>
 
-                <div className={styles.reservationItemActions}>
-                    {
-                        isOwnReservation ?
-                            <button className={styles.buttonRejectStyle} onClick={() => {
-                                handleChangeStatusReservation(STATUS_RESERVATION.CANCELED)
-                            }}>Cancelar Reserva</button>
-                            :
-                            <>
-                                <button className={styles.buttonAcceptionStyle} onClick={() => {
-                                    handleChangeStatusReservation(STATUS_RESERVATION.ACCEPTED)
-                                }}>Aceitar Reserva</button>
+                <div className={styles.reservationDetailsContainer}>
+                    <div className={styles.titleReservationContainer}>
+                        <h2 className={styles.titleReservation}>Reserva de Passeio</h2>
+                    </div>
+
+                    <div className={styles.informationReservation}>
+                        <h3>Data agendada</h3>
+                        <p>{formatDate(new Date(reservation.appointment))}</p>
+                    </div>
+
+                    <div className={styles.informationReservation}>
+                        <h3>Endereço</h3>
+                        <p>{reservation.address}</p>
+                    </div>
+
+                    <div className={styles.informationReservation}>
+                        <h3>Status</h3>
+                        <p>{STATUS_RESERVA[reservation.statusDogWalkReservation]}</p>
+                    </div>
+
+                    <div className={styles.informationReservation}>
+                        <h3>Título</h3>
+                        <p>{reservation.post.title}</p>
+                    </div>
+                    <div className={styles.informationReservation}>
+                        <h3>Descrição</h3>
+                        <p>{reservation.post.legend}</p>
+                    </div>
+
+                    <div className={styles.informationReservation}>
+                        <h3>Solicitante</h3>
+                        <ImageUser urlImage={reservation.user.profile.profilePicture} size={35}/>
+                        <p>{reservation.user.name}</p>
+
+                    </div>
+
+                    <div className={styles.chatStyle}>
+                        <Link href="#"> <IoChatbubblesSharp className={styles.icon} size={25} color="#464646" /> <span>Converse com {reservation.user.name}</span></Link>
+                    </div>
+
+                    <div className={styles.reservationItemActions}>
+                        {
+                            isOwnReservation ?
                                 <button className={styles.buttonRejectStyle} onClick={() => {
-                                    handleChangeStatusReservation(STATUS_RESERVATION.DECLINED)
-                                }}
-                                >Rejeitar Reserva</button>
-                            </>
-                    }
+                                    handleChangeStatusReservation(STATUS_RESERVATION.CANCELED)
+                                }}>Cancelar Reserva</button>
+                                :
+                                <>
+                                    <button className={styles.buttonAcceptionStyle} onClick={() => {
+                                        handleChangeStatusReservation(STATUS_RESERVATION.ACCEPTED)
+                                    }}>Aceitar Reserva</button>
+                                    <button className={styles.buttonRejectStyle} onClick={() => {
+                                        handleChangeStatusReservation(STATUS_RESERVATION.DECLINED)
+                                    }}
+                                    >Rejeitar Reserva</button>
+                                </>
+                        }
+                    </div>
                 </div>
+
             </div>
         </Modal>
     );

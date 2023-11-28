@@ -37,19 +37,6 @@
     font-size: 1rem;
 }
 
-.chatStyle {
-    align-self: flex-end;
-    color: #464646;
-
-    margin-top: 0.5rem;
-    font-weight: bold;
-    padding: 0.2rem;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-}
-
 .titleStyle {
     font-weight: bold;
 }
