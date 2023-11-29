@@ -46,7 +46,7 @@ export class ReservationChangeStatusRepository {
             return reservation;
         } catch (error){
             this.logger.error(`Erro ao mudar o status da reserva: ${error.message}`);
-            throw new ExceptionError("Erro Interno do Servicor", HttpStatus.INTERNAL_SERVER_ERROR);
+            throw new ExceptionError("Erro Interno do Servidor", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }
