@@ -7,7 +7,7 @@ import { PostModel } from '@/models/postModel';
 import { api } from '@/services/apiClient';
 import { toast } from 'react-toastify';
 import Router from 'next/router';
-import { DisponibilityComponent } from '@/components/DisponibilityComponent';
+import { DisponibilityComponent } from '@/components/Disponibility';
 
 interface ModalReservationAddProps {
     isOpen: boolean;
