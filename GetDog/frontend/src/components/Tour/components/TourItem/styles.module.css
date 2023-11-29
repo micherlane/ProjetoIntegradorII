@@ -1,0 +1,52 @@
+.tuorContainer {
+    width: 100%;
+    cursor: pointer;
+}
+
+.tuorItemContainer {
+    box-shadow: 0 0 12px rgba(128, 128, 128, 0.5);
+    border-radius: 0.5rem;
+    border: 1px solid #bdbdbd;
+    padding: 1rem;
+    margin: 0.3rem;
+    background-color: white;
+}
+
+.tuorItemUser {
+    display: flex;
+    align-items: center;
+}
+
+.tuorItemUser p {
+    margin-left: 0.5rem;
+    font-weight: bold;
+}
+
+.tuorItemDetails {
+    margin-top: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.statusStyle {
+    align-self: flex-end;
+    color: #464646;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.titleStyle {
+    font-weight: bold;
+}
+
+@media(min-width: 900px) {
+    .tuorItemContainer {
+        width: 100%;
+    }
+
+    .tuorContainer {
+        width: 70%;
+    }
+}

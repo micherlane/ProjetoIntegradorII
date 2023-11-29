@@ -1,4 +1,5 @@
 import { Header } from "@/components/Header";
+import { TuorItem } from "@/components/Tour/components/TourItem";
 import { TourModel } from "@/models/toursModel";
 import { setupAPIClient } from "@/services/api";
 import { canSSRAuth } from "@/utils/canSSRAuth";
@@ -15,6 +16,8 @@ export default function Tour({ tours }){
             <title>Passeios</title>
           </Head>
           <Header/>
+
+          <TuorItem tuor={toursList[0]}/>
         </>
     )
 }
