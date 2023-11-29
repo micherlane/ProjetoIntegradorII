@@ -142,8 +142,30 @@ model DogWalkReservation {
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId String
 
+  tour   Tour?
+  tourId String?
   createdAt DateTime? @default(now()) @map("created_at")
   updatedAt DateTime? @default(now()) @map("updated_at")
+}
+
+model Tour {
+  id               String                   @id @default(uuid())
+  status           TourStatus               @default(CANCELED)
+
+  dogWalkReservation DogWalkReservation     @relation(fields: [dogWalkReservationId], references: [id])
+  dogWalkReservationId String @unique
+
+  createdAt        DateTime?                @default(now()) @map("created_at")
+  updatedAt        DateTime?                @default(now()) @map("updated_at")
+
+  @@map("tours")
+}
+
+enum TourStatus {
+  SCHEDULED
+  CONCLUDED
+  IN_PROGRESS
+  CANCELED
 }
 
 enum StatusDogWalkReservation {
