@@ -3,18 +3,18 @@ import styles from './styles.module.css';
 import { TuorItem } from '../TourItem';
 
 interface TuorListProps {
-    tuors: TourModel[];
+    tours: TourModel[];
 }
 
-export function TuorList({tuors} : TuorListProps){
+export function TourList({tours} : TuorListProps){
     return (
         <div className={styles.tuorStyleContainer}>
             <div className={styles.tuorListStyle}>
                 {
-                tuors.length !== 0? 
-                    tuors.map((tuor, index) => {
+                tours.length !== 0? 
+                    tours.map((tour, index) => {
                         return (
-                            <TuorItem tuor={tuor} key={index}/>
+                            <TuorItem tour={tour} key={index}/>
                         );
                     }): 
                 <p>Não há passeios agendados.</p>
