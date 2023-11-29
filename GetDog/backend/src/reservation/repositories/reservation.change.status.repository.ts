@@ -11,13 +11,32 @@ export class ReservationChangeStatusRepository {
 
     public async changeStatus(status: StatusDogWalkReservation, id: string){
         try {
-            console.log(id, status)
+            let dataUpdate = {
+            };
+
+            if(status === StatusDogWalkReservation.ACCEPTED){
+                const tour = await prismaClient.tour.create({
+                    data: {
+                        dogWalkReservationId: id
+                    }
+                });
+
+                dataUpdate = {
+                    statusDogWalkReservation: status,
+                    tourId: tour.id
+                }
+            } else {
+                dataUpdate = {
+                    statusDogWalkReservation: status
+                }
+            }
+
             const reservation = await prismaClient.dogWalkReservation.update({
                 where: {
                     id: id
                 },
                 data: {
-                    statusDogWalkReservation: status    
+                   ...dataUpdate    
                 },
                 select: {
                     ...reservationGetAllDto
