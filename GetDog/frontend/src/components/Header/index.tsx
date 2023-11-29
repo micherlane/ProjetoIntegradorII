@@ -7,6 +7,7 @@ import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '@/contexts/AuthContext';
 import { IoChatbubblesSharp } from "react-icons/io5";
 import { BiSolidCalendarEdit } from "react-icons/bi";
+import { FaDog } from 'react-icons/fa6'
 import { FaUserFriends } from "react-icons/fa";
 
 export function Header() {
@@ -29,12 +30,13 @@ export function Header() {
             <div className={styles.headerContent}>
 
                 <div className={styles.headerLogo}>
-                    <Link href="/home">GetDog</Link>
+                    <Link href="/home"><FaDog size={45} color="#464646"/> GetDog</Link>
                 </div>
 
                 <div className={styles.navigationLinks}>
                     <Link href="/reservation/personal"> <BiSolidCalendarEdit size={25} color="#464646"/> <span>Reservas</span></Link>
-                    <Link href="#"> <IoChatbubblesSharp size={25} color="#464646"/> <span>Chat</span></Link>
+                    <Link href="/tour"><FaDog size={25} color="#464646"/><span>Passeios</span></Link>
+                    <Link href="#"><IoChatbubblesSharp size={25} color="#464646"/> <span>Chat</span></Link>
                     <Link href="#"><FaUserFriends size={25} color="#464646"/> <span>Amigos</span></Link>
                 </div>
 
