@@ -1,0 +1,22 @@
+.tuorStyleContainer {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    align-items: center;
+}
+
+.tuorListStyle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding-top: 1rem;
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .tuorListStyle {
+        padding-top: 0.3rem;
+    }
+    
+}

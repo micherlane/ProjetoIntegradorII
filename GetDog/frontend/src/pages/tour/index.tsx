@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import { TuorItem } from "@/components/Tour/components/TourItem";
+import { TuorList } from "@/components/Tour/components/TourList";
 import { TourModel } from "@/models/toursModel";
 import { setupAPIClient } from "@/services/api";
 import { canSSRAuth } from "@/utils/canSSRAuth";
@@ -17,7 +18,7 @@ export default function Tour({ tours }){
           </Head>
           <Header/>
 
-          <TuorItem tuor={toursList[0]}/>
+          <TuorList tuors={toursList}/>
         </>
     )
 }
