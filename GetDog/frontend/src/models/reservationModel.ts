@@ -1,15 +1,28 @@
 import { UserModel } from "./userModel";
 
+class AuthorReservation {
+    name: string;
+    
+    constructor(name: string){
+        this.name = name;
+    }
+
+    public static fromJSON(json: any): AuthorReservation {
+        return new AuthorReservation(json.name);
+    }
+}
 class PostReservation {
     title: string;
     legend: string;
+    author: AuthorReservation; 
 
-    constructor(title: string, legend: string){
+    constructor(title: string, legend: string, author: AuthorReservation){
         this.title = title;
         this.legend = legend;
+        this.author = author;
     }
     public static fromJSON(json: any): PostReservation{
-        return new PostReservation(json.title, json.legend);
+        return new PostReservation(json.title, json.legend, json.author);
     }
 }
 export class ReservationModel {

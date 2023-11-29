@@ -24,6 +24,11 @@ const profileUserInfo ={
 const postInfo = {
     title: true,
     legend: true,
+    author: {
+        select: {
+            name: true
+        }
+    }
      
 }
 
