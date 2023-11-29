@@ -7,10 +7,11 @@ import Modal from 'react-modal';
 import { toast } from "react-toastify";
 import { FaLongArrowAltUp, FaLongArrowAltDown } from 'react-icons/fa';
 import { useState } from "react";
-import { PostModel } from "@/models/postModel";
-import { ImageUser } from "@/components/ImageUser";
+
 import { formatDate, formatDateToLongString, formatTime } from "@/utils/dataUtils";
-import { ModalReservationAdd } from "@/components/ModalReservationAdd";
+import { ModalReservationAdd } from '@/components/Reservation/components/ModalReservationAdd';
+import { ImageUser } from '@/components/ImageUser';
+import { PostModel } from '@/models/postModel';
 
 interface PostItemProps {
     post: PostModel;

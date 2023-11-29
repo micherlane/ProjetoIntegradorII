@@ -5,8 +5,8 @@ import Modal from 'react-modal';
 import { useContext, useEffect, useState } from 'react';
 import { PostModel } from '@/models/postModel';
 import { ImageUser } from '@/components/ImageUser';
-import { ModalPost } from '@/components/ModalPost';
 import { AuthContext } from '@/contexts/AuthContext';
+import { ModalPost } from '../ModalPost';
 
 interface PostAddProps{
     handleAddPost: (post: PostModel) => void;

@@ -1,12 +1,12 @@
 "use client";
 
 import { Header } from "@/components/Header";
-import {ReservationDashboard}  from "../components/ReservationDashboad";
 import { canSSRAuth } from "@/utils/canSSRAuth";
 import { setupAPIClient } from "@/services/api";
 import { useState } from "react";
 import { ReservationModel } from "@/models/reservationModel";
 import Head from "next/head";
+import { ReservationDashboard } from "@/components/Reservation/components/ReservationDashboad";
 
 export default function ReservationPersonalPage({ reservations }){
     const [reservationsList, setReservationList] = useState<ReservationModel[]>(reservations.map(reservation => ReservationModel.fromJSON(reservation)));

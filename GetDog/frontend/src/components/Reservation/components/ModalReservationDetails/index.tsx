@@ -10,8 +10,8 @@ import { api } from "@/services/apiClient";
 import { toast } from "react-toastify";
 import Link from "next/link";
 import { IoChatbubblesSharp } from "react-icons/io5";
-import { ImageUser } from "../ImageUser";
 import { formatDate } from "@/utils/dataUtils";
+import { ImageUser } from "@/components/ImageUser";
 
 interface ModalReservationDetails {
     isOpen: boolean;

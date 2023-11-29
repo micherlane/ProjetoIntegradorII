@@ -3,8 +3,8 @@ import styles from "./styles.module.css";
 import Modal from 'react-modal';
 import { ImageUser } from "@/components/ImageUser";
 import { useState } from "react";
-import { ModalReservationDetails } from "@/components/ModalReservationDetails";
 import { STATUS_RESERVA } from "@/enums/status_reserva";
+import { ModalReservationDetails } from "../ModalReservationDetails";
 
 interface ReservationItemProps {
     reservation: ReservationModel

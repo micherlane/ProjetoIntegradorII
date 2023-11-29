@@ -1,12 +1,12 @@
 "use client";
 
 import { Header } from "@/components/Header";
-import  PostDashboard  from "./components/PostDashboard";
 import { canSSRAuth } from "@/utils/canSSRAuth";
 import { setupAPIClient } from "@/services/api";
 import { PostModel } from "@/models/postModel";
 import { useState } from "react";
 import Head from "next/head";
+import PostDashboard from "@/components/Home/components/PostDashboard";
 
 export default function HomePage({ posts }){
 

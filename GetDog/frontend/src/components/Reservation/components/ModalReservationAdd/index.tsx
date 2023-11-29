@@ -4,10 +4,10 @@ import { FormEvent, useContext, useState } from 'react';
 import { AuthContext } from '@/contexts/AuthContext';
 import { FiX } from 'react-icons/fi';
 import { PostModel } from '@/models/postModel';
-import { DisponibilityComponent } from '../DisponibilityComponent';
 import { api } from '@/services/apiClient';
 import { toast } from 'react-toastify';
 import Router from 'next/router';
+import { DisponibilityComponent } from '@/components/DisponibilityComponent';
 
 interface ModalReservationAddProps {
     isOpen: boolean;
