@@ -16,7 +16,7 @@ interface PostItemProps {
     post: PostModel;
 }
 
-export default function PostItem({ post }: PostItemProps) {
+export function PostItem({ post }: PostItemProps) {
     const urlImageAuthor = post.author.profile.profilePicture;
 
     const [modalVisible, setModalVisible] = useState(false);

@@ -11,7 +11,7 @@ import { AuthContext } from '@/contexts/AuthContext';
 interface PostAddProps{
     handleAddPost: (post: PostModel) => void;
 }
-export default function PostAdd({handleAddPost}: PostAddProps){
+export function PostAdd({handleAddPost}: PostAddProps){
     const { user } = useContext(AuthContext);
     const [urlUser, setUrlUser] = useState('');
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from "react";
-import PostAdd  from "../PostAdd";
-import  PostList  from "../PostList";
+import {PostAdd}  from "../PostAdd";
+import  {PostList}  from "../PostList";
 import styles from './styles.module.css';
 import { PostModel } from "@/models/postModel";
 

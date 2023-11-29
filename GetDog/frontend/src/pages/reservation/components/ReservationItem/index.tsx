@@ -10,7 +10,7 @@ interface ReservationItemProps {
     reservation: ReservationModel
 }
 
-export default function ReservationItem({reservation}: ReservationItemProps){
+export function ReservationItem({reservation}: ReservationItemProps){
     const [modalVisible, setModalVisible] = useState(false);
     const urlImage = reservation.user.profile?.profilePicture;
     const [status, setStatus] = useState<string>(STATUS_RESERVA[reservation.statusDogWalkReservation]);
