@@ -1,11 +1,12 @@
-import { PostItem } from "../PostItem";
+import React from 'react';
+import  PostItem  from "../PostItem";
 import styles  from './styles.module.css';
 import { PostModel } from "@/models/postModel";
 
 interface PostListProps {
     posts: PostModel[]
 }
-export function PostList({posts}: PostListProps){
+export default function PostList({posts}: PostListProps){
 
     return (
         <div className={styles.postListStyle}>

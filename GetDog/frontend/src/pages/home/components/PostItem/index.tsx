@@ -1,5 +1,6 @@
 "use client";
 
+import React from 'react';
 import styles from "./styles.module.css";
 import Modal from 'react-modal';
 
@@ -15,7 +16,7 @@ interface PostItemProps {
     post: PostModel;
 }
 
-export function PostItem({ post }: PostItemProps) {
+export default function PostItem({ post }: PostItemProps) {
     const urlImageAuthor = post.author.profile.profilePicture;
 
     const [modalVisible, setModalVisible] = useState(false);

@@ -1,5 +1,3 @@
-"use client";
-
 import { ReservationModel } from "@/models/reservationModel";
 import styles from "./styles.module.css";
 import Modal from 'react-modal';
@@ -12,7 +10,7 @@ interface ReservationItemProps {
     reservation: ReservationModel
 }
 
-export function ReservationItem({reservation}: ReservationItemProps){
+export default function ReservationItem({reservation}: ReservationItemProps){
     const [modalVisible, setModalVisible] = useState(false);
     const urlImage = reservation.user.profile?.profilePicture;
     const [status, setStatus] = useState<string>(STATUS_RESERVA[reservation.statusDogWalkReservation]);

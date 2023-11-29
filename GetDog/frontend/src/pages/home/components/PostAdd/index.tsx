@@ -1,5 +1,5 @@
 'use client';
-
+import React from 'react';
 import styles from './styles.module.css';
 import Modal from 'react-modal';
 import { useContext, useEffect, useState } from 'react';
@@ -11,7 +11,7 @@ import { AuthContext } from '@/contexts/AuthContext';
 interface PostAddProps{
     handleAddPost: (post: PostModel) => void;
 }
-export function PostAdd({handleAddPost}: PostAddProps){
+export default function PostAdd({handleAddPost}: PostAddProps){
     const { user } = useContext(AuthContext);
     const [urlUser, setUrlUser] = useState('');
 

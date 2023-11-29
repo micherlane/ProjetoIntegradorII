@@ -1,6 +1,7 @@
+import React from 'react';
 import { useEffect, useState } from "react";
-import { PostAdd } from "../PostAdd";
-import { PostList } from "../PostList";
+import PostAdd  from "../PostAdd";
+import  PostList  from "../PostList";
 import styles from './styles.module.css';
 import { PostModel } from "@/models/postModel";
 
@@ -9,7 +10,7 @@ interface PostDashboardProps {
     handleAddPost: (post: PostModel) => void;
 }
 
-export function PostDashboard({posts, handleAddPost}: PostDashboardProps) {
+export default function PostDashboard({posts, handleAddPost}: PostDashboardProps) {
     const [postList, setPostList] = useState([]);
 
     useEffect(() => {

@@ -3,7 +3,7 @@ import styles from './styles.module.css';
 import { useState } from 'react';
 import { IoMenu } from "react-icons/io5";
 
-export function ReservationNav(){
+export default function ReservationNav(){
     const [showMenu, setShowMenu] = useState(false);
 
     const toggleMenu = () => {
