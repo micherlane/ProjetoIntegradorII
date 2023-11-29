@@ -150,9 +150,9 @@ model DogWalkReservation {
 
 model Tour {
   id               String                   @id @default(uuid())
-  status           TourStatus               @default(CANCELED)
+  status           TourStatus               @default(SCHEDULED)
 
-  dogWalkReservation DogWalkReservation     @relation(fields: [dogWalkReservationId], references: [id])
+  dogWalkReservation DogWalkReservation     @relation(fields: [dogWalkReservationId], references: [id], onDelete: Cascade)
   dogWalkReservationId String @unique
 
   createdAt        DateTime?                @default(now()) @map("created_at")
