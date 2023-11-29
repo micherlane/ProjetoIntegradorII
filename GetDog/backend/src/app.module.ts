@@ -11,6 +11,7 @@ import { PostModule } from './post/post.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { ReservationModule } from './reservation/reservation.module';
+import { TourModule } from './tour/tour.module';
 
 const pathStatics = join(__dirname, '..','..', 'uploads');
 
@@ -23,7 +24,8 @@ const pathStatics = join(__dirname, '..','..', 'uploads');
         index: false
       }
     }),
-    ReservationModule
+    ReservationModule,
+    TourModule
   ],
   controllers: [AppController],
   providers: [AppService, {
