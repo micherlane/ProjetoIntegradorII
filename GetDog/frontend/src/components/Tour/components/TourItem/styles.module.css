@@ -30,6 +30,9 @@
     justify-content: space-between;
 }
 
+.informationTour {
+    display: flex;
+}
 .statusStyle {
     align-self: flex-end;
     color: #464646;
