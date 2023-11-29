@@ -1,7 +1,7 @@
 import axios, { AxiosError} from "axios";
 import { parseCookies } from 'nookies';
 import { AuthTokenError } from "./errors/AuthTokenError";
-import { signOut } from "../Providers/AuthProvider";
+import { signOut } from "../providers/AuthProvider";
 import { toast } from "react-toastify";
 
 export function setupAPIClient(ctx = undefined) {

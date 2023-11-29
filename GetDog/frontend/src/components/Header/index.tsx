@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ImageUser } from '../ImageUser';
 import styles from './styles.module.css';
 import { FiLogOut } from 'react-icons/fi';
-import { signOut } from '@/Providers/AuthProvider';
+import { signOut } from '@/providers/AuthProvider';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '@/contexts/AuthContext';
 import { IoChatbubblesSharp } from "react-icons/io5";
