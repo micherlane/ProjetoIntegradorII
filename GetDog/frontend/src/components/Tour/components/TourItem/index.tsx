@@ -5,23 +5,45 @@ import { formatDate } from '@/utils/dataUtils';
 import { FaCalendar} from 'react-icons/fa';
 import {  FaHouse }  from 'react-icons/fa6';
 import { STATUS_PASSEIO } from '@/enums/status_passeio';
+import { useState } from 'react';
+import Modal from 'react-modal';
+import { TourDetailsModal } from '../TourDetailsModal';
 
 
-interface TuorItemProps {
+interface TourItemProps {
     tour: TourModel;
 }
 
-export function TuorItem({ tour } : TuorItemProps){
+export function TourItem({ tour } : TourItemProps){
+    const [modalVisible, setModalVisible] = useState(false);
     const urlImage = tour.dogWalkReservation.user.profile.profilePicture;
+    const [status, setStatus] = useState<string>(STATUS_PASSEIO[tour.status]);
+
+    const handleStatus = (status: string) => {
+        setStatus(status);
+    }
+
+    const handleReservationClick = () => {
+        handleOpenModalView();
+    }
+
+    const handleOpenModalView = () =>{
+        setModalVisible(true);
+    }
+    const handleCloseModalView = () => {
+        setModalVisible(false);
+    }
+
+    Modal.setAppElement("#__next");
 
     return (
-        <div className={styles.tuorContainer}>
-            <div className={styles.tuorItemContainer}>
-                <div className={styles.tuorItemUser}>
+        <div className={styles.tourContainer}>
+            <div className={styles.tourItemContainer} onClick={handleReservationClick}>
+                <div className={styles.tourItemUser}>
                     <ImageUser urlImage={urlImage} size={30}/>
                     <p>{tour.dogWalkReservation.user.name}</p>
                 </div>
-                <div className={styles.tuorItemDetails}>
+                <div className={styles.tourItemDetails}>
                     <p className={styles.titleStyle}>{tour.dogWalkReservation.post.title}</p>
                     <div className={styles.informationTour}>
                         <FaHouse/>
@@ -29,10 +51,16 @@ export function TuorItem({ tour } : TuorItemProps){
                     <div className={styles.informationTour}>
                         <FaCalendar/>
                         <p className={styles.appointmentStyle}>{formatDate(new Date(tour.dogWalkReservation.appointment))}</p></div>
-                    <p className={styles.statusStyle}><span>Situação do passeio: </span>{STATUS_PASSEIO[tour.status]}</p>
+                    <p className={styles.statusStyle}><span>Situação do passeio: </span>{status}</p>
                 </div>
                 
             </div>
+
+            {
+                modalVisible && (
+                    <TourDetailsModal isOpen={modalVisible} tour={tour} onRequestClose={handleCloseModalView} handleStatus={handleStatus}/>
+                )
+            }
         </div>
     )
 }

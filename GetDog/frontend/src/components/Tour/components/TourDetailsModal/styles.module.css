@@ -1,0 +1,82 @@
+.modalStyle {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonContainer{
+    align-self: flex-end;
+}
+
+.titleTourContainer {
+    margin-bottom: 1rem;
+}
+
+.tourDetailsContainer {
+    padding: 1rem; 
+    width: 600px;
+}
+
+.informationTour {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 0.8rem;
+}
+
+.informationTour h3 {
+    width: 140px; 
+    margin-right: 1rem;
+    flex-shrink: 0; 
+}
+
+.titleTour {
+    text-align: center;
+}
+
+.chatStyle {
+    color: #464646;
+
+    margin-top: 0.5rem;
+    font-weight: bold;
+    padding: 0.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.chatStyle a:hover {
+    color: blue;
+}
+
+.tourItemActions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: end;
+}
+
+.tourItemActions button {
+    font-family: 'Kodchasan';
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+
+}
+
+.buttonAcceptionStyle {
+    background-color: green;
+    color: white;
+}
+
+.buttonAcceptionStyle:hover {
+    background-color: rgb(2, 53, 2);
+}
+
+.buttonRejectStyle {
+    background-color: red;
+    color: white;
+    margin-left: 0.3rem;
+}
+
+.buttonRejectStyle:hover {
+    background-color: rgb(90, 0, 0);
+}

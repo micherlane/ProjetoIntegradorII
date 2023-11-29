@@ -1,9 +1,9 @@
-.tuorContainer {
+.tourContainer {
     width: 100%;
     cursor: pointer;
 }
 
-.tuorItemContainer {
+.tourItemContainer {
     box-shadow: 0 0 12px rgba(128, 128, 128, 0.5);
     border-radius: 0.5rem;
     border: 1px solid #bdbdbd;
@@ -12,17 +12,17 @@
     background-color: white;
 }
 
-.tuorItemUser {
+.tourItemUser {
     display: flex;
     align-items: center;
 }
 
-.tuorItemUser p {
+.tourItemUser p {
     margin-left: 0.5rem;
     font-weight: bold;
 }
 
-.tuorItemDetails {
+.tourItemDetails {
     margin-top: 0.8rem;
     display: flex;
     flex-direction: column;
@@ -45,11 +45,11 @@
 }
 
 @media(min-width: 900px) {
-    .tuorItemContainer {
+    .tourItemContainer {
         width: 100%;
     }
 
-    .tuorContainer {
+    .tourContainer {
         width: 70%;
     }
 }
