@@ -116,7 +116,7 @@ export function ModalReservationDetails({ isOpen, reservation, onRequestClose, h
                     </div>
 
                     <div className={styles.chatStyle}>
-                        <Link href="#"> <IoChatbubblesSharp className={styles.icon} size={25} color="#464646" /> <span>Converse com {reservation.user.name}</span></Link>
+                        <Link href="#"> <IoChatbubblesSharp className={styles.icon} size={25} color="#464646" /> <span>Converse com {reservation.post.user.name}</span></Link>
                     </div>
 
                     <div className={styles.reservationItemActions}>
