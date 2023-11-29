@@ -4,7 +4,7 @@ import { setupAPIClient } from "@/services/api";
 import { canSSRAuth } from "@/utils/canSSRAuth";
 import Head from "next/head";
 import { useState } from "react";
-import  ReservationDashboard  from "../components/ReservationDashboad";
+import  {ReservationDashboard}  from "../components/ReservationDashboad";
 
 export default function ReservationExternalPage({reservations}){
     const [reservationsList, setReservationList] = useState<ReservationModel[]>(reservations.map(reservation => ReservationModel.fromJSON(reservation)));

@@ -1,7 +1,7 @@
 "use client";
 
 import { Header } from "@/components/Header";
-import ReservationDashboard  from "../components/ReservationDashboad";
+import {ReservationDashboard}  from "../components/ReservationDashboad";
 import { canSSRAuth } from "@/utils/canSSRAuth";
 import { setupAPIClient } from "@/services/api";
 import { useState } from "react";
