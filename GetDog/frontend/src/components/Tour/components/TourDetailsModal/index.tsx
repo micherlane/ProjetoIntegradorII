@@ -12,6 +12,8 @@ import Link from "next/link";
 import { STATUS_TOUR, getNextStatus } from "@/enums/status_tour";
 import { TIPO_USUARIO } from "@/enums/tipo_usuario";
 import { TYPE_USER } from "@/enums/type_user";
+import { toast } from "react-toastify";
+import { api } from "@/services/apiClient";
 
 interface TourDetailsModalProps {
     isOpen: boolean;
@@ -32,7 +34,6 @@ export function TourDetailsModal({ isOpen, tour, onRequestClose, handleStatus }:
     const authorPost = reservation.post.author;
 
     const [isDogOWNER,] = useState<boolean>(user.typeUser === TYPE_USER.DOG_OWNER);
-
     const customStyle = {
         overlay: {
             backgroundColor: 'rgba(0, 0, 0, 0.5)'
@@ -50,13 +51,16 @@ export function TourDetailsModal({ isOpen, tour, onRequestClose, handleStatus }:
     }
 
     const handleChangeStatusCanceled = async (status: string) => {
+        sendApiChangeStatusTour(STATUS_TOUR[status]);
         handleStatus(status);
         setStatus(status);
     }
 
     const handleChangeStatusProgressively = async (status: string) => {
         const statusUpdated = getNextStatus(STATUS_TOUR[status]);
-        
+
+        sendApiChangeStatusTour(statusUpdated);
+
         // Atualiza o status do tourItem
          handleStatus(statusUpdated);
  
@@ -67,7 +71,21 @@ export function TourDetailsModal({ isOpen, tour, onRequestClose, handleStatus }:
              // Atualiza o status do botão
         const newNextStatusButton = getNextStatus(newNextStatus);
         setNextStatus(newNextStatusButton);
-     }
+    }
+
+    const sendApiChangeStatusTour = async (status: STATUS_TOUR) => {
+        try{
+            const response = await api.post('/tours/status', {
+                id: tour.id,
+                status: status
+            });
+            console.log(response.data);
+           
+        } catch (err){
+            console.log(err, status)
+            toast.error('Erro ao mudar o status do passeio');
+        }
+    }
 
     return (
         <Modal
@@ -133,7 +151,7 @@ export function TourDetailsModal({ isOpen, tour, onRequestClose, handleStatus }:
                                     disabled={status === STATUS_TOUR.CANCELED || status === STATUS_TOUR.CONCLUDED}
                                 >Cancelar Passeio</button>
                                 
-                                {!isDogOWNER ? (<button className={styles.buttonAcceptionStyle} onClick={() => {
+                                {isDogOWNER !== true ? (<button className={styles.buttonAcceptionStyle} onClick={() => {
                                         handleChangeStatusProgressively(status)
                                     }}
                                     disabled={status === STATUS_TOUR.CANCELED || status === STATUS_TOUR.CONCLUDED}
