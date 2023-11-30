@@ -11,13 +11,21 @@ import { ReservationDashboard } from "@/components/Reservation/components/Reserv
 export default function ReservationPersonalPage({ reservations }){
     const [reservationsList, setReservationList] = useState<ReservationModel[]>(reservations.map(reservation => ReservationModel.fromJSON(reservation)));
 
+    const handleRefreshReservations = async () => {
+        const apiClient = setupAPIClient();
+
+        const reservations = (await apiClient.get('reservations/personal')).data;
+
+        setReservationList(reservations.map(reservation => ReservationModel.fromJSON(reservation)));
+    }
+
     return(
         <>
             <Head>
                 <title>Minhas Reservas</title>
             </Head>
             <Header/>
-            <ReservationDashboard reservations={reservationsList}/>
+            <ReservationDashboard reservations={reservationsList} handleRefreshReservations={handleRefreshReservations}/>
         </>
     );
 }

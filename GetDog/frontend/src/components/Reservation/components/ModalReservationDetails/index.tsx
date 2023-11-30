@@ -2,9 +2,8 @@ import { ReservationModel } from "@/models/reservationModel";
 import Modal from 'react-modal';
 import styles from './styles.module.css';
 import { FiX } from "react-icons/fi";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "@/contexts/AuthContext";
-import { STATUS_RESERVA } from "@/enums/status_reserva";
 import { STATUS_RESERVATION } from "@/enums/status_reservation";
 import { api } from "@/services/apiClient";
 import { toast } from "react-toastify";
@@ -36,7 +35,7 @@ export function ModalReservationDetails({ isOpen, reservation, onRequestClose, h
 
             const statusReservation = response.data['statusDogWalkReservation'];
 
-            handleStatus(STATUS_RESERVA[statusReservation]);
+            handleStatus(statusReservation);
 
             toast.success('Status da reserva atualizado!');
 

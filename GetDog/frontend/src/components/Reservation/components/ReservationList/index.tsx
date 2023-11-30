@@ -1,19 +1,24 @@
+import { FiRefreshCcw } from 'react-icons/fi';
 import {ReservationItem} from '../ReservationItem';
 import styles from './styles.module.css';
 import { ReservationModel } from '@/models/reservationModel';
 
 interface ReservationListProps{
     reservations: ReservationModel[];
+    handleRefreshReservations: () => Promise<void>;
 }
 
-export function ReservationList({reservations}: ReservationListProps) {
+export function ReservationList({reservations, handleRefreshReservations}: ReservationListProps) {
     
     return (
         <div className={styles.reservationStyleContainer}>
-
-            <div className={styles.search}>
-                <input type='text' placeholder='Digite o termo que deseja encontrar...'/>
+            <div className={styles.reservationTitle}>
+                <h2>Reservas</h2>
+                <button onClick={handleRefreshReservations}>
+                    <FiRefreshCcw color="#464646" size={25}/>
+                </button>
             </div>
+            
             <div className={styles.reservationListStyle}>
                 {
                 reservations.length !== 0? 

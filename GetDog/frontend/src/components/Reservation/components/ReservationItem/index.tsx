@@ -3,7 +3,6 @@ import styles from "./styles.module.css";
 import Modal from 'react-modal';
 import { ImageUser } from "@/components/ImageUser";
 import { useState } from "react";
-import { STATUS_RESERVA } from "@/enums/status_reserva";
 import { ModalReservationDetails } from "../ModalReservationDetails";
 
 interface ReservationItemProps {
@@ -13,11 +12,9 @@ interface ReservationItemProps {
 export function ReservationItem({reservation}: ReservationItemProps){
     const [modalVisible, setModalVisible] = useState(false);
     const urlImage = reservation.user.profile?.profilePicture;
-    const [status, setStatus] = useState<string>(STATUS_RESERVA[reservation.statusDogWalkReservation]);
 
     const handleStatus = (status: string) => {
         reservation.statusDogWalkReservation = status;
-        setStatus(status);
     }
 
     const handleReservationClick = () => {
@@ -43,7 +40,7 @@ export function ReservationItem({reservation}: ReservationItemProps){
                 <div className={styles.reservationItemDetails}>
                     <p className={styles.titleStyle}>{reservation.post.title}</p>
                     <p className={styles.addressStyle}>{reservation.address}</p>
-                    <p className={styles.statusStyle}>{status}</p>
+                    <p className={styles.statusStyle}>{reservation.statusDogWalkReservation}</p>
                 </div>
                 
             </div>

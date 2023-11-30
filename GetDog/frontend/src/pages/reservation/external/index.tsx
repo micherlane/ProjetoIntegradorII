@@ -8,13 +8,22 @@ import { useState } from "react";
 
 export default function ReservationExternalPage({reservations}){
     const [reservationsList, setReservationList] = useState<ReservationModel[]>(reservations.map(reservation => ReservationModel.fromJSON(reservation)));
+
+    const handleRefreshReservations = async () => {
+        const apiClient = setupAPIClient();
+
+        const reservations = (await apiClient.get('reservations/external')).data;
+
+        setReservationList(reservations.map(reservation => ReservationModel.fromJSON(reservation)));
+    }
+
     return (
         <>
             <Head>
                 <title>Reservas Solicitadas</title>
             </Head>
             <Header/>
-            <ReservationDashboard reservations={reservationsList}/>
+            <ReservationDashboard reservations={reservationsList} handleRefreshReservations={handleRefreshReservations}/>
         </>
     )
 }

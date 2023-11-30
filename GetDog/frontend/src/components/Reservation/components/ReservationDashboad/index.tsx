@@ -5,12 +5,13 @@ import styles from './styles.module.css';
 
 interface ReservationDashboadProps {
     reservations: ReservationModel[];
+    handleRefreshReservations: () => Promise<void>;
 }
-export function ReservationDashboard({reservations}: ReservationDashboadProps){
+export function ReservationDashboard({reservations, handleRefreshReservations}: ReservationDashboadProps){
     return (
         <div className={styles.reservationDashboardStyle}>
             <ReservationNav/>
-            <ReservationList reservations={reservations}/>
+            <ReservationList reservations={reservations} handleRefreshReservations={handleRefreshReservations}/>
         </div>
     )
 }
