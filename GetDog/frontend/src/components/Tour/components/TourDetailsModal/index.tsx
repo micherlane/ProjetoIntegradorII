@@ -10,6 +10,7 @@ import { ImageUser } from "@/components/ImageUser";
 import { IoChatbubblesSharp } from "react-icons/io5";
 import Link from "next/link";
 import { STATUS_TOUR } from "@/enums/status_tour";
+import { TIPO_USUARIO } from "@/enums/tipo_usuario";
 
 interface TourDetailsModalProps {
     isOpen: boolean;
@@ -89,7 +90,7 @@ export function TourDetailsModal({ isOpen, tour, onRequestClose, handleStatus }:
                     </div>
 
                     <div className={styles.informationTour}>
-                        <h3>Solicitante</h3>
+                        <h3>{TIPO_USUARIO[tour.dogWalkReservation.post.author.typeUser]}</h3>
                         <ImageUser urlImage={tour.dogWalkReservation.post.author.profile.profilePicture} size={35}/>
                         <p>{tour.dogWalkReservation.post.author.name}</p>
 
