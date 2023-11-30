@@ -13,7 +13,7 @@ export default function Tour({ tours }){
     return (
         <>
           <Head>
-            <title>Passeios</title>
+            <title>Acompanhamento de Passeios</title>
           </Head>
           <Header/>
           <TuorDashboard tours={toursList}/>

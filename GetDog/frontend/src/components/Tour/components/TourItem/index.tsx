@@ -16,7 +16,9 @@ interface TourItemProps {
 
 export function TourItem({ tour } : TourItemProps){
     const [modalVisible, setModalVisible] = useState(false);
-    const urlImage = tour.dogWalkReservation.user.profile.profilePicture;
+    const reservation = tour.dogWalkReservation;
+    const post = reservation.post;
+    const urlImage = post.author.profile.profilePicture;
     const [status, setStatus] = useState<string>(STATUS_PASSEIO[tour.status]);
 
     const handleStatus = (status: string) => {
@@ -41,16 +43,16 @@ export function TourItem({ tour } : TourItemProps){
             <div className={styles.tourItemContainer} onClick={handleReservationClick}>
                 <div className={styles.tourItemUser}>
                     <ImageUser urlImage={urlImage} size={30}/>
-                    <p>{tour.dogWalkReservation.user.name}</p>
+                    <p>{post.author.name}</p>
                 </div>
                 <div className={styles.tourItemDetails}>
-                    <p className={styles.titleStyle}>{tour.dogWalkReservation.post.title}</p>
+                    <p className={styles.titleStyle}>{reservation.post.title}</p>
                     <div className={styles.informationTour}>
                         <FaHouse/>
-                        <p className={styles.addressStyle}>{tour.dogWalkReservation.address}</p></div>
+                        <p className={styles.addressStyle}>{reservation.address}</p></div>
                     <div className={styles.informationTour}>
                         <FaCalendar/>
-                        <p className={styles.appointmentStyle}>{formatDate(new Date(tour.dogWalkReservation.appointment))}</p></div>
+                        <p className={styles.appointmentStyle}>{formatDate(new Date(reservation.appointment))}</p></div>
                     <p className={styles.statusStyle}><span>Situação do passeio: </span>{status}</p>
                 </div>
                 
