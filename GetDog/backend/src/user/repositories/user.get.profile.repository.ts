@@ -19,7 +19,8 @@ export class UserGetProfileRepository {
                         id: true,
                         name: true,
                         email: true,
-                        address: true
+                        address: true,
+                        typeUser: true
                     }
                 }
             }
