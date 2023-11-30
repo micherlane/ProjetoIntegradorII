@@ -96,7 +96,7 @@ export function ModalReservationDetails({ isOpen, reservation, onRequestClose, h
 
                     <div className={styles.informationReservation}>
                         <h3>Status</h3>
-                        <p>{STATUS_RESERVA[reservation.statusDogWalkReservation]}</p>
+                        <p>{reservation.statusDogWalkReservation}</p>
                     </div>
 
                     <div className={styles.informationReservation}>
@@ -125,7 +125,7 @@ export function ModalReservationDetails({ isOpen, reservation, onRequestClose, h
                                 <button className={styles.buttonRejectStyle} onClick={() => {
                                     handleChangeStatusReservation(STATUS_RESERVATION.CANCELED)
                                 }}
-                                disabled={reservation.statusDogWalkReservation === STATUS_RESERVATION.CANCELED || reservation.statusDogWalkReservation === STATUS_RESERVATION.DECLINED}
+                                disabled={reservation.statusDogWalkReservation === STATUS_RESERVATION.CANCELED || reservation.statusDogWalkReservation === STATUS_RESERVATION.DECLINED || reservation.statusDogWalkReservation === STATUS_RESERVATION.ACCEPTED}
                                 >Cancelar Reserva</button>
                                 :
                                 <>

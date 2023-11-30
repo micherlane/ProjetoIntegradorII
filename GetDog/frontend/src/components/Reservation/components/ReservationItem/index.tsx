@@ -16,6 +16,7 @@ export function ReservationItem({reservation}: ReservationItemProps){
     const [status, setStatus] = useState<string>(STATUS_RESERVA[reservation.statusDogWalkReservation]);
 
     const handleStatus = (status: string) => {
+        reservation.statusDogWalkReservation = status;
         setStatus(status);
     }
 
