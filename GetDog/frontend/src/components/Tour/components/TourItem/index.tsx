@@ -22,6 +22,7 @@ export function TourItem({ tour } : TourItemProps){
     const [status, setStatus] = useState<string>(STATUS_PASSEIO[tour.status]);
 
     const handleStatus = (status: string) => {
+        tour.status = status;
         setStatus(status);
     }
 
