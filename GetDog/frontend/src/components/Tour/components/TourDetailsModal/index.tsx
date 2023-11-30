@@ -11,6 +11,7 @@ import { IoChatbubblesSharp } from "react-icons/io5";
 import Link from "next/link";
 import { STATUS_TOUR } from "@/enums/status_tour";
 import { TIPO_USUARIO } from "@/enums/tipo_usuario";
+import { TYPE_USER } from "@/enums/type_user";
 
 interface TourDetailsModalProps {
     isOpen: boolean;
@@ -22,7 +23,11 @@ interface TourDetailsModalProps {
 export function TourDetailsModal({ isOpen, tour, onRequestClose, handleStatus }: TourDetailsModalProps){
     const { user } = useContext(AuthContext);
 
-    const [isOwnReservation,] = useState<boolean>(user.id === tour.dogWalkReservation.user.id);
+    const reservation = tour.dogWalkReservation;
+
+    const authorPost = reservation.post.author;
+
+    const [isDogOWNER,] = useState<boolean>(user.typeUser === TYPE_USER.DOG_OWNER);
 
     const customStyle = {
         overlay: {
@@ -67,12 +72,12 @@ export function TourDetailsModal({ isOpen, tour, onRequestClose, handleStatus }:
 
                     <div className={styles.informationTour}>
                         <h3>Data agendada</h3>
-                        <p>{formatDate(new Date(tour.dogWalkReservation.appointment))}</p>
+                        <p>{formatDate(new Date(reservation.appointment))}</p>
                     </div>
 
                     <div className={styles.informationTour}>
                         <h3>Endereço</h3>
-                        <p>{tour.dogWalkReservation.address}</p>
+                        <p>{reservation.address}</p>
                     </div>
 
                     <div className={styles.informationTour}>
@@ -82,27 +87,27 @@ export function TourDetailsModal({ isOpen, tour, onRequestClose, handleStatus }:
 
                     <div className={styles.informationTour}>
                         <h3>Título</h3>
-                        <p>{tour.dogWalkReservation.post.title}</p>
+                        <p>{reservation.post.title}</p>
                     </div>
                     <div className={styles.informationTour}>
                         <h3>Descrição</h3>
-                        <p>{tour.dogWalkReservation.post.legend}</p>
+                        <p>{reservation.post.legend}</p>
                     </div>
 
                     <div className={styles.informationTour}>
-                        <h3>{TIPO_USUARIO[tour.dogWalkReservation.post.author.typeUser]}</h3>
-                        <ImageUser urlImage={tour.dogWalkReservation.post.author.profile.profilePicture} size={35}/>
-                        <p>{tour.dogWalkReservation.post.author.name}</p>
+                        <h3>{TIPO_USUARIO[authorPost.typeUser]}</h3>
+                        <ImageUser urlImage={authorPost.profile.profilePicture} size={35}/>
+                        <p>{authorPost.name}</p>
 
                     </div>
 
                     <div className={styles.chatStyle}>
-                        <Link href="#"> <IoChatbubblesSharp className={styles.icon} size={25} color="#464646" /> <span>Converse com { isOwnReservation ? tour.dogWalkReservation.post.author.name : tour.dogWalkReservation.user.name}</span></Link>
+                        <Link href="#"> <IoChatbubblesSharp className={styles.icon} size={25} color="#464646" /> <span>Converse com { isDogOWNER ? authorPost.name : reservation.user.name}</span></Link>
                     </div>
 
                     <div className={styles.tourItemActions}>
                         {
-                            isOwnReservation ?
+                            isDogOWNER ?
                                 <button className={styles.buttonRejectStyle} onClick={() => {
                                     handleChangeStatusTour(STATUS_TOUR.CANCELED)
                                 }}>Cancelar Reserva</button>
@@ -110,7 +115,7 @@ export function TourDetailsModal({ isOpen, tour, onRequestClose, handleStatus }:
                                 <>
                                     <button className={styles.buttonAcceptionStyle} onClick={() => {
                                         handleChangeStatusTour(STATUS_TOUR.IN_PROGRESS)
-                                    }}>Aceitar Reserva</button>
+                                    }}>MUDAR PARA EM PROGRESSO</button>
                                 </>
                         }
                     </div>
