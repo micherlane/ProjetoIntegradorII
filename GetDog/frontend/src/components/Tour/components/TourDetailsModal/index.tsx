@@ -54,16 +54,20 @@ export function TourDetailsModal({ isOpen, tour, onRequestClose, handleStatus }:
         setStatus(status);
     }
 
-    const handleChangeStatusTour = async (status: string) => {
-        // Obter o próximo status
-        const newNextStatus = getNextStatus(STATUS_TOUR[status]);
-    
+    const handleChangeStatusProgressively = async (status: string) => {
+        const statusUpdated = getNextStatus(STATUS_TOUR[status]);
+        
         // Atualiza o status do tourItem
-        handleStatus(newNextStatus);
-    
-        // Atualiza o status do detalhe
-        setStatus(newNextStatus);
-    };
+         handleStatus(statusUpdated);
+ 
+         // Atualiza o status do detalhe
+         const newNextStatus = statusUpdated;
+         setStatus(newNextStatus);
+
+             // Atualiza o status do botão
+        const newNextStatusButton = getNextStatus(newNextStatus);
+        setNextStatus(newNextStatusButton);
+     }
 
     return (
         <Modal
@@ -130,7 +134,7 @@ export function TourDetailsModal({ isOpen, tour, onRequestClose, handleStatus }:
                                 >Cancelar Passeio</button>
                                 
                                 {!isDogOWNER ? (<button className={styles.buttonAcceptionStyle} onClick={() => {
-                                        handleChangeStatusTour(status)
+                                        handleChangeStatusProgressively(status)
                                     }}
                                     disabled={status === STATUS_TOUR.CANCELED || status === STATUS_TOUR.CONCLUDED}
                                     >Mudar para {nextStatus}</button>

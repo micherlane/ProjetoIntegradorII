@@ -124,15 +124,20 @@ export function ModalReservationDetails({ isOpen, reservation, onRequestClose, h
                             isOwnReservation ?
                                 <button className={styles.buttonRejectStyle} onClick={() => {
                                     handleChangeStatusReservation(STATUS_RESERVATION.CANCELED)
-                                }}>Cancelar Reserva</button>
+                                }}
+                                disabled={reservation.statusDogWalkReservation === STATUS_RESERVATION.CANCELED || reservation.statusDogWalkReservation === STATUS_RESERVATION.DECLINED}
+                                >Cancelar Reserva</button>
                                 :
                                 <>
                                     <button className={styles.buttonAcceptionStyle} onClick={() => {
                                         handleChangeStatusReservation(STATUS_RESERVATION.ACCEPTED)
-                                    }}>Aceitar Reserva</button>
+                                    }}
+                                    disabled={reservation.statusDogWalkReservation === STATUS_RESERVATION.ACCEPTED || reservation.statusDogWalkReservation === STATUS_RESERVATION.CANCELED || reservation.statusDogWalkReservation === STATUS_RESERVATION.DECLINED}
+                                    >Aceitar Reserva</button>
                                     <button className={styles.buttonRejectStyle} onClick={() => {
                                         handleChangeStatusReservation(STATUS_RESERVATION.DECLINED)
                                     }}
+                                    disabled={reservation.statusDogWalkReservation === STATUS_RESERVATION.ACCEPTED || reservation.statusDogWalkReservation === STATUS_RESERVATION.CANCELED || reservation.statusDogWalkReservation === STATUS_RESERVATION.DECLINED}
                                     >Rejeitar Reserva</button>
                                 </>
                         }
