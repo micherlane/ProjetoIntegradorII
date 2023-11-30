@@ -61,7 +61,7 @@ export function TourDetailsModal({ isOpen, tour, onRequestClose, handleStatus }:
 
                 <div className={styles.tourDetailsContainer}>
                     <div className={styles.titleTourContainer}>
-                        <h2 className={styles.titleReservation}>Acompanhamento de Passeio</h2>
+                        <h2 className={styles.titleTour}>Acompanhamento de Passeio</h2>
                     </div>
 
                     <div className={styles.informationTour}>
@@ -90,8 +90,8 @@ export function TourDetailsModal({ isOpen, tour, onRequestClose, handleStatus }:
 
                     <div className={styles.informationTour}>
                         <h3>Solicitante</h3>
-                        <ImageUser urlImage={tour.dogWalkReservation.user.profile.profilePicture} size={35}/>
-                        <p>{tour.dogWalkReservation.user.name}</p>
+                        <ImageUser urlImage={tour.dogWalkReservation.post.author.profile.profilePicture} size={35}/>
+                        <p>{tour.dogWalkReservation.post.author.name}</p>
 
                     </div>
 

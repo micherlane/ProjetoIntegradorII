@@ -1,14 +1,31 @@
+import { TYPE_USER } from "@/enums/type_user";
 import { UserModel } from "./userModel";
+
+class ProfileReservation{
+    profilePicture: string
+
+    constructor(profilePicture: string){
+        this.profilePicture = profilePicture;
+    }
+
+    public static fromJSON(json: any): ProfileReservation{
+        return new ProfileReservation(json.profilePicture);
+    }
+}
 
 class AuthorReservation {
     name: string;
+    typeUser: TYPE_USER;
+    profile: ProfileReservation;
     
-    constructor(name: string){
+    constructor(name: string, typeUser: TYPE_USER, profile: ProfileReservation){
         this.name = name;
+        this.typeUser = typeUser;
+        this.profile = profile;
     }
 
     public static fromJSON(json: any): AuthorReservation {
-        return new AuthorReservation(json.name);
+        return new AuthorReservation(json.name, json.typeUser, ProfileReservation.fromJSON(json.profile));
     }
 }
 class PostReservation {

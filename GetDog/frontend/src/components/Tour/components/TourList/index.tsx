@@ -1,6 +1,6 @@
 import { TourModel } from '@/models/toursModel';
 import styles from './styles.module.css';
-import { TuorItem } from '../TourItem';
+import { TourItem } from '../TourItem';
 
 interface TuorListProps {
     tours: TourModel[];
@@ -14,7 +14,7 @@ export function TourList({tours} : TuorListProps){
                 tours.length !== 0? 
                     tours.map((tour, index) => {
                         return (
-                            <TuorItem tour={tour} key={index}/>
+                            <TourItem tour={tour} key={index}/>
                         );
                     }): 
                 <p>Não há passeios agendados.</p>
