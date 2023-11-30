@@ -9,7 +9,7 @@ import { STATUS_PASSEIO } from "@/enums/status_passeio";
 import { ImageUser } from "@/components/ImageUser";
 import { IoChatbubblesSharp } from "react-icons/io5";
 import Link from "next/link";
-import { STATUS_TOUR } from "@/enums/status_tour";
+import { STATUS_TOUR, getNextStatus } from "@/enums/status_tour";
 import { TIPO_USUARIO } from "@/enums/tipo_usuario";
 import { TYPE_USER } from "@/enums/type_user";
 
@@ -20,8 +20,12 @@ interface TourDetailsModalProps {
     handleStatus: (string) => void;
 }
 
-export function TourDetailsModal({ isOpen, tour, onRequestClose, handleStatus }: TourDetailsModalProps){
+export function TourDetailsModal({ isOpen, tour, onRequestClose, handleStatus }: TourDetailsModalProps) {
     const { user } = useContext(AuthContext);
+
+    const [status, setStatus] = useState(tour.status);
+
+    const [nextStatus, setNextStatus] = useState(getNextStatus(STATUS_TOUR[tour.status]));
 
     const reservation = tour.dogWalkReservation;
 
@@ -46,6 +50,14 @@ export function TourDetailsModal({ isOpen, tour, onRequestClose, handleStatus }:
     }
 
     const handleChangeStatusTour = async (status: string) => {
+        // Atualiza o status do tourItem
+        handleStatus(status)
+
+        // Atualiza o status do status do detalhe
+        setStatus(getNextStatus(STATUS_TOUR[status]));
+
+        // Atualiza o status do botão.
+        setNextStatus(getNextStatus(STATUS_TOUR[nextStatus]));
     }
 
     return (
@@ -82,7 +94,7 @@ export function TourDetailsModal({ isOpen, tour, onRequestClose, handleStatus }:
 
                     <div className={styles.informationTour}>
                         <h3>Status</h3>
-                        <p>{STATUS_PASSEIO[tour.status]}</p>
+                        <p>{status}</p>
                     </div>
 
                     <div className={styles.informationTour}>
@@ -96,28 +108,26 @@ export function TourDetailsModal({ isOpen, tour, onRequestClose, handleStatus }:
 
                     <div className={styles.informationTour}>
                         <h3>{TIPO_USUARIO[authorPost.typeUser]}</h3>
-                        <ImageUser urlImage={authorPost.profile.profilePicture} size={35}/>
+                        <ImageUser urlImage={authorPost.profile.profilePicture} size={35} />
                         <p>{authorPost.name}</p>
 
                     </div>
 
                     <div className={styles.chatStyle}>
-                        <Link href="#"> <IoChatbubblesSharp className={styles.icon} size={25} color="#464646" /> <span>Converse com { isDogOWNER ? authorPost.name : reservation.user.name}</span></Link>
+                        <Link href="#"> <IoChatbubblesSharp className={styles.icon} size={25} color="#464646" /> <span>Converse com {isDogOWNER ? authorPost.name : reservation.user.name}</span></Link>
                     </div>
 
                     <div className={styles.tourItemActions}>
-                        {
-                            isDogOWNER ?
+                        
                                 <button className={styles.buttonRejectStyle} onClick={() => {
                                     handleChangeStatusTour(STATUS_TOUR.CANCELED)
-                                }}>Cancelar Reserva</button>
-                                :
-                                <>
-                                    <button className={styles.buttonAcceptionStyle} onClick={() => {
-                                        handleChangeStatusTour(STATUS_TOUR.IN_PROGRESS)
-                                    }}>MUDAR PARA EM PROGRESSO</button>
-                                </>
-                        }
+                                }}>Cancelar Passeio</button>
+                                
+                                {!isDogOWNER ? (<button className={styles.buttonAcceptionStyle} onClick={() => {
+                                        handleChangeStatusTour(status)
+                                    }}>Mudar para {nextStatus}</button>
+                                ): <></>}
+                        
                     </div>
                 </div>
 
