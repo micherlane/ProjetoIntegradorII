@@ -30,7 +30,7 @@ export function Header() {
             <div className={styles.headerContent}>
 
                 <div className={styles.headerLogo}>
-                    <Link href="/home"><FaDog size={45} color="#464646"/> GetDog</Link>
+                    <Link href="/home">GetDog</Link>
                 </div>
 
                 <div className={styles.navigationLinks}>
