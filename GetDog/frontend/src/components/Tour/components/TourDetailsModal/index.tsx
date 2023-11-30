@@ -125,12 +125,15 @@ export function TourDetailsModal({ isOpen, tour, onRequestClose, handleStatus }:
                     <div className={styles.tourItemActions}>
                         
                                 <button className={styles.buttonRejectStyle} onClick={() => {
-                                    handleChangeStatusCanceled(STATUS_TOUR.CANCELED)
-                                }}>Cancelar Passeio</button>
+                                    handleChangeStatusCanceled(STATUS_TOUR.CANCELED)}}
+                                    disabled={status === STATUS_TOUR.CANCELED || status === STATUS_TOUR.CONCLUDED}
+                                >Cancelar Passeio</button>
                                 
                                 {!isDogOWNER ? (<button className={styles.buttonAcceptionStyle} onClick={() => {
                                         handleChangeStatusTour(status)
-                                    }}>Mudar para {nextStatus}</button>
+                                    }}
+                                    disabled={status === STATUS_TOUR.CANCELED || status === STATUS_TOUR.CONCLUDED}
+                                    >Mudar para {nextStatus}</button>
                                 ): <></>}
                         
                     </div>

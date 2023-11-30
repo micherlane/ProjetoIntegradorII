@@ -80,3 +80,19 @@
 .buttonRejectStyle:hover {
     background-color: rgb(90, 0, 0);
 }
+
+.tourItemActions button[disabled] {
+    opacity: 0.5; 
+    cursor: not-allowed; 
+    pointer-events: none; 
+}
+
+.buttonRejectStyle[disabled] {
+    background-color: #ccc; 
+    color: #666; 
+}
+
+.buttonAcceptionStyle[disabled] {
+    background-color: #ccc; 
+    color: #666; 
+}
