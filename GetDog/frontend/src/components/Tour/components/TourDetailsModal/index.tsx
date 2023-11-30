@@ -49,16 +49,21 @@ export function TourDetailsModal({ isOpen, tour, onRequestClose, handleStatus }:
         }
     }
 
-    const handleChangeStatusTour = async (status: string) => {
-        // Atualiza o status do tourItem
-        handleStatus(status)
-
-        // Atualiza o status do status do detalhe
-        setStatus(getNextStatus(STATUS_TOUR[status]));
-
-        // Atualiza o status do botão.
-        setNextStatus(getNextStatus(STATUS_TOUR[nextStatus]));
+    const handleChangeStatusCanceled = async (status: string) => {
+        handleStatus(status);
+        setStatus(status);
     }
+
+    const handleChangeStatusTour = async (status: string) => {
+        // Obter o próximo status
+        const newNextStatus = getNextStatus(STATUS_TOUR[status]);
+    
+        // Atualiza o status do tourItem
+        handleStatus(newNextStatus);
+    
+        // Atualiza o status do detalhe
+        setStatus(newNextStatus);
+    };
 
     return (
         <Modal
@@ -120,7 +125,7 @@ export function TourDetailsModal({ isOpen, tour, onRequestClose, handleStatus }:
                     <div className={styles.tourItemActions}>
                         
                                 <button className={styles.buttonRejectStyle} onClick={() => {
-                                    handleChangeStatusTour(STATUS_TOUR.CANCELED)
+                                    handleChangeStatusCanceled(STATUS_TOUR.CANCELED)
                                 }}>Cancelar Passeio</button>
                                 
                                 {!isDogOWNER ? (<button className={styles.buttonAcceptionStyle} onClick={() => {
