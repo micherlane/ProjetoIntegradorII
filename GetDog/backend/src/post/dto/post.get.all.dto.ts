@@ -2,6 +2,7 @@ const authorInfo = {
     id: true,
     name: true,
     address: true,
+    typeUser: true,
 }
 
 const profileUserInfo ={
