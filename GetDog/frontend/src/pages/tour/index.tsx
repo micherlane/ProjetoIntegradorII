@@ -8,15 +8,22 @@ import { useState } from "react";
 
 export default function Tour({ tours }){
 
-    const [toursList, ] = useState<TourModel[]>(tours.map(tour => TourModel.fromJSON(tour)));
+    const [toursList, setToursList] = useState<TourModel[]>(tours.map(tour => TourModel.fromJSON(tour)));
     
+    const handleRefreshTours = async () => {
+      const apiClient = setupAPIClient();
+
+      const tours = (await apiClient.get('/tours')).data;
+
+      setToursList(tours.map(tour => TourModel.fromJSON(tour)));
+    }
     return (
         <>
           <Head>
             <title>Acompanhamento de Passeios</title>
           </Head>
           <Header/>
-          <TuorDashboard tours={toursList}/>
+          <TuorDashboard tours={toursList} handleRefreshTours={handleRefreshTours}/>
         </>
     )
 }

@@ -5,6 +5,22 @@
     align-items: center;
 }
 
+.tourTitle {
+    margin-top: 2rem;
+    display: flex;
+    width: 70%;
+}
+
+.tourTitle h2 {
+    color: #464646;
+}
+
+.tourTitle button {
+    background-color: transparent;
+    border: 0;
+    margin-left: 1rem;
+}
+
 .tuorListStyle {
     display: flex;
     flex-direction: column;
