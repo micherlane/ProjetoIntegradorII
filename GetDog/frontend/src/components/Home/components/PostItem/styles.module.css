@@ -31,6 +31,20 @@
     font-size: 1.3rem;
 }
 
+.typeUserContainer {
+    background-color: #464646;
+    color: white;
+    border-radius: 0.3rem;
+    padding: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.datePost {
+    align-self: flex-end;
+}
 .postItemTitle {
     margin: 1rem 0 1rem 0;
 }

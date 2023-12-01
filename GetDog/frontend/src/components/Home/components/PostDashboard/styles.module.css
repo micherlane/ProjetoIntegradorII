@@ -5,6 +5,47 @@
     width: 100%;
 }
 
+.filterPosts {
+    margin-top: 0.5rem;
+}
+
+.filterSelect {
+    font-family: 'Kodchasan';
+    padding: 4px 6px;
+    border: 1px solid #bdbdbd;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+    cursor: pointer;
+    background-color: #fff;
+    color: #333;
+    transition: border-color 0.3s ease;
+  }
+  
+  .filterSelect:hover {
+    border-color: #888;
+  }
+  
+  .filterSelect:focus {
+    border-color: #555;
+  }
+  
+  .filterSelect::-ms-expand {
+    display: none;
+  }
+  
+  .filterSelect::-webkit-select {
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 25px; 
+  }
+  
+  .filterSelect::-moz-select {
+    appearance: none;
+    -moz-appearance: none;
+    padding-right: 25px; 
+  }
+
 @media (min-width: 720px) {
     .postDashboardChildrensStyle {
         width: 70%;

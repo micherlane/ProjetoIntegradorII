@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import styles from "./styles.module.css";
 import Modal from 'react-modal';
 
@@ -12,12 +12,16 @@ import { formatDate, formatDateToLongString, formatTime } from "@/utils/dataUtil
 import { ModalReservationAdd } from '@/components/Reservation/components/ModalReservationAdd';
 import { ImageUser } from '@/components/ImageUser';
 import { PostModel } from '@/models/postModel';
+import { TIPO_USUARIO } from '@/enums/tipo_usuario';
+import { AuthContext } from '@/contexts/AuthContext';
 
 interface PostItemProps {
     post: PostModel;
 }
 
 export function PostItem({ post }: PostItemProps) {
+    const {user} = useContext(AuthContext);
+
     const urlImageAuthor = post.author.profile.profilePicture;
 
     const [modalVisible, setModalVisible] = useState(false);
@@ -27,6 +31,14 @@ export function PostItem({ post }: PostItemProps) {
     const [showAllImages, setShowAllImages] = useState(false);
 
     const imagesToRender = showAllImages ? post.photos : post.photos.slice(0, maxImagesToShow);
+
+    const [isSameTypeUser, setIsSameTypeUser] = useState<boolean>();
+
+    useEffect(() => {
+        if(user){
+            setIsSameTypeUser(user.typeUser === post.author.typeUser)
+        }
+    }, [user]);
 
     const handleShowAllImages = () => {
         setShowAllImages(true);
@@ -60,9 +72,12 @@ export function PostItem({ post }: PostItemProps) {
                         <ImageUser urlImage={urlImageAuthor} size={50} />
                         <p>{post.author.name}</p>
                     </div>
-                    <div>
-                        {formatDateToLongString(new Date(post.createdAt))}
+                    <div className={styles.typeUserContainer}>
+                        <p>{TIPO_USUARIO[post.author.typeUser]}</p>
                     </div>
+                </div>
+                <div className={styles.datePost}>
+                    {formatDateToLongString(new Date(post.createdAt))}
                 </div>
                 <div className={styles.postItemTitle}>
                     <h2>{post.title}</h2>
@@ -120,12 +135,13 @@ export function PostItem({ post }: PostItemProps) {
                             Escrever comentário...
                         </p>
                     </div>
-                </div>
-                <div className={styles.postItemReservation}>
+                </div> 
+
+                { !isSameTypeUser && <div className={styles.postItemReservation}>
                     <button onClick={handleDoReservation}>
                         Reservar Passeio
                     </button>
-                </div>
+                </div>}
             </div>
             {
                 modalVisible && (
