@@ -8,7 +8,7 @@ export function setupAPIClient(ctx = undefined) {
     let cookies = parseCookies(ctx);
 
     const api = axios.create({
-        baseURL: "http://localhost:3001/v1",
+        baseURL: "https://getdogapi.onrender.com/v1/",
         headers: {
             Authorization: `Bearer ${cookies['@getdog.token']}`
         }
