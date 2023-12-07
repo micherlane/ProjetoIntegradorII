@@ -8,6 +8,7 @@ import { BsCalendarDate } from "react-icons/bs";
 import { PostModel } from '@/models/postModel';
 import { AuthContext } from '@/contexts/AuthContext';
 import { api } from '@/services/apiClient';
+import { FaSpinner } from 'react-icons/fa6';
 
 
 interface ModalPostProps {
@@ -22,6 +23,7 @@ export function ModalPost({ isOpen, onRequestClose, handleAddPost }: ModalPostPr
     const [title, setTitle] = useState('');
     const [legend, setLegend] = useState('');
     const [address, setAddress] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const addAvailability = () => {
         setAvailabilities([...availabilities, '']);
@@ -78,9 +80,11 @@ export function ModalPost({ isOpen, onRequestClose, handleAddPost }: ModalPostPr
         });
 
         try {
-            console.log(formData['disponibility'])
+            setLoading(true);
+
             const response = await api.post('/posts', formData);
 
+            setLoading(false);
             const post = PostModel.fromJSON(response.data);
 
             handleAddPost(post);
@@ -157,9 +161,7 @@ export function ModalPost({ isOpen, onRequestClose, handleAddPost }: ModalPostPr
                         </div>
 
 
-
-                        <button type='submit' className={styles.publish}>Publicar</button>
-
+                        <button type='submit' className={styles.publish} disabled={loading}>{loading ? (<FaSpinner color="#FFF"  className={styles.spinner} size={16}/>): <p>Publicar</p>}</button>
                     </form>
                 </div>
             </div>
